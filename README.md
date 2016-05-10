@@ -1,2 +1,2 @@
-# bensochar.github.com
+# bensochar.github.io
 Ben's Github Pages
