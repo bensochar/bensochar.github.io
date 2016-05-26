@@ -1,0 +1,75 @@
+
+<!-- _includes/img-gallery.html -->
+{% assign img_path = page.url | replace: '/projects/','' | downcase %}
+{% assign col_total = 0 %}
+{% assign project_imgs = ' ' | split: ',' %}
+{% for image in site.static_files %}
+
+  <!-- if image path matches url -->
+  {% if image.path contains img_path %}
+    <!-- we need to check for webp files, jpgs & gifs -->
+
+    <!-- we need to check for the 'low source' -->
+    {% assign img_file = image.path | replace: '.low', '' %}
+      <!-- Making sure the array is unique -->
+      {% unless img_file == previous_img_file %}
+        {% assign project_imgs = project_imgs | push: img_file %}
+      {% endunless %}
+      {% assign previous_img_file = img_file %}
+  {% endif %}
+{% endfor %}
+
+
+
+<div class="container">
+  <div class="row">
+    <div id="js-gallery-project" class="clearfix js-gallery-project gallery-project">
+    {% for image in site.static_files %}
+      {% if image.path contains img_path %}
+      {% if image.path contains '.low' %}
+      {% else %}
+        {% assign img_name = image.path | replace: image.extname, '' %}
+        {% assign img_screen = img_name | slice: -3,3 %}
+        {% assign img_caption = img_name | split: img_path %}
+        {% assign img_caption = img_caption[1] | replace: '/', '' | replace: img_screen, '' | replace: '-',' ' | replace: '1','' %}
+
+          {% unless image.extname == '.webp' %}
+            {% if img_screen == '-lg' %}
+              {% assign img_width = 1680 %}
+              {% assign col_width = 5 %}
+              {% assign chrome = 'browser-chrome-lg.png' %}
+            {% elsif img_screen == '-md' %}
+              {% assign img_width = 1024 %}
+              {% assign col_width = 4 %}
+              {% assign chrome = 'browser-chrome-lg.png' %}
+            {% elsif img_screen == '-sm' %}
+              {% assign img_width = 768 %}
+              {% assign col_width = 3 %}
+              {% assign chrome = 'browser-chrome-lg.png' %}
+            {% elsif img_screen == '-xs' %}
+              {% assign img_width = 360 %}
+              {% assign col_width = 2 %}
+              {% assign chrome = 'browser-chrome-lg.png' %}
+            {% endif %}
+            {% assign col_total = col_total | plus: col_width %}
+            {% if forloop.last %}
+            <h1>{{ col_total }} Last</h1>
+            {% endif %}
+            <figure class="col-xs-24 col-sm-{{col_width}} gallery-project-item" style="">
+              <figcaption>{{img_caption | capitalize}}</figcaption>
+              <img src="{{ site.baseurl }}/assets/images/{{chrome}}" class="img-responsive" width="{{img_width}}" height="75">
+              <picture>
+                <source srcset="{{ site.baseurl }}{{ img_name }}.webp" type="image/webp">
+                <img src="{{ site.baseurl }}{{ image.path }}" alt="{{page.title}}" class="img-responsive" width="{{img_width}}">
+              </picture>
+            </figure>
+          {% endunless %}
+        {% endif %}
+        {% endif %}
+
+
+
+    {% endfor %}
+    </div>
+  </div>
+</div>

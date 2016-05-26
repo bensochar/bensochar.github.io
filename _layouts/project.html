@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<!-- _layouts/project.html -->
+<article class="project" itemscope itemtype="http://schema.org/WebSite">
+
+  <div class="row">
+    <div class="center-content">
+      <header class="project-header">
+        <h1>{{ page.client }} - {{ page.title }}</h1>
+      </header>
+      {{ page.content }}
+
+      {% if page.live_site %}
+      <p>
+        <a href="{{ page.live_site }}" target="_blank">{{ page.live_site }}</a>
+      </p>
+      {% endif %}
+    </div><!-- .center-content -->
+  </div><!-- .row -->
+</article>
+{% include img-gallery.html param="value" variable-param=page.title %}

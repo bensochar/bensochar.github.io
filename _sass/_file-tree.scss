@@ -1,0 +1,45 @@
+.list-file-tree {
+  list-style: none;
+  list-style-position: outside;
+  padding: 0;
+  .list-file-tree-item > * {
+
+  }
+  // .list-file-tree-item {
+  //   position: relative;
+  //   display: block;
+  //   white-space: nowrap;
+  // }
+  li {
+    // line-height: $line-height-computed + 6;
+    // display: block;
+    // vertical-align: top;
+    a,
+    code,
+    span {
+      line-height: $line-height-computed + 6;
+      // display: inline-block;
+    }
+    a,
+    span {
+      font-family: $font-family-sans-serif;
+    }
+  }
+
+}
+.box-drawing {
+  font-family: monospace, monospace;
+  color: red;
+  overflow: hidden;
+  display: inline;
+  max-width: initial;
+  overflow: initial;
+  line-height: inherit;
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}

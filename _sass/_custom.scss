@@ -1,0 +1,113 @@
+.nav-inline {
+  > li {
+    display: inline;
+  }
+  > li > a {
+    display: inline-block;
+  }
+}
+.nav-centered {
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Table layouut
+// Extending container and grid classes
+// -------------------------------------------------
+.table-layout {
+  width: 100%;
+  > * {
+    float: none;
+    display: block;
+    position: relative;
+    padding-left: ($grid-gutter-width/2);
+    padding-right: ($grid-gutter-width/2);
+    @media (min-width: $screen-sm-min) {
+      display: table-cell;
+      width: 0.1%;
+    }
+  }
+}
+
+
+// Layout
+// Extending container and grid classes
+// -------------------------------------------------
+article.post,
+article.project{
+  @extend .container;
+
+}
+.center-content{
+  // @extend .col-xs-12;
+  // @extend .col-sm-10;
+  // @extend .col-md-offset-1;
+  // @extend .col-md-8;
+  // @extend .col-md-offset-2;
+
+  @extend .col-xs-24;
+  @extend .col-sm-18;
+  @extend .col-sm-offset-3;
+  @extend .col-md-14;
+  @extend .col-md-offset-5;
+  @extend .col-lg-14;
+  @extend .col-lg-offset-5;
+}
+
+
+
+// Project Gallery
+// -------------------------------------------------
+.gallery-project {
+  // width: 100%;
+  position: relative;
+  text-align: center;
+  width: auto;
+  margin: auto;
+  .gallery-project-item {
+    margin:0;
+    text-align: center;
+    padding-bottom: $line-height-computed;
+    overflow: hidden;
+    vertical-align: top;
+    @media (min-width: $screen-sm-min) {
+      padding-bottom: $line-height-computed;
+    }
+    img {
+      margin: 0 auto;
+      vertical-align: top;
+    }
+    img + img {
+      @include box-shadow(0 1px 1px rgba(0,0,0,.15));
+    }
+    figcaption{
+      position: absolute;
+      font-size: $line-height-computed * 0.5;
+      line-height: ceil($line-height-computed * 0.6666);
+      bottom: $line-height-computed;
+      left: $grid-gutter-width;
+      right: $grid-gutter-width;
+      margin: auto;
+      text-align: center;
+    }
+  }
+}
+
+ul {
+  list-style-position: outside;
+  padding-left: $grid-gutter-width;
+  padding-right: $grid-gutter-width;
+    @media (min-width: $screen-sm-min) {
+      padding-left: 0;
+    }
+  // li:before {
+  //   content: "•";
+  //   width: 10px;
+  //   margin-left: -10px;
+
+  // }
+
+}

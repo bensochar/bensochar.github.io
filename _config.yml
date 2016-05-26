@@ -5,18 +5,79 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'jekyll serve'. If you change this file, please restart the server process.
 
-# Site settings
-title: Ben Sochar
-email: bsochar@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-# url: "http://yourdomain.com" # the base hostname & protocol for your site
+# Dependencies
+markdown:         kramdown
+highlighter:      rouge
+
+sass:
+  style:          compressed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - Rakefile
+  - vendor/bundle
+
+# Permalinks
+# baseurl: ""
+permalink: pretty
+permalink: /404.md
+# relative_permalinks: true
+# paginate_path: "/posts/page:num/"
+# paginate: 5
+
+
+collections:
+  projects:
+    output: true
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+
+# collections:
+#   projects:
+#       output: true
+
+
+# defaults:
+#   -
+#     scope:
+#       path: projects
+#       type: page
+#     values:
+#       layout: projects
+
+
+
+# Server
+timezone:         America/New_York
+# host:           0.0.0.0
+# port:           9001
+# url:            "http://yourdomain.com" # the base hostname & protocol for your site
+encoding:         UTF-8
+
+gems:
+  - jekyll-sitemap
+  - jekyll-mentions
+
+jekyll-mentions:
+  base_url: https://twitter.com
+
+# Meta
+title:            Ben Sochar
+authors:          Ben Sochar
+description:      One more developer in Brooklyn.
+
+google_analytics_id: UA-XXXXXXXXX
+google_site_verification:
+
+# Contact vars
+email:            bsochar@gmail.com
 twitter_username: bensochar
 github_username:  bensochar
-
-# Build settings
-markdown: kramdown
-exclude: [vendor]
