@@ -111,3 +111,64 @@ ul {
   // }
 
 }
+
+
+.list-twitter-timeline {
+  .tweet-avatar-img {
+    width: $line-height-computed;
+    height: auto;
+  }
+  .tweet-heading {
+    font-size: $font-size-base;
+    line-height: $line-height-computed;
+    margin: 0;
+  }
+  .tweet-media {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    float: left;
+    .media-object {
+      max-width: 100%;
+      height: auto;
+      margin: 0;
+    }
+  }
+  .nav-tweet-actions {
+    width: 100%;
+    > li {
+      float: left;
+    }
+    > li {
+      > a {
+        line-height: 16px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        color: $gray-dark;
+        @include opacity(0.23);
+        &:hover {
+          @include opacity(0.67);
+
+        }
+        svg {
+          color: $gray-dark;
+          fill: $gray-dark;
+          width: 16px;
+          height: 16px;
+          display: block;
+        }
+      }
+      &.nav-tweet-action-retweet > a {
+        line-height: 18px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        svg {
+          width: 18px;
+          height: 18px;
+
+        }
+      }
+    }
+
+  }
+}

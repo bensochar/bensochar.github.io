@@ -1,6 +1,6 @@
 .media {
   // Proper spacing between instances of .media
-  margin-top: 15px;
+  margin-top: ($line-height-computed / 2);
 
   &:first-child {
     margin-top: 0;

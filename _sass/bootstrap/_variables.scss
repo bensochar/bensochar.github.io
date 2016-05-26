@@ -12,7 +12,7 @@ $gray-base:              #000 !default;
 $gray-darker:            lighten($gray-base, 13.5%) !default; // #222
 $gray-dark:              lighten($gray-base, 20%) !default;   // #333
 $gray:                   lighten($gray-base, 33.5%) !default; // #555
-$gray-light:             lighten($gray-base, 46.7%) !default; // #777
+$gray-light:             lighten($gray-base, 67%) !default; // #777
 $gray-lighter:           lighten($gray-base, 96%) !default; // #eee
 
 $brand-primary:         desaturate(#00E, 33.333%) !default; // #337ab7
@@ -436,7 +436,7 @@ $navbar-inverse-toggle-border-color:        #333 !default;
 //##
 
 //=== Shared nav styles
-$nav-link-padding:                          10px ($grid-gutter-width / 2) !default;
+$nav-link-padding:                          ($line-height-computed / 4) ($grid-gutter-width / 2) !default;
 $nav-link-hover-bg:                         $gray-lighter !default;
 
 $nav-disabled-link-color:                   $gray-light !default;
@@ -613,25 +613,25 @@ $modal-title-padding:         ($grid-gutter-width / 2) !default;
 $modal-title-line-height:     $line-height-base !default;
 
 //** Background color of modal content area
-$modal-content-bg:                             #fff !default;
+$modal-content-bg:                             transparent !default;
 //** Modal content border color
-$modal-content-border-color:                   rgba(0,0,0,.2) !default;
+$modal-content-border-color:                   transparent !default;
 //** Modal content border color **for IE8**
-$modal-content-fallback-border-color:          #999 !default;
+$modal-content-fallback-border-color:          transparent !default;
 
 //** Modal backdrop background color
-$modal-backdrop-bg:           #000 !default;
+$modal-backdrop-bg:           #FEFEFE !default;
 //** Modal backdrop opacity
 $modal-backdrop-opacity:      .5 !default;
 //** Modal header border color
-$modal-header-border-color:   #e5e5e5 !default;
+$modal-header-border-color:   transparent !default;
 //** Modal footer border color
 $modal-footer-border-color:   $modal-header-border-color !default;
 
-$modal-lg:                    900px !default;
-$modal-md:                    600px !default;
-$modal-sm:                    300px !default;
-
+$modal-lg:                    1680px !default;
+$modal-md:                    1024px !default;
+$modal-sm:                    768px !default;
+$modal-xs:                    360px !default;
 
 //== Alerts
 //
