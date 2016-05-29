@@ -1,0 +1,41 @@
+<!-- _includes/collections-prev-next.html -->
+{% capture the_collection %}{{ page.collection }}{% endcapture %}
+{% if page.collection %}
+  {% assign document = (site[the_collection] | sort: 'index') %}
+{% endif %}
+{% for links in document %}
+  {% if links.title == page.title %}
+    {% unless forloop.first %}
+      {% assign prev_title = prev.title %}
+      {% assign prev_client = prev.client %}
+      {% assign prevurl = prev.url %}
+    {% endunless %}
+    {% unless forloop.last %}
+      {% assign next = document[forloop.index] %}
+      {% assign next_title = next.title %}
+      {% assign next_client = next.client %}
+      {% assign nexturl = next.url %}
+    {% endunless %}
+  {% endif %}
+  {% assign prev = links %}
+{% endfor %}
+<nav class="nav-pager nav-pager-{{ include.param }} clearfix">
+  <ul class="pager">
+    {% if prevurl %}
+    <li>
+      <a href="{{prevurl}}" title="View {{ prev_title }}" class="pager-prev">
+        <span class="icon icon-lt">&larr;</span>
+        <!-- <span class="hidden-xs">{{ prev_client }} &mdash; </span> -->{{ prev_title }}
+      </a>
+    </li>
+    {% endif %}
+    {% if nexturl %}
+    <li>
+      <a href="{{nexturl}}" title="View {{ next_title }}" class="pager-next">
+        <!-- <span class="hidden-xs">{{ next_title }} &mdash; </span> -->{{ next_client }}
+        <span class="icon icon-gt">&rarr;</span>
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+</nav>

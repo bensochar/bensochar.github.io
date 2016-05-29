@@ -65,33 +65,56 @@ article.project{
   // width: 100%;
   position: relative;
   text-align: center;
-  width: auto;
-  margin: auto;
+  @extend .center-block;
+  .gallery-project-figure {
+    overflow: hidden;
+  }
   .gallery-project-item {
     margin:0;
     text-align: center;
-    padding-bottom: $line-height-computed;
-    overflow: hidden;
+    margin-bottom: $line-height-computed;
+    overflow: visible;
     vertical-align: top;
+    max-height: ($line-height-computed * 10);
     @media (min-width: $screen-sm-min) {
+      margin-bottom: 0;
       padding-bottom: $line-height-computed;
+      max-height: none;
     }
     img {
       margin: 0 auto;
       vertical-align: top;
+
     }
     img + img {
       @include box-shadow(0 1px 1px rgba(0,0,0,.15));
     }
     figcaption{
-      position: absolute;
+
       font-size: $line-height-computed * 0.5;
       line-height: ceil($line-height-computed * 0.6666);
-      bottom: $line-height-computed;
-      left: $grid-gutter-width;
-      right: $grid-gutter-width;
+
       margin: auto;
       text-align: center;
+      @media (min-width: $screen-sm-min) {
+        @include transition(all .15s linear);
+        position: absolute;
+        // bottom: $line-height-computed;
+        left: $grid-gutter-width;
+        right: $grid-gutter-width;
+        top: 0;
+
+      }
+    }
+    &:hover {
+      figcaption{
+
+
+        @media (min-width: $screen-sm-min) {
+
+
+        }
+      }
     }
   }
 }

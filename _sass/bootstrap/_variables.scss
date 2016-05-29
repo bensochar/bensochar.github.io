@@ -21,6 +21,9 @@ $brand-info:            #5bc0de !default;
 $brand-warning:         #f0ad4e !default;
 $brand-danger:          #d9534f !default;
 
+$blue:   #008AC9;
+$purple: #2B115A;
+$red:    #F11A22;
 
 //== Scaffolding
 //
@@ -29,7 +32,7 @@ $brand-danger:          #d9534f !default;
 //** Background color for `<body>`.
 $body-bg:               $gray-lighter !default;
 //** Global text color on `<body>`.
-$text-color:            $gray-dark !default;
+$text-color:            $gray-darker !default;
 
 //** Global textual link color.
 $link-color:            $brand-primary !default;
@@ -465,14 +468,14 @@ $nav-pills-active-link-hover-color:         $component-active-color !default;
 //##
 
 $pagination-color:                     $link-color !default;
-$pagination-bg:                        #fff !default;
-$pagination-border:                    #ddd !default;
+$pagination-bg:                        transparent!default;
+$pagination-border:                    transparent !default;
 
 $pagination-hover-color:               $link-hover-color !default;
 $pagination-hover-bg:                  $gray-lighter !default;
 $pagination-hover-border:              #ddd !default;
 
-$pagination-active-color:              #fff !default;
+$pagination-active-color:              transparent !default;
 $pagination-active-bg:                 $brand-primary !default;
 $pagination-active-border:             $brand-primary !default;
 
@@ -485,9 +488,9 @@ $pagination-disabled-border:           #ddd !default;
 //
 //##
 
-$pager-bg:                             $pagination-bg !default;
+$pager-bg:                             transparent !default;
 $pager-border:                         $pagination-border !default;
-$pager-border-radius:                  15px !default;
+$pager-border-radius:                  0 !default;
 
 $pager-hover-bg:                       $pagination-hover-bg !default;
 
@@ -637,7 +640,7 @@ $modal-xs:                    360px !default;
 //
 //## Define alert colors, border radius, and padding.
 
-$alert-padding:               15px !default;
+$alert-padding:               ($line-height-computed / 2) !default;
 $alert-border-radius:         $border-radius-base !default;
 $alert-link-font-weight:      bold !default;
 
