@@ -12,8 +12,12 @@
   // }
   li {
     // line-height: $line-height-computed + 6;
-    // display: block;
+
     // vertical-align: top;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     a,
     code,
     span {

@@ -5,6 +5,7 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'jekyll serve'. If you change this file, please restart the server process.
 
+#
 # Dependencies
 markdown:         kramdown
 highlighter:      rouge
@@ -12,6 +13,10 @@ highlighter:      rouge
 sass:
   style:          compressed
 
+#
+# Files to keep or not
+include:
+  - .htaccess
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -19,15 +24,14 @@ exclude:
   - Rakefile
   - vendor/bundle
 
+#
 # Permalinks
 # baseurl: ""
 permalink: pretty
-permalink: /404.md
+# permalink: /404.md
 # relative_permalinks: true
 # paginate_path: "/posts/page:num/"
 # paginate: 5
-
-
 collections:
   projects:
     output: true
@@ -40,43 +44,30 @@ defaults:
     values:
       layout: "project"
 
-# collections:
-#   projects:
-#       output: true
-
-
-# defaults:
-#   -
-#     scope:
-#       path: projects
-#       type: page
-#     values:
-#       layout: projects
-
-
-
+#
 # Server
 timezone:         America/New_York
 # host:           0.0.0.0
 # port:           9001
 # url:            "http://yourdomain.com" # the base hostname & protocol for your site
 encoding:         UTF-8
-
+#
+# Gems
 gems:
   - jekyll-sitemap
   - jekyll-mentions
 
 jekyll-mentions:
   base_url: https://twitter.com
-
+#
 # Meta
 title:            Ben Sochar
 authors:          Ben Sochar
 description:      One more developer in Brooklyn.
-
-google_analytics_id: UA-XXXXXXXXX
-google_site_verification:
-
+google_analytics: UA-XXXXXXXXX
+google_verification: Google1234567890
+bing_verification: Bing1234567890
+#
 # Contact vars
 email:            bsochar@gmail.com
 twitter_username: bensochar

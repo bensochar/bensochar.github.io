@@ -1,9 +1,8 @@
 ---
 layout: default
 ---
-
-
 <!-- _layouts/project.html -->
+{% include collections-prev-next.html  param='top' %}
 <article class="project" itemscope itemtype="http://schema.org/WebSite">
 
   <div class="row">
@@ -21,6 +20,6 @@ layout: default
     </div><!-- .center-content -->
   </div><!-- .row -->
 </article>
-{% include collections-prev-next.html  param='top' %}
+
 {% include img-gallery.html param="value" variable-param=page.title %}
 {% include collections-prev-next.html  param='bottom' %}
