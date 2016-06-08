@@ -28,7 +28,6 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <!-- Make the app title different than the page title. -->
   <meta name="apple-mobile-web-app-title" content="{{ site.title }}">
-  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
 
@@ -52,4 +51,5 @@
   <meta name="msapplication-TileImage" content="{{ "/assets/images/mstile-144x144.png" | prepend: site.baseurl }}">
   <meta name="msapplication-config" content="{{ "/assets/images/browserconfig.xml" | prepend: site.baseurl }}">
   <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
 </head>
