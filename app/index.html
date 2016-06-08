@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<div id="content" class="content clearfix">
+{% include list-posts.html %}
+{% include list-projects.html %}
+{% include list-tweets.html %}
+{% comment %}
+{% for repository in site.github.public_repositories %}
+  * [{{ repository.name }}]({{ repository.html_url }})
+{% endfor %}
+{% endcomment %}
+</div>

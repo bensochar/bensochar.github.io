@@ -1,0 +1,21 @@
+{
+  "name": "bensochar.github.io",
+  "description": "Ben Sochar github pages",
+  "main": "",
+  "authors": [
+    "Ben Sochar"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/bensochar/bensochar.github.io",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "^3.3.6"
+  }
+}

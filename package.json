@@ -15,25 +15,33 @@
     "url": "https://github.com/bensochar/bensochar.github.io/issues"
   },
   "homepage": "https://github.com/bensochar/bensochar.github.io#readme",
-  "devDependencies": {},
   "dependencies": {
+    "grunt-critical": "^0.2.0"
+  },
+  "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-autoprefixer": "~3.0.4",
-    "grunt-build-control": "~0.7.0",
+    "grunt-browser-sync": "~2.2.0",
+    "grunt-build-control": "^0.7.0",
+    "grunt-concurrent": "^2.3.0",
     "grunt-contrib-clean": "~1.0.0",
-    "grunt-contrib-connect": "~1.0.2",
+    "grunt-contrib-concat": "~1.0.1",
     "grunt-contrib-copy": "~1.0.0",
+    "grunt-contrib-csslint": "~1.0.0",
     "grunt-contrib-cssmin": "~1.0.1",
     "grunt-contrib-htmlmin": "~1.4.0",
     "grunt-contrib-imagemin": "~1.0.1",
+    "grunt-contrib-jshint": "~1.0.0",
     "grunt-contrib-uglify": "~1.0.1",
-    "grunt-contrib-watch": "~1.0.0",
-    "grunt-critical": "~0.2.0",
-    "grunt-jekyll": "~0.4.2",
+    "grunt-contrib-watch": "1.0.0",
+    "grunt-filerev": "~2.3.1",
+    "grunt-jekyll": "~0.4.4",
     "grunt-sass": "~1.2.0",
     "grunt-svgmin": "~3.2.0",
     "grunt-uncss": "~0.5.1",
-    "jit-grunt": "~0.10.0",
+    "jit-grunt": "^0.10.0",
+    "jshint-stylish": "^2.2.0",
+    "load-grunt-tasks": "^3.5.0",
     "time-grunt": "~1.3.0"
   }
 }

@@ -26,7 +26,8 @@ exclude:
 
 #
 # Permalinks
-# baseurl: ""
+baseurl: ""
+url: ""
 permalink: pretty
 # permalink: /404.md
 # relative_permalinks: true
