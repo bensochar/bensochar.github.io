@@ -31,28 +31,29 @@
         {% endcomment %}
         {% assign img_caption = '' %}
         {% assign img_name = img.path | replace: '.jpg', '' | replace: '.gif', '' | replace: '.png', '' %}
+        {% assign img_low = img_name | append: '.low'  %}
         {% assign img_screen = img_name | slice: -3,3 %}
         {% assign img_caption = img_name | split: '/'  %}
         {% assign img_caption = img_caption.last | replace: img_screen,'' | replace: '1','' | replace: '2','' | replace: '-',' '  %}
 
+
         {% if img_screen == '-lg' %}
           {% assign img_width = 1680 %}
           {% assign col_width = 6 %}
-          {% assign chrome = 'browser-chrome-lg.png', img_width, 75 %}
+          {% assign chrome_height = 75 %}
         {% elsif img_screen == '-md' %}
           {% assign img_width = 1024 %}
           {% assign col_width = 5 %}
-          {% assign chrome = 'browser-chrome-md.png', img_width, 65 %}
+          {% assign chrome_height = 65 %}
         {% elsif img_screen == '-sm' %}
           {% assign img_width = 768 %}
           {% assign col_width = 4 %}
-          {% assign chrome = 'browser-chrome-sm.png', img_width, 65 %}
+          {% assign chrome_height = 65 %}
         {% elsif img_screen == '-xs' %}
           {% assign img_width = 360 %}
           {% assign col_width = 3 %}
-          {% assign chrome = 'browser-chrome-xs.png', img_width, 73 %}
+          {% assign chrome_height = 73 %}
         {% endif %}
-        {% assign chrome_array = chrome | split: ',' %}
         {% assign col_total = col_total | plus: col_width %}
         {% if forloop.last %}
         {% assign offset = 24 | minus: col_total | divided_by: 2 %}
@@ -64,11 +65,10 @@
 
         <div class="col-xs-24 col-sm-{{col_width}} gallery-project-item gallery-project-item{{img_screen}}" style="">
           <figure class="gallery-project-figure">
-            <figcaption>{{img_caption | capitalize}}</figcaption>
-            <img src="{{ site.baseurl }}/assets/images/{{ chrome_array.first }}" class="img-responsive" width="{{ chrome_array[1] }}" height="{{ chrome_array[2] }}">
+            <img src="{{ site.baseurl }}/assets/images/{{ img_screen | prepend: 'browser-chrome' | append: '.png' }}" class="img-responsive" width="{{ img_width }}" height="{{ chrome_height }}">
             <picture>
-              <source srcset="{{ site.baseurl }}{{ img_name }}.webp" type="image/webp">
-              <img src="{{ img.path | prepend: site.baseurl }}" data-src="{{ img.path | prepend: site.baseurl }}" alt="{{img_caption | capitalize}}" class="img-responsive" width="{{img_width}}">
+              <source srcset="{{ img_low | prepend: site.baseurl | append: '.webp' }}" data-srcset="{{ img_name | prepend: site.baseurl | append: '.webp' }}" type="image/webp">
+              <img src="{{ img_low | prepend: site.baseurl | append: img.extname }}" data-src="{{ img.path | prepend: site.baseurl }}" alt="{{img_caption | capitalize}}" class="img-responsive" width="{{img_width}}">
             </picture>
           </figure>
         </div>

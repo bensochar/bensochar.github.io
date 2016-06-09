@@ -56,14 +56,17 @@ var twitterFetcher = {
         tweetEle = tmp[x].querySelector('.timeline-Tweet-media').getElementsByTagName('img')[0];
         if(tweetEle.getAttribute('data-srcset')) {
           var tweetMediaUrl = tweetEle.getAttribute('data-srcset').split(',')[1].split(' ')[0];
-        } else {
+        } else if(tweetEle.getAttribute('src')) {
           var tweetMediaUrl = tweetEle.getAttribute('src');
-
+        } else {
+          var tweetMediaUrl = false;
         }
-        // console.log(decodeURIComponent(tweetMediaUrl));
-        tweetMedia += '<a href=\"' + tweetUrl + '\" target=\"_blank\"  class=\"tweet-media\">';
-        tweetMedia += '  <img class=\"media-object\" src=\"' + decodeURIComponent(tweetMediaUrl) + '\" alt=\"...\">';
-        tweetMedia += '</a>';
+        if(tweetMediaUrl ){
+          tweetMedia += '<a href=\"' + tweetUrl + '\" target=\"_blank\"  class=\"tweet-media\">';
+          tweetMedia += '  <img class=\"media-object\" src=\"' + decodeURIComponent(tweetMediaUrl) + '\" alt=\"...\">';
+          tweetMedia += '</a>';
+        }
+
 
       }
       // https://o.twimg.com/2/proxy.jpg?t=HBiUAWh0dHBzOi8vdi5jZG4udmluZS5jby9yL3ZpZGVvcy9FRjA2OEI1NjVDMTMwMjcyNzI4OTg2MzU4MTY5Nl80MDM2OTczNjczNi41LjEuMTY1NjIwNDg1MDM1MjU4Njc2MzEubXA0LmpwZz92ZXJzaW9uSWQ9R0tPTzJUeEkwdFZoZkFRZzlvYkdJXzlRcWFMTUh0dEcUwAcUwAcAFgASAA&s=7CWOQ1DzL8QqQDzTlk1uVDtLKW2GmRWjVDGsb3SsAMw
