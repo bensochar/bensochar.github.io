@@ -1,3 +1,41 @@
+$i: 0 !default;
+@each $colorname, $hex in $ncs-array {
+  // $i: index($colorname, $ncs-array);
+
+  .bg-color-#{""+$colorname},
+  .bg-color-#{$i} {
+    background: rgba($hex, 0.66);
+  }
+  .bg-color-hover-#{""+$colorname},
+  .bg-color-hover-#{$i} {
+    z-index: 1;
+    position: relative;
+    &:before {
+      @include transition(all 0.10s linear);
+      background: rgba($body-bg, 0);
+      content: '';
+      position: absolute;
+      top: 0; right: 33%; bottom: 5%; left: 0;
+      z-index: -1;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      // @include transition(all 0s linear);
+
+      text-decoration: none;
+      &:before {
+        @include transition(all 0s linear);
+        background: rgba($hex, 0.60);
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+      }
+    }
+  }
+  $i: ($i + 1);
+}
+
+
 .nav-inline {
   > li {
     display: inline;
@@ -65,51 +103,78 @@ article.project{
   // width: 100%;
   position: relative;
   text-align: center;
+  overflow: hidden;
   @extend .center-block;
-  .gallery-project-figure {
-    overflow: hidden;
-  }
+
+
   .gallery-project-item {
     margin:0;
     text-align: center;
     margin-bottom: $line-height-computed;
     overflow: visible;
     vertical-align: top;
-    max-height: ($line-height-computed * 10);
+
+    // @include transition(all .6s ease-out);
     @media (min-width: $screen-sm-min) {
       margin-bottom: 0;
       padding-bottom: $line-height-computed;
       max-height: none;
     }
-    img {
-      margin: 0 auto;
-      vertical-align: top;
 
+    .gallery-project-figure {
+      overflow: hidden;
+      max-height: ($line-height-computed * 10);
+      @media (min-width: $screen-sm-min) {
+        overflow: visible;
+        max-height: none;
+      }
+      img {
+        margin: 0 auto;
+        vertical-align: top;
+
+
+      }
+      img + img {
+        // @include box-shadow(0 1px 1px rgba(0,0,0,.15));
+      }
     }
-    img + img {
-      @include box-shadow(0 1px 1px rgba(0,0,0,.15));
+    .gallery-project-media-low {
+      position: relative;
+    }
+    .gallery-project-media-high {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
     }
     figcaption{
-
-      font-size: $line-height-computed * 0.5;
+      @include border-bottom-radius(2px);
+      // @include box-shadow(0 1px 1px rgba(0,0,0,.15));
+      // border: 1px solid $gray-light;
+      border-top: none;
+      font-size: $font-size-small;
       line-height: ceil($line-height-computed * 0.6666);
-
-      margin: auto;
-      text-align: center;
+      background: $body-bg;
+      color: $gray-dark;
+      margin: 0;
+      text-align: left;
+      padding: ($line-height-computed / 4) ($grid-gutter-width / 2);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
       @media (min-width: $screen-sm-min) {
-        @include transition(all .15s linear);
-        position: absolute;
-        // bottom: $line-height-computed;
-        left: $grid-gutter-width;
-        right: $grid-gutter-width;
-        top: 0;
+        position: relative;
+        padding: ($line-height-computed / 4) 0;
 
+      }
+      @media (min-width: $screen-md-min) {
       }
     }
     &:hover {
       figcaption{
 
-
+        display: block;
         @media (min-width: $screen-sm-min) {
 
 
@@ -119,44 +184,49 @@ article.project{
   }
 }
 
-ul {
-  list-style-position: outside;
-  padding-left: $grid-gutter-width;
-  padding-right: $grid-gutter-width;
-    @media (min-width: $screen-sm-min) {
-      padding-left: 0;
-    }
-  // li:before {
-  //   content: "•";
-  //   width: 10px;
-  //   margin-left: -10px;
 
-  // }
-
-}
 
 
 .list-twitter-timeline {
-  .tweet-avatar-img {
-    width: $line-height-computed;
-    height: auto;
-  }
-  .tweet-heading {
-    font-size: $font-size-base;
-    line-height: $line-height-computed;
-    margin: 0;
-  }
-  .tweet-media {
+  padding:0;
+  margin: 0 0 $line-height-computed 0;
+  > li {
+    padding: 0;
+    margin: 0 0 ($line-height-computed / 4) 0;
     display: block;
-    overflow: hidden;
-    width: 100%;
-    float: left;
-    .media-object {
-      max-width: 100%;
-      height: auto;
-      margin: 0;
+    .media-left:first-child {
+      padding-right: 0;
     }
+    .tweet-avatar-img {
+      width: $line-height-computed;
+      height: auto;
+    }
+    .tweet-heading {
+      font-size: 1rem;
+      line-height: $line-height-base;
+      margin: 0;
+      font-weight: $body-font-weight;
+    }
+    .tweet-text {
+      margin-bottom: ($line-height-computed / 4);
+      white-space: normal;
+    }
+    .tweet-media {
+      display: block;
+      overflow: hidden;
+      width: 100%;
+      float: left;
+      margin-bottom: ($line-height-computed / 4);
+      .media-object {
+        max-width: 100%;
+        height: auto;
+        margin: 0;
+      }
+    }
+
   }
+
+
   .nav-tweet-actions {
     width: 100%;
     > li {
@@ -174,12 +244,11 @@ ul {
 
         }
         svg {
-          color: $gray-dark;
-          fill: $gray-dark;
           width: 16px;
           height: 16px;
-          display: block;
+
         }
+
       }
       &.nav-tweet-action-retweet > a {
         line-height: 18px;

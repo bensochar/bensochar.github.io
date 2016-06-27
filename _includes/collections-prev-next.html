@@ -1,7 +1,7 @@
 <!-- _includes/collections-prev-next.html -->
 {% capture the_collection %}{{ page.collection }}{% endcapture %}
 {% if page.collection %}
-  {% assign document = (site[the_collection] | sort: 'index') %}
+  {% assign document = (site[the_collection] | sort: 'title') %}
 {% endif %}
 {% for links in document %}
   {% if links.title == page.title %}
@@ -21,21 +21,25 @@
 {% endfor %}
 <nav class="nav-pager nav-pager-{{ include.param }} clearfix">
   <ul class="pager">
-    {% if prevurl %}
-    <li>
-      <a href="{{prevurl}}" title="View {{ prev_title }}" class="pager-prev">
+
+    <li class="pager-prev">
+      {% if prevurl %}
+      <a href="{{prevurl}}" title="View {{ prev_client }} - {{ prev_title }}" class="pager-url">
         <span class="icon icon-lt">&larr;</span>
-        <!-- <span class="hidden-xs">{{ prev_client }} &mdash; </span> -->{{ prev_title }}
+        <!-- <span class="hidden-xs">{{ prev_client }} &mdash; </span> -->
+        <span class="pager-text">{{ prev_title }}</span>
       </a>
+      {% endif %}
     </li>
-    {% endif %}
-    {% if nexturl %}
-    <li>
-      <a href="{{nexturl}}" title="View {{ next_title }}" class="pager-next">
-        <!-- <span class="hidden-xs">{{ next_title }} &mdash; </span> -->{{ next_title }}
+    <li class="pager-next">
+      {% if nexturl %}
+      <a href="{{nexturl}}" title="View {{ prev_client }} - {{ prev_title }}" class="pager-url">
+        <!-- <span class="hidden-xs">{{ next_title }} &mdash; </span> -->
+        <span class="pager-text">{{ next_title }}</span>
         <span class="icon icon-gt">&rarr;</span>
       </a>
+      {% endif %}
     </li>
-    {% endif %}
+
   </ul>
 </nav>

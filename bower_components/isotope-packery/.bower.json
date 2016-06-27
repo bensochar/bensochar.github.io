@@ -1,0 +1,39 @@
+{
+  "name": "isotope-packery",
+  "main": "packery-mode.js",
+  "authors": [
+    "Metafizzy"
+  ],
+  "description": "packery layout mode for Isotope",
+  "dependencies": {
+    "packery": "^2.0.0",
+    "isotope": "^3.0.0"
+  },
+  "devDependencies": {
+    "jquery": "^1.11"
+  },
+  "keywords": [
+    "packery",
+    "layout",
+    "isotope",
+    "isotope-layout-mode"
+  ],
+  "ignore": [
+    "**/.*",
+    "sandbox/",
+    "package.json",
+    "Gruntfile.js"
+  ],
+  "homepage": "https://github.com/metafizzy/isotope-packery",
+  "version": "2.0.0",
+  "_release": "2.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.0.0",
+    "commit": "bb9e852e0c9770aa2ed68be269bb99c7ea77d6e1"
+  },
+  "_source": "https://github.com/metafizzy/isotope-packery.git",
+  "_target": "^2.0.0",
+  "_originalSource": "isotope-packery",
+  "_direct": true
+}

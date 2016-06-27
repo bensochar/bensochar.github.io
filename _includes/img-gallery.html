@@ -25,34 +25,36 @@
     <div class="clearfix"></div>
     <div id="js-gallery-project" class="clearfix js-gallery-project gallery-project">
     {% for img in project_imgs %}
-
+        {% assign show_image = true %}
         {% comment %}
 
         {% endcomment %}
         {% assign img_caption = '' %}
         {% assign img_name = img.path | replace: '.jpg', '' | replace: '.gif', '' | replace: '.png', '' %}
         {% assign img_low = img_name | append: '.low'  %}
-        {% assign img_screen = img_name | slice: -3,3 %}
+        {% assign img_screen = img_name | replace: '.nochrome', '' | slice: -3,3 %}
         {% assign img_caption = img_name | split: '/'  %}
         {% assign img_caption = img_caption.last | replace: img_screen,'' | replace: '1','' | replace: '2','' | replace: '-',' '  %}
 
 
         {% if img_screen == '-lg' %}
           {% assign img_width = 1680 %}
-          {% assign col_width = 6 %}
+          {% assign col_width = 8 %}
           {% assign chrome_height = 75 %}
         {% elsif img_screen == '-md' %}
           {% assign img_width = 1024 %}
-          {% assign col_width = 5 %}
+          {% assign col_width = 6 %}
           {% assign chrome_height = 65 %}
         {% elsif img_screen == '-sm' %}
           {% assign img_width = 768 %}
-          {% assign col_width = 4 %}
+          {% assign col_width = 5 %}
           {% assign chrome_height = 65 %}
         {% elsif img_screen == '-xs' %}
           {% assign img_width = 360 %}
-          {% assign col_width = 3 %}
+          {% assign col_width = 4 %}
           {% assign chrome_height = 73 %}
+        {% else %}
+          {% assign show_image = false %}
         {% endif %}
         {% assign col_total = col_total | plus: col_width %}
         {% if forloop.last %}
@@ -62,17 +64,24 @@
         <h1>{{ offset }} Last</h1>
         -->
         {% endif %}
-
-        <div class="col-xs-24 col-sm-{{col_width}} gallery-project-item gallery-project-item{{img_screen}}" style="">
+        {% if show_image %}
+        <div class="col-xs-24 col-sm-{{col_width}} col-md-{{col_width}} gallery-project-item gallery-project-item{{img_screen}}" style="">
           <figure class="gallery-project-figure">
-            <img src="{{ site.baseurl }}/assets/images/{{ img_screen | prepend: 'browser-chrome' | append: '.png' }}" class="img-responsive" width="{{ img_width }}" height="{{ chrome_height }}">
+            {% if img.path contains '.nochrome' %}
+            {% else %}
             <picture>
-              <source srcset="{{ img_low | prepend: site.baseurl | append: '.webp' }}" data-srcset="{{ img_name | prepend: site.baseurl | append: '.webp' }}" type="image/webp">
-              <img src="{{ img_low | prepend: site.baseurl | append: img.extname }}" data-src="{{ img.path | prepend: site.baseurl }}" alt="{{img_caption | capitalize}}" class="img-responsive" width="{{img_width}}">
+              <source srcset="{{ site.baseurl }}/assets/images/{{ img_screen | prepend: 'browser-chrome' | append: '.webp' }}" type="image/webp">
+              <img src="{{ site.baseurl }}/assets/images/{{ img_screen | prepend: 'browser-chrome' | append: '.png' }}" class="img-responsive" width="{{ img_width }}" height="{{ chrome_height }}">
             </picture>
+            {% endif %}
+            <picture>
+              <source srcset="{{ img_name | prepend: site.baseurl | append: '.low' | append: '.webp' }}" data-src="{{ img_name | prepend: site.baseurl | append: '.webp' }}" type="image/webp">
+              <img src="{{ img_name | prepend: site.baseurl | append: '.low' | append: img.extname }}" data-src="{{ img.path | prepend: site.baseurl }}" alt="{{ img_caption | capitalize }}" class="img-responsive" width="{{img_width}}">
+            </picture>
+            <figcaption>{{ img_caption | capitalize }}</figcaption>
           </figure>
         </div>
-
+        {% endif %}
     {% endfor %}
     </div>
     <div class="clearfix"></div>

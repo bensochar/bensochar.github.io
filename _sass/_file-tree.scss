@@ -1,7 +1,11 @@
+.title-file-tree {
+  margin-bottom: ($line-height-computed / 4);
+}
 .list-file-tree {
   list-style: none;
   list-style-position: outside;
   padding: 0;
+  position: relative;
   .list-file-tree-item > * {
 
   }
@@ -15,33 +19,71 @@
 
     // vertical-align: top;
     display: block;
-    white-space: nowrap;
+    float: none;
+    clear: both;
+    zoom: 1;
     overflow: hidden;
-    text-overflow: ellipsis;
+    position: relative;
+    margin-bottom: ($line-height-computed / 12);
+    // white-space: nowrap;
+    // overflow: hidden;
+    // text-overflow: ellipsis;
+    > * {
+      display: table-cell;
+
+    }
+    > a {
+      // display: inline-block;
+      line-height: 28px;
+
+      line-height: 1.5;
+      // overflow: hidden;
+      // text-overflow: ellipsis;
+      padding: ($line-height-computed / 12) 0;
+    }
+    > code {
+      line-height: 1.5;
+      padding-right: 3px;
+
+    }
+    a > svg {
+      color: $link-color;
+      fill: $link-color;
+      width: $font-size-base - 1;
+      height: $font-size-base - 1;
+      margin-bottom: -1px;
+    }
+    // > code {
+    //   display: block;
+    //   float: left;
+    //   width: auto;
+    // }
     a,
     code,
     span {
-      line-height: $line-height-computed + 6;
+
       // display: inline-block;
     }
     a,
     span {
       font-family: $font-family-sans-serif;
     }
+
   }
 
 }
 .box-drawing {
-  font-family: monospace, monospace;
+  font-family: monospace;
   color: red;
-  overflow: hidden;
+  // overflow: hidden;
   display: inline;
   max-width: initial;
   overflow: initial;
   line-height: inherit;
   padding: 0;
-  margin: 0;
+  margin: 0 3px 0 0;
   font-size: 100%;
+  width: 1rem;
   word-break: normal;
   white-space: pre;
   background: transparent;

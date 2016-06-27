@@ -4,7 +4,7 @@
 
 
 .pager {
-  padding-left: 0;
+  padding: 0;
   margin: ($line-height-computed / 2) 0;
   list-style: none;
   text-align: center;
@@ -13,6 +13,7 @@
     display: inline-block;
     float: left;
     width: 50%;
+    min-height: 1px;
     @media (min-width: $screen-sm-min) {
       display: inline;
       float: none;
@@ -25,7 +26,8 @@
       padding: (($line-height-computed / 4) - 1) (($grid-gutter-width / 2) - 1);
       border: 1px solid $pager-border;
       text-overflow: ellipsis;
-      white-space: nowrap;
+      // white-space: nowrap;
+      overflow: hidden;
     }
 
     > a:hover,

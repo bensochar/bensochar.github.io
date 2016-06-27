@@ -28,12 +28,19 @@
 
 .media-right,
 .media > .pull-right {
-  padding-left: 10px;
+  padding-left: ($grid-gutter-width / 3);
+  @media (min-width: $screen-sm-min) {
+    padding-left: ($grid-gutter-width / 2);
+  }
 }
 
 .media-left,
 .media > .pull-left {
-  padding-right: 10px;
+  padding-right: ($grid-gutter-width / 3);
+  @media (min-width: $screen-sm-min) {
+    padding-right: ($grid-gutter-width / 2);
+  }
+
 }
 
 .media-left,
@@ -54,7 +61,11 @@
 // Reset margins on headings for tighter default spacing
 .media-heading {
   margin-top: 0;
-  margin-bottom: 5px;
+
+  a,
+  span {
+    display: inline-block;
+  }
 }
 
 // Media list variation

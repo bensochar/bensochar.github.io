@@ -1,9 +1,33 @@
 
+$(function() {
+
+  if(Modernizr.webp){
+    $('source[data-src]').unveil(200, false, 'srcset');
+  } else {
+    $('img[data-src]').unveil(400, false, 'src');
+  }
+
+});
+
 // Kill it with fire on load
 // ------------------------------------------
+document.addEventListener("DOMContentLoaded", function() {
+  // init();
+  var cusid_ele = document.getElementsByClassName('js-random-bg-color-hover');
+  for (var i = 0; i < cusid_ele.length; ++i) {
+    var rng = Math.random() * (8 - 0) + 0;
+    var item = cusid_ele[i];
+    item.className += ' bg-color-hover-' + Math.round(rng);//set class
+  }
+
+});
+
 window.onload = function() {
   init();
 
+};
+window.onresize = function() {
+  init();
 };
 
 // Get the Viewport for responsive stuffz
@@ -19,6 +43,7 @@ getViewport = function() {
   return vpArray;
 };
 
+
 // Any functions might have to get fired after AJAX or Window resize goes hurrrrrre
 // ------------------------------------------
 init = function() {
@@ -30,7 +55,9 @@ init = function() {
       var iso = new Isotope(elem, {
         // options
         itemSelector: '.gallery-project-item',
-        layoutMode: 'masonry'
+        layoutMode: 'packery',
+        transitionDuration: 0
+        // originTop: false
           // layoutMode: 'masonry',
           // percentPosition: true
           // layoutMode: 'fitRows'
@@ -39,5 +66,10 @@ init = function() {
       // iso.destroy();
     }
   }
+
+  // var colcade = new Colcade( '.gallery-project', {
+  //   columns: '.gallery-project-item',
+  //   items: '.gallery-project-item'
+  // });
 
 };

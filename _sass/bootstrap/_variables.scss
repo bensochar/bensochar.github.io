@@ -4,6 +4,30 @@ $bootstrap-sass-asset-helper: false !default;
 // --------------------------------------------------
 
 
+//== NCS Colors
+//
+//## Natural Color Range
+// 16746319, 2213375, 16737460, 62937, 6588404, 16769092, 16514362, 9627735, 3796890, 16756292, 58098
+$blue:        #6487f4 !default;
+$blue-light:  #21c5ff !default;
+$coral:       #ff874f !default;
+$peach:       #ffae44 !default;
+$green:       #92e857 !default;
+$orange:      #ffe044 !default;
+$pink:        #ff64b4 !default;
+$teal:        #00f5d9 !default;
+$yellow:      #fbfd3a !default;
+$ncs-array: ('blue', $blue),
+  ('blue-light', $blue-light),
+  ('coral', $coral),
+  ('peach', $peach),
+  ('green', $green),
+  ('orange', $orange),
+  ('pink', $pink),
+  ('yellow', $yellow),
+  ('teal', $teal);
+
+
 //== Colors
 //
 //## Gray and brand colors for use across Bootstrap.
@@ -12,7 +36,7 @@ $gray-base:              #000 !default;
 $gray-darker:            lighten($gray-base, 13.5%) !default; // #222
 $gray-dark:              lighten($gray-base, 20%) !default;   // #333
 $gray:                   lighten($gray-base, 33.5%) !default; // #555
-$gray-light:             lighten($gray-base, 67%) !default; // #777
+$gray-light:             lighten($gray-base, 90%) !default; // #777
 $gray-lighter:           lighten($gray-base, 96%) !default; // #eee
 
 $brand-primary:         desaturate(#00E, 33.333%) !default; // #337ab7
@@ -21,9 +45,14 @@ $brand-info:            #5bc0de !default;
 $brand-warning:         #f0ad4e !default;
 $brand-danger:          #d9534f !default;
 
-$blue:   #008AC9;
-$purple: #2B115A;
-$red:    #F11A22;
+// $blue:   #008AC9;
+// $purple: #2B115A;
+// $red:    #F11A22;
+
+
+
+
+
 
 //== Scaffolding
 //
@@ -45,30 +74,44 @@ $link-hover-decoration: underline !default;
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
-
-$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif:  "Helvetica Neue", Helvetica, Roboto, sans-serif !default;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+$body-font-weight: 200 !default;
+
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base:        $font-family-sans-serif !default;
 
-$font-size-base:          16px !default;
-$font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
-$font-size-small:         ceil(($font-size-base * 0.875)) !default; // ~12px
 
-$font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
-$font-size-h2:            floor(($font-size-base * 2.15)) !default; // ~30px
-$font-size-h3:            ceil(($font-size-base * 1.7)) !default; // ~24px
-$font-size-h4:            ceil(($font-size-base * 1.25)) !default; // ~18px
-$font-size-h5:            $font-size-base !default;
-$font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
+
+$font-size-base:          16px !default;
+
+$font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-small:         ceil(($font-size-base * 0.666)) !default; // ~12px
+
+// 5.063
+// 3.375
+// 2.25
+// 1.5
+
+// $font-size-h1:            4.236rem !default; // ~36px
+// $font-size-h2:            2.618rem !default; // ~30px
+// $font-size-h3:            1.618 !default; // ~24px
+// $font-size-h4:            1rem !default;
+$font-size-h1:            3rem !default; // ~36px
+$font-size-h2:            2.5rem !default; // ~36px
+$font-size-h3:            2rem !default; // ~30px
+$font-size-h4:            1.25rem !default; // ~24px
+$font-size-h5:            1rem !default;
+// $font-size-h5:            1rem !default;
+$font-size-h6:            1rem !default;
 
 
 
 //** Unit-less `line-height` for use in components like buttons.
 $line-height-base:        1.5 !default; // 20/14
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
-$line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
+$line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~24px
 
 //** By default, this inherits from the `<body>`.
 $headings-font-family:    inherit !default;
@@ -344,7 +387,7 @@ $grid-breakpoints: (
 //** Number of columns in the grid.
 $grid-columns:              24 !default;
 //** Padding between columns. Gets divided in half for the left and right.
-$grid-gutter-width:         32px !default;
+$grid-gutter-width:         24px !default;
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
 $grid-float-breakpoint:     $screen-sm-min !default;

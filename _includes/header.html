@@ -12,7 +12,7 @@
         <a class="navbar-brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
       </div>
 
-      <div class="collapse navbar-collapse">
+      <div class="collapse navbar-collapse" id="navbarcollapse">
         <ul class="nav navbar-nav">
           {% for site_page in site.pages %}
             {% if site_page.title %}
@@ -20,7 +20,7 @@
               {% assign page_url_clean = page.url | replace: '/',''%}
               {% unless site_page_url_clean == '404' or site_page_url_clean == 'styleguide' %}
                 <li class="{% if page_url_clean == site_page_url_clean %}active{% endif %}">
-                  <a class="page-link" href="{{ site_page.url | prepend: site.baseurl }}">{{ site_page.title }}</a>
+                  <a class="page-link js-random-bg-color-hover" href="{{ site_page.url | prepend: site.baseurl }}">{{ site_page.title }}</a>
                 </li>
                   {% if site_page.title == 'Projects' %}
                   <!--

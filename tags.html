@@ -35,7 +35,7 @@ permalink: /tags/
 <ul class="tag-cloud">
 {% for tag in unique_tags %}
   <li>
-    <a class="codinfox-tag-mark" href="/projects/#{{ tag | slugify }}">{{ tag }}</a>
+    <a href="/projects/#{{ tag | slugify }}">{{ tag }}</a>
 
   </li>
 {% endfor %}
