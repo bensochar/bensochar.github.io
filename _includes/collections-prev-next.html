@@ -24,7 +24,7 @@
 
     <li class="pager-prev">
       {% if prevurl %}
-      <a href="{{prevurl}}" title="View {{ prev_client }} - {{ prev_title }}" class="pager-url">
+      <a href="{{prevurl}}" title="View {{ prev_client }} - {{ prev_title }}" class="pager-url pager-prev-url js-random-bg-color-hover" id="js-pager-url-prev">
         <span class="icon icon-lt">&larr;</span>
         <!-- <span class="hidden-xs">{{ prev_client }} &mdash; </span> -->
         <span class="pager-text">{{ prev_title }}</span>
@@ -33,7 +33,7 @@
     </li>
     <li class="pager-next">
       {% if nexturl %}
-      <a href="{{nexturl}}" title="View {{ prev_client }} - {{ prev_title }}" class="pager-url">
+      <a href="{{nexturl}}" title="View {{ prev_client }} - {{ prev_title }}" class="pager-url pager-next-url js-random-bg-color-hover" id="js-pager-url-next">
         <!-- <span class="hidden-xs">{{ next_title }} &mdash; </span> -->
         <span class="pager-text">{{ next_title }}</span>
         <span class="icon icon-gt">&rarr;</span>

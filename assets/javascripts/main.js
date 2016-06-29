@@ -4,7 +4,7 @@ $(function() {
   if(Modernizr.webp){
     $('source[data-src]').unveil(200, false, 'srcset');
   } else {
-    $('img[data-src]').unveil(400, false, 'src');
+    $('img[data-src]').unveil(200, false, 'src');
   }
 
 });
@@ -13,11 +13,13 @@ $(function() {
 // ------------------------------------------
 document.addEventListener("DOMContentLoaded", function() {
   // init();
-  var cusid_ele = document.getElementsByClassName('js-random-bg-color-hover');
-  for (var i = 0; i < cusid_ele.length; ++i) {
-    var rng = Math.random() * (8 - 0) + 0;
-    var item = cusid_ele[i];
-    item.className += ' bg-color-hover-' + Math.round(rng);//set class
+  if(document.getElementsByClassName) { // Doubt anybody is using < IE9, but never know
+    var cusid_ele = document.getElementsByClassName('js-random-bg-color-hover');
+    for (var i = 0; i < cusid_ele.length; ++i) {
+      var rng = Math.random() * (8 - 0) + 0;
+      var item = cusid_ele[i];
+      item.className += ' bg-color-hover-' + Math.round(rng);//set class
+    }
   }
 
 });

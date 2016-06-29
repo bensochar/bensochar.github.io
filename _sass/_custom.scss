@@ -10,6 +10,7 @@ $i: 0 !default;
   .bg-color-hover-#{$i} {
     z-index: 1;
     position: relative;
+    -webkit-tap-highlight-color: rgba($hex, 0.40);
     &:before {
       @include transition(all 0.10s linear);
       background: rgba($body-bg, 0);
@@ -101,6 +102,7 @@ article.project{
 // -------------------------------------------------
 .gallery-project {
   // width: 100%;
+  margin-top: $line-height-computed;
   position: relative;
   text-align: center;
   overflow: hidden;
