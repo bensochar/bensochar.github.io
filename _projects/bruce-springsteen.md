@@ -4,7 +4,7 @@ client: Sony Music
 title: Bruce Springsteen
 role: Technical Lead
 live_site: http://brucespringsteen.net/
-tags: [HTML, CSS, Javascript, PHP, Wordpress, Apache, MySQL, Rackspace, SVN]
+tags: [HTML, CSS, Javascript, Wordpress, Linux, Apache, MySQL, PHP, Redhat, Memecahce, Rackspace, SVN]
 ---
 The Boss needed a new website that his people could easily update.
 
@@ -18,4 +18,4 @@ The Boss needed a new website that his people could easily update.
 > Did you see the new Bruce site? Its awesome!
 > @pfanschmidt
 
-Worked with the excellent @williameliel.
+Lots of positive feedback from fans. Worked with the excellent @williameliel.

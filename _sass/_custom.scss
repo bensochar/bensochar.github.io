@@ -16,7 +16,7 @@ $i: 0 !default;
       background: rgba($body-bg, 0);
       content: '';
       position: absolute;
-      top: 0; right: 33%; bottom: 5%; left: 0;
+      top: 0; right: 50%; bottom: 5%; left: 0;
       z-index: -1;
     }
     &:hover,
@@ -98,7 +98,7 @@ article.project{
 
 // Project Template
 .list-project-tags {
-  margin-top: $line-height-computed;
+  padding: 0;
   .project-tag-first {
   }
 }
