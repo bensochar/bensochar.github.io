@@ -96,6 +96,12 @@ article.project{
   @extend .col-lg-offset-5;
 }
 
+// Project Template
+.list-project-tags {
+  margin-top: $line-height-computed;
+  .project-tag-first {
+  }
+}
 
 
 // Project Gallery

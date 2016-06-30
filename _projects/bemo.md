@@ -4,7 +4,7 @@ client: Logitec
 title: Bemo
 role: Technical Lead
 live_site: https://mybemo.com/
-tags: [HTML, LESS, JavaScript, Grunt, TweenMax, Grunt, Node, UNCSS, NGNX, Git]
+tags: [HTML, LESS, JavaScript, Grunt, TweenMax, Grunt, Node, UNCSS, NGNX, Git, Jira]
 ---
 Brochure site for Logitech’s latest camera accessory.
 

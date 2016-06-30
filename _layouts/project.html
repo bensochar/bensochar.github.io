@@ -13,9 +13,21 @@ layout: default
 
       {% if page.live_site %}
       <p>
-        <a href="{{ page.live_site }}" target="_blank">{{ page.live_site }}</a>
+        Live Site: <a href="{{ page.live_site }}" target="_blank">{{ page.live_site }}</a>
       </p>
       {% endif %}
+      <h4></h4>
+      <ul class="nav-inline list-project-tags">
+        <li class="project-tag-first"><strong>Tech used</strong>:</li>
+        {% assign tag_length = page.tags.size %}
+        {% assign oxford_break = tag_length | minus: 1 %}
+        {% assign tag_index = 0 %}
+        {% for tag in page.tags %}
+          {% assign tag_index = tag_index | plus: 1 %}
+          <li class="project-tag{% if forloop.last %}-last{% endif %}">{% if forloop.last %} &amp; {{ tag }}{% elsif tag_index == oxford_break %}{{ tag }}{% else %}{{ tag }}, {% endif %}</li>
+        {% endfor %}
+
+      </ul>
     </div><!-- .center-content -->
   </div><!-- .row -->
 </article>

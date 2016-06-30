@@ -34,7 +34,7 @@
         {% assign img_low = img_name | append: '.low'  %}
         {% assign img_screen = img_name | replace: '.nochrome', '' | slice: -3,3 %}
         {% assign img_caption = img_name | split: '/'  %}
-        {% assign img_caption = img_caption.last | replace: img_screen,'' | replace: '1','' | replace: '2','' | replace: '-',' '  %}
+        {% assign img_caption = img_caption.last | replace: img_screen,'' | replace: '1','' | replace: '2','' | replace: '-',' ' | replace: '.nochrome', ''  %}
 
 
         {% if img_screen == '-lg' %}
@@ -78,7 +78,7 @@
               <source srcset="{{ img_name | prepend: site.baseurl | append: '.low' | append: '.webp' }}" data-src="{{ img_name | prepend: site.baseurl | append: '.webp' }}" type="image/webp">
               <img src="{{ img_name | prepend: site.baseurl | append: '.low' | append: img.extname }}" data-src="{{ img.path | prepend: site.baseurl }}" alt="{{ img_caption | capitalize }}" class="img-responsive" width="{{img_width}}">
             </picture>
-            <figcaption>{{ img_caption | capitalize }}</figcaption>
+            <figcaption>{{ img_caption | trim | capitalize }}</figcaption>
           </figure>
         </div>
         {% endif %}
