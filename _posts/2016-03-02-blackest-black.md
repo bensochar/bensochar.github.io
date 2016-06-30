@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "The Blackest Black"
-date:   2016-03-02 00:52:21 -0400
+date:   2016-03-02 00:52:21 -0500
 categories: color art ip
 ---
 Vantablack asorbs 99.96% of visible light. British artist Anish Kapoor is the only artist that can use it.
