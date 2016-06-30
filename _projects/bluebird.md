@@ -4,7 +4,7 @@ client: American Express
 title: Bluebird
 role: Technical Lead
 live_site: https://bluebird.com/
-tags: [HTML,CSS,Javascript,PHP,Apache,Rackspace,Akamai,Omniture,Google Analytics,YouTube Javascript API,SVN,Jira,Trello]
+tags: [HTML,CSS,Javascript,PHP,Apache,Rackspace,Akamai,Omniture,Google Analytics,YouTube Javascript API,SVN,Jira,Trello, Linux, Redhat]
 ---
 Marketing site & Secure pages for AMEX & Wal-Mart’s co-branded prepaid card.
 

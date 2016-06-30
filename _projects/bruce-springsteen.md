@@ -15,4 +15,7 @@ The Boss needed a new website that his people could easily update.
 * Met Sony Music’s strict security standards.
 * Handles millions of simultaneous visitors.
 
+> Did you see the new Bruce site? Its awesome!
+> @pfanschmidt
+
 Worked with the excellent @williameliel.
