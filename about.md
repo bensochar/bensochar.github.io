@@ -13,6 +13,7 @@ I <3 fast, modular sites that follow logic (who doesn't, amirite). Sites that ar
 I studied Studio Art & Art History @IUBloomington. While working as an Jr Art director I began learning Flash & Actionscript. From there I learned PHP, MySQL, CSS, HTML, Javascript. Recently I took the Ruby on Rails course at General Assembly. I picked up a lot in my 8 years.
 
 When I’m not developing I’m playing with my dog, Duffy.
+
 <img src="https://scontent-lga3-1.cdninstagram.com/t51.2885-15/e15/1527615_287040431460242_1948570481_n.jpg" alt="Duffy" width="240" height="240">
 
 Or tinkering. Or reading. Or cruising Reddit.
@@ -39,11 +40,15 @@ Or tinkering. Or reading. Or cruising Reddit.
 * Raleigh Hotel
 * SBE Hotels
 * SLS Hotels
+* Suntory
 * Sony Entertainment Network
 * Sony Music
 * Sony Rewards
 * Sweetgreen Restaurants
+* Sweetlife Festival
+* Thompson Hotels
 * Walmart
+* Yuko Shimizu
 
 #### List of Tech:
 

@@ -101,6 +101,7 @@ $i: 0 !default;
 // Layout
 // Extending container and grid classes
 // -------------------------------------------------
+article.page,
 article.post,
 article.project{
   @extend .container;
@@ -149,8 +150,23 @@ article.project{
   }
 }
 
+// Page Template
+// -------------------------------------------------
+.page{
+  img {
+    @extend .img-responsive;
+    display: block;
+    float: none;
+    clear: both;
+    margin: 0 0 $line-height-computed 0;
+    p {
+
+    }
+  }
+}
 
 // Project Template
+// -------------------------------------------------
 .projects {
   .p-role,
   .p-live-site {
