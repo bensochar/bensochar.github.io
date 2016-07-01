@@ -13,9 +13,17 @@
           <li>
             {% include icon-twitter.html username=site.twitter_username %}
           </li>
+          {% endif %} {% if site.instagram_username %}
+          <li>
+            {% include icon-instagram.html username=site.instagram_username %}
+          </li>
+          {% endif %} {% if site.linkedin_username %}
+          <li>
+            {% include icon-linkedin.html username=site.linkedin_username %}
+          </li>
           {% endif %}
           <li>
-            <a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS</a>
+            <a href="{{ "/feed.xml" | prepend: site.baseurl }}"><span class="icon icon--twitter">{% include svgs/rss.svg %}</span> RSS</a>
           </li>
           <li class="sr-only">
             <a href="https://plus.google.com/u/0/+BenjaminSochar" rel="publisher" class="sr-only">Google+</a>
@@ -23,6 +31,7 @@
         </ul>
       </div>
     </div>
+    <p class="text-center text-muted small copyright">&copy; {{ site.title }} 2016</p>
   </div>
 </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>

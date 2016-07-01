@@ -4,7 +4,7 @@ client: Suntory
 title: Pavan Sangria Challenge
 role: Technical Lead
 live_text: Contest Ended. Site is no longer live :-(
-tags: [HTML, CSS, JavaScript, PHP, Composer, Zend Framework, Google Analytics, Facebook API]
+tags: [HTML, CSS, JavaScript, PHP, Composer, Zend Framework, Google Analytics, Google Spreadsheets, Facebook REST API, Linux, Apache, Rackspace]
 ---
 Pavan Sangria Challenge
 The Challenge? Share your sangria recipe. This call was answered by 100+ bartenders. Winners were chosen by the Pavan marketing team.

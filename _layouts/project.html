@@ -10,13 +10,16 @@ layout: default
         <h1>{{ page.client }} - {{ page.title }}</h1>
       </header>
       {{ page.content }}
-
-      {% if page.live_site %}
-      <p>
-        Live Site: <a href="{{ page.live_site }}" target="_blank">{{ page.live_site }}</a>
+      {% if page.role %}
+      <p class="p-role">
+        <strong>Role</strong>: {{ page.role }}
       </p>
       {% endif %}
-      <h4></h4>
+      {% if page.live_site %}
+      <p class="p-live-site">
+        <strong>Live Site</strong>: <a href="{{ page.live_site }}" target="_blank">{{ page.live_site }}</a>
+      </p>
+      {% endif %}
       <ul class="nav-inline list-project-tags">
         <li class="project-tag-first"><strong>Tech used</strong>:</li>
         {% assign tag_length = page.tags.size %}

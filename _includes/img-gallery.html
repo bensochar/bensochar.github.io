@@ -69,7 +69,7 @@
           <figure class="gallery-project-figure">
             {% if img.path contains '.nochrome' %}
             {% else %}
-            <picture>
+            <picture class="gallery-project-chrome gallery-project-chrome{{img_screen}}">
               <source srcset="{{ site.baseurl }}/assets/images/{{ img_screen | prepend: 'browser-chrome' | append: '.webp' }}" type="image/webp">
               <img src="{{ site.baseurl }}/assets/images/{{ img_screen | prepend: 'browser-chrome' | append: '.png' }}" class="img-responsive" width="{{ img_width }}" height="{{ chrome_height }}">
             </picture>

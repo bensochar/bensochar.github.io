@@ -97,7 +97,7 @@ h3, .h3 {
 h4, .h4 {
   @include text-height($font-size-h6);
   @media (min-width: $screen-sm-min) {
-    @include text-height($font-size-h5);
+    @include text-height($font-size-h4);
   }
   @media (min-width: $screen-lg-min) {
     @include text-height($font-size-h4);

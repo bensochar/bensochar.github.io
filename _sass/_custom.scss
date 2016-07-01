@@ -1,35 +1,45 @@
+a[class*="bg-color-hover-"],
+button[class*="bg-color-hover-"]{
+  z-index: 1;
+  position: relative;
+  &:before {
+    @include transition(all 0.10s linear);
+    content: '';
+    position: absolute;
+    top: 0; right: 50%; bottom: 5%; left: 0;
+    z-index: -1;
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    &:before {
+      @include transition(all 0s linear);
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+    }
+  }
+}
 $i: 0 !default;
 @each $colorname, $hex in $ncs-array {
   // $i: index($colorname, $ncs-array);
 
   .bg-color-#{""+$colorname},
   .bg-color-#{$i} {
-    background: rgba($hex, 0.66);
+    background: rgba($hex, 0.60);
   }
+
   .bg-color-hover-#{""+$colorname},
   .bg-color-hover-#{$i} {
-    z-index: 1;
-    position: relative;
     -webkit-tap-highlight-color: rgba($hex, 0.40);
     &:before {
-      @include transition(all 0.10s linear);
-      background: rgba($body-bg, 0);
-      content: '';
-      position: absolute;
-      top: 0; right: 50%; bottom: 5%; left: 0;
-      z-index: -1;
+      background: rgba($hex, 0);
     }
     &:hover,
     &:focus,
     &:active {
-      // @include transition(all 0s linear);
-
-      text-decoration: none;
       &:before {
-        @include transition(all 0s linear);
         background: rgba($hex, 0.60);
-        position: absolute;
-        top: 0; right: 0; bottom: 0; left: 0;
       }
     }
   }
@@ -62,7 +72,10 @@ $i: 0 !default;
     }
   }
   > li > a {
-    display: block;
+
+    @media (max-width: $screen-xs-max) {
+      display: block;
+    }
   }
 }
 
@@ -112,12 +125,9 @@ article.project{
 // Site's Footer
 // -------------------------------------------------
 .site-footer {
-  padding-bottom: $line-height-computed * 4;
-  .nav-footer > li  {
-
-  }
+  padding-bottom: $line-height-computed * 2;
+  .nav-footer > li  {}
   .nav-footer > li > a {
-
     > span {
       line-height: inherit;
       display: inline-block;
@@ -134,15 +144,26 @@ article.project{
       height: 1rem;
     }
   }
+  .copyright {
+    margin-top: $line-height-computed * 3;
+  }
 }
 
 
 // Project Template
-.list-project-tags {
-  padding: 0;
-  .project-tag-first {
+.projects {
+  .p-role,
+  .p-live-site {
+    margin-bottom: 0;
   }
+  .list-project-tags {
+    padding: 0;
+    .project-tag-first {
+    }
+  }
+
 }
+
 
 // Project Gallery
 // -------------------------------------------------
@@ -171,7 +192,7 @@ article.project{
 
     .gallery-project-figure {
       overflow: hidden;
-      max-height: ($line-height-computed * 10);
+      max-height: ($line-height-computed * 14);
       @media (min-width: $screen-sm-min) {
         overflow: visible;
         max-height: none;
@@ -185,6 +206,18 @@ article.project{
       img + img {
         // @include box-shadow(0 1px 1px rgba(0,0,0,.15));
       }
+
+    }
+    .gallery-project-chrome {
+      overflow: hidden;
+      display: block;
+      &-xs {
+        height: $line-height-computed;
+        @media (min-width: $screen-sm-min) {
+          height: auto;
+        }
+      }
+
     }
     .gallery-project-media-low {
       position: relative;
@@ -201,7 +234,8 @@ article.project{
       // border: 1px solid $gray-light;
       border-top: none;
       font-size: $font-size-small;
-      line-height: ceil($line-height-computed * 0.6666);
+      line-height: 1.42857142857;
+
       background: $body-bg;
       color: $gray-dark;
       margin: 0;
@@ -213,10 +247,13 @@ article.project{
       right: 0;
       @media (min-width: $screen-sm-min) {
         position: relative;
+        font-size: $font-size-xsmall;
+        line-height: ceil($line-height-computed * 0.6666);
         padding: ($line-height-computed / 4) 0;
 
       }
       @media (min-width: $screen-md-min) {
+        font-size: $font-size-base;
       }
     }
     &:hover {
@@ -234,7 +271,8 @@ article.project{
 
 
 
-
+// Twitter Timeline
+// -------------------------------------------------
 .list-twitter-timeline {
   padding:0;
   margin: 0 0 $line-height-computed 0;
@@ -253,6 +291,7 @@ article.project{
       font-size: 1rem;
       line-height: $line-height-base;
       margin: 0;
+      padding: 0;
       font-weight: $body-font-weight;
     }
     .tweet-text {

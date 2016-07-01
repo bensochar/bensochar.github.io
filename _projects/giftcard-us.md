@@ -5,7 +5,7 @@ client: American Express
 title: Gift Card US
 role: Technical Lead
 live_site: https://www.americanexpress.com/gift-cards/
-tags: [HTML, LESS, Javascript, PHP, Composer, Silex, Twig, Node, NPM, Bower, PhantomJS, CasperJS, Grunt, JSHint, CSSlint]
+tags: [HTML, LESS, JavaScript, Bootstrap Framework, PHP, Composer, Silex, Twig, Node, NPM, Bower, PhantomJS, CasperJS, Grunt, JSHint, CSSlint]
 ---
 As technical lead I developed the complete overhaul of the Gift Card buying experience. Gift Card wanted a modern site that worked on all devices.
 
