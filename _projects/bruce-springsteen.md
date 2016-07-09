@@ -4,7 +4,7 @@ client: Sony Music
 title: Bruce Springsteen
 role: Technical Lead
 live_site: http://brucespringsteen.net/
-tags: [HTML, CSS, JavaScript, Wordpress, Linux, Apache, MySQL, PHP, Redhat, Memecahce, APC Cache, Rackspace, SVN, Mantis, BeanstalkApp]
+tags: [HTML, CSS, JavaScript, Wordpress, Linux, Apache, MySQL, PHP, Redhat, Memecahce, APC Cache, Rackspace, SVN, Mantis, BeanstalkApp, Google Analytics, Google Webmaster Tools]
 ---
 The Boss needs a new website.
 

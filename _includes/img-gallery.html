@@ -29,13 +29,18 @@
         {% comment %}
 
         {% endcomment %}
-        {% assign img_caption = '' %}
-        {% assign img_name = img.path | replace: '.jpg', '' | replace: '.gif', '' | replace: '.png', '' %}
-        {% assign img_low = img_name | append: '.low'  %}
-        {% assign img_screen = img_name | replace: '.nochrome', '' | slice: -3,3 %}
-        {% assign img_caption = img_name | split: '/'  %}
-        {% assign img_caption = img_caption.last | replace: img_screen,'' | replace: '1','' | replace: '2','' | replace: '-',' ' | replace: '.nochrome', ''  %}
 
+        {% assign img_name        = img.path | replace: '.jpg', '' | replace: '.gif', '' | replace: '.png', '' %}
+        {% assign img_low         = img_name | append: '.low'  %}
+        {% assign img_screen      = img_name | replace: '.nochrome', '' | slice: -3,3 %}
+        {% assign img_caption     = '' %}
+        {% assign img_caption     = img_name | split: '/'  %}
+        {% assign img_caption     = img_caption.last | replace: img_screen,'' | replace: '1','' | replace: '2','' | replace: '-',' ' | replace: '.nochrome', ''  %}
+
+        {% assign webp_file       = img_name | prepend: site.baseurl | append: '.webp' %}
+        {% assign webp_file_low   = img_name | prepend: site.baseurl | append: '.low' | append: '.webp' %}
+        {% assign jpg_file        = img.path | prepend: site.baseurl %}
+        {% assign jpg_file_low    = img_name | prepend: site.baseurl | append: '.low' | append: img.extname %}
 
         {% if img_screen == '-lg' %}
           {% assign img_width = 1680 %}
@@ -56,7 +61,9 @@
         {% else %}
           {% assign show_image = false %}
         {% endif %}
+
         {% assign col_total = col_total | plus: col_width %}
+
         {% if forloop.last %}
         {% assign offset = 24 | minus: col_total | divided_by: 2 %}
         <!--
@@ -75,8 +82,12 @@
             </picture>
             {% endif %}
             <picture>
-              <source srcset="{{ img_name | prepend: site.baseurl | append: '.low' | append: '.webp' }}" data-src="{{ img_name | prepend: site.baseurl | append: '.webp' }}" type="image/webp">
-              <img src="{{ img_name | prepend: site.baseurl | append: '.low' | append: img.extname }}" data-src="{{ img.path | prepend: site.baseurl }}" alt="{{ img_caption | capitalize }}" class="img-responsive" width="{{img_width}}">
+              <source srcset="{{ webp_file_low }}" data-src="{{ webp_file }}" data-src-retina="{{ webp_file }}" type="image/webp">
+              <img src="{{ jpg_file_low }}" data-src="{{ jpg_file }}" data-src-retina="{{ jpg_file }}" alt="{{ img_caption | capitalize }}" class="img-responsive" width="{{img_width}}">
+              <noscript>
+                <source srcset="{{ webp_file }}" type="image/webp">
+                <img src="{{ jpg_file  }}" alt="{{ img_caption | capitalize }}" class="img-responsive" width="{{img_width}}">
+              </noscript>
             </picture>
             <figcaption>{{ img_caption | trim | capitalize }}</figcaption>
           </figure>

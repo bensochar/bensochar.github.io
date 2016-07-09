@@ -10,11 +10,13 @@
 
 ;(function($) {
 
-  $.fn.unveil = function(threshold, callback, sourceType) {
+  $.fn.unveil = function(threshold, callback) {
 
     var $w = $(window),
         th = threshold || 0,
-        sourceType = sourceType || 'scrset',
+        hasWebp = Modernizr.webp,
+        sourceType = hasWebp == true ? 'srcset' : 'src',
+        // sourceType = sourceType || 'scrset',
         retina = window.devicePixelRatio > 1,
         attrib = retina? 'data-src-retina' : 'data-src',
         images = this,

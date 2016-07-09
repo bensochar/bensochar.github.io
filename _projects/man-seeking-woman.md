@@ -4,7 +4,7 @@ client: FX Networks
 title: Man Seeking Woman
 role: Technical Lead
 live_text: Seasonal campaign. Code available on request.
-tags: [HTML, CSS, JavaScript, JSHint, Grunt, Bower, Autoprefixer, TweenMax, TimelineMax, Modernizr, HammerJS, Git, Jira]
+tags: [HTML, CSS, JavaScript, JSHint, Grunt, Bower, Autoprefixer, TweenMax, TimelineMax, Modernizr, HammerJS, Git, Jira, Adobe Photoshop, Adobe Illustrator]
 ---
 FX Networks wanted to promote the new show *Man Seeking Woman* with a unique placement on their homepage. The placement mimics Tinder inviting the user to swipe left or right on cast members.
 

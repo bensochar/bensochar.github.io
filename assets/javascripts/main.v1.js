@@ -1,10 +1,22 @@
 
+// From 'sass/bootstrap/variables'
+var screenSM = 768;
+var screenMD = 992;
+var screenLG = 1264;
+
 $(function() {
 
-  if(Modernizr.webp){
-    $('source[data-src]').unveil(200, false, 'srcset');
-  } else {
-    $('img[data-src]').unveil(200, false, 'src');
+  var supportWebp;
+  supportWebp = Modernizr.webp;
+  console.log(supportWebp);
+  if(document.getElementById('js-gallery-project')){
+    if (supportWebp == true) {
+      console.log('supportWebp should be true');
+      $('source[data-src]').unveil(600);
+    } else {
+      console.log('supportWebp should be false');
+      $('img[data-src]').unveil(600);
+    }
   }
 
 });
@@ -52,7 +64,7 @@ init = function() {
   vpArray = getViewport();
 
   if(document.getElementById('js-gallery-project')){
-    if(vpArray[0] > 600){
+    if(vpArray[0] > screenSM){
       var elem = document.querySelector('.gallery-project');
       var iso = new Isotope(elem, {
         // options
