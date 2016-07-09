@@ -150,19 +150,39 @@ article.project{
   }
 }
 
-// Page Template
+// Page & Post Template
 // -------------------------------------------------
-.page{
-  img {
-    @extend .img-responsive;
-    display: block;
+article.page,
+article.post{
+  embed,
+  iframe,
+  img,
+  object,
+  .twitter-tweet {
     float: none;
     clear: both;
-    margin: 0 0 $line-height-computed 0;
-    p {
-
-    }
+    margin: 0 auto $line-height-computed auto;
+    border: 0 none transparent;
   }
+  embed,
+  iframe,
+  object {
+    display: block;
+  }
+  img {
+    @extend .img-responsive;
+    text-align: center;
+  }
+  .twitter-tweet {
+    opacity: 0;
+    width: 100%;
+    max-width: 504px;
+    display: block;
+  }
+  .twitter-tweet-rendered {
+    opacity: 1;
+  }
+
 }
 
 // Project Template
@@ -253,7 +273,7 @@ article.project{
       line-height: 1.42857142857;
 
       background: $body-bg;
-      color: $gray-dark;
+      color: $gray;
       margin: 0;
       text-align: left;
       padding: ($line-height-computed / 4) ($grid-gutter-width / 2);
@@ -262,14 +282,17 @@ article.project{
       left: 0;
       right: 0;
       @media (min-width: $screen-sm-min) {
+
+        // background: rgba(#ffffff, 0.66);
         position: relative;
         font-size: $font-size-xsmall;
-        line-height: ceil($line-height-computed * 0.6666);
-        padding: ($line-height-computed / 4) 0;
+        line-height: 1.45454545455;
+        padding: ($line-height-computed / 4) ($grid-gutter-width / 2) ($line-height-computed / 2);
 
       }
       @media (min-width: $screen-md-min) {
-        font-size: $font-size-base;
+        font-size: $font-size-small;
+        line-height: 1.42857142857;
       }
     }
     &:hover {

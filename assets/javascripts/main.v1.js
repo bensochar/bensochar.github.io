@@ -26,18 +26,22 @@ $(function() {
 document.addEventListener("DOMContentLoaded", function() {
   // init();
   if(document.getElementsByClassName) { // Doubt anybody is using < IE9, but never know
-    var cusid_ele = document.getElementsByClassName('js-random-bg-color-hover');
-    for (var i = 0; i < cusid_ele.length; ++i) {
+    var linksToColor_ele = document.getElementsByClassName('js-random-bg-color-hover');
+    for (var i = 0; i < linksToColor_ele.length; ++i) {
       var rng = Math.random() * (8 - 0) + 0;
-      var item = cusid_ele[i];
+      var item = linksToColor_ele[i];
       item.className += ' bg-color-hover-' + Math.round(rng);//set class
     }
   }
+
+
 
 });
 
 window.onload = function() {
   init();
+
+  removeTweetStyle();
 
 };
 window.onresize = function() {
@@ -55,6 +59,20 @@ getViewport = function() {
   vpArray.push(h);
   console.log(w + ',' + h);
   return vpArray;
+};
+
+// Remove styles for embbed tweets
+// ------------------------------------------
+removeTweetStyle = function() {
+  if(document.getElementsByTagName('twitterwidget')) {
+    var twitterwidget_ele = document.getElementsByTagName('twitterwidget');
+    for (var i = 0; i < twitterwidget_ele.length; ++i) {
+      var item = twitterwidget_ele[i];
+      item.removeAttribute('style'),
+      item.className += ' twitter-tweet-loaded';//set class
+    }
+  }
+
 };
 
 
