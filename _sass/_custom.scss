@@ -2,6 +2,7 @@ a[class*="bg-color-hover-"],
 button[class*="bg-color-hover-"]{
   z-index: 1;
   position: relative;
+  // will-change: background, right, bottom;
   &:before {
     @include transition(all 0.10s linear);
     content: '';
@@ -287,7 +288,7 @@ article.post{
         position: relative;
         font-size: $font-size-xsmall;
         line-height: 1.45454545455;
-        padding: ($line-height-computed / 4) ($grid-gutter-width / 2) ($line-height-computed / 2);
+        padding: ($line-height-computed / 4) 0 ($line-height-computed / 2);
 
       }
       @media (min-width: $screen-md-min) {

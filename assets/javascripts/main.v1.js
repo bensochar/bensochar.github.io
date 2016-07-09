@@ -24,8 +24,15 @@ $(function() {
 // Kill it with fire on load
 // ------------------------------------------
 document.addEventListener("DOMContentLoaded", function() {
-  // init();
+  init();
   if(document.getElementsByClassName) { // Doubt anybody is using < IE9, but never know
+    var childToColor_ele = document.getElementById('nav-footer');
+    var childToColor_array = childToColor_ele.children;
+    for (var i = 0; i < childToColor_array.length; ++i) {
+      var item = childToColor_array[i].children[0];
+      item.className += ' js-random-bg-color-hover';
+    }
+
     var linksToColor_ele = document.getElementsByClassName('js-random-bg-color-hover');
     for (var i = 0; i < linksToColor_ele.length; ++i) {
       var rng = Math.random() * (8 - 0) + 0;
