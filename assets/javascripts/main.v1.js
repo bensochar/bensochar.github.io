@@ -12,10 +12,10 @@ $(function() {
   if(document.getElementById('js-gallery-project')){
     if (supportWebp == true) {
       console.log('supportWebp should be true');
-      $('source[data-src]').unveil(600);
+      $('source[data-src]').unveil(400);
     } else {
       console.log('supportWebp should be false');
-      $('img[data-src]').unveil(600);
+      $('img[data-src]').unveil(400);
     }
   }
 
