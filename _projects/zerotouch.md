@@ -4,7 +4,7 @@ client: Logitec
 title: ZeroTouch
 role: Technical Lead
 live_text: code available on request
-tag: [HTML, SASS, Bootstrap Framework, JavaScript, Ruby, Ruby on Rails, Middleman, TweenMax]
+tag: [HTML, SASS, Bootstrap Framework, JavaScript, Ruby, Ruby on Rails, Middleman, TweenMax, Twitter Card, Open Graph Protocol, SEO]
 ---
 Brochure site for Logitech’s hands-free phone accessory.
 

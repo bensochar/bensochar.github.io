@@ -5,7 +5,7 @@ title: Serve
 role: Technical Lead
 live_site: https://serve.com/
 live_text: serve.com
-tags: [HTML, LESS, JavaScript, Omniture, Silex, Twig, Composer, Grunt, Bower, PhantomJS, Adobe Photoshop, Adobe Illustrator]
+tags: [HTML, LESS, JavaScript, Omniture, Silex, Twig, Composer, Grunt, Bower, PhantomJS, Adobe Photoshop, Adobe Illustrator, SEO, Twitter Card, Open Graph protocol]
 ---
 Bluebird was a success so AMEX came back to relaunch Serve. The goal was a redesigned, modernized responsive site.
 

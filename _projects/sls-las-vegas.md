@@ -5,7 +5,7 @@ client: SLS
 title: Las Vegas Hotel and Casino
 role: Technical Lead
 live_site: http://slslasvegas.com/
-tags: [HTML, LESS, JavaScript, AngularJS, Bower, RequireJS, Grunt, PHP, Wordpress, REST APIs, Open Table, Google Tag Manager, Git, Linux, Ubuntu, Varnish]
+tags: [HTML, LESS, JavaScript, AngularJS, Bower, RequireJS, Grunt, PHP, Wordpress, REST APIs, Twitter REST API, Instagram API, Facebook Graph API, OAuth, Open Table, Google Tag Manager, Git, Linux, Ubuntu, Varnish]
 ---
 SLS Hotels wanted a modern site representing their rebranding/remodel of The Sands hotel & casino.
 

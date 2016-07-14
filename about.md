@@ -24,6 +24,7 @@ Or tinkering. Or reading. Or cruising Reddit.
 * Arcade Creative Group
 * Art Intelligence, LLC
 * Bruce Springsteen
+* Cirque du Soleil
 * Coca-Cola
 * Council of Fashion Designers of America
 * Eli Lilly
@@ -81,7 +82,6 @@ Or tinkering. Or reading. Or cruising Reddit.
 * JSHint
 * JSON
 * JavaScript
-* Javascript
 * Jira
 * jQuery
 * LESS

@@ -25,7 +25,8 @@ layout: default
         {% assign tag_length = page.tags.size %}
         {% assign oxford_break = tag_length | minus: 1 %}
         {% assign tag_index = 0 %}
-        {% for tag in page.tags %}
+        {% assign sorted_tags = page.tags | sort %}
+        {% for tag in sorted_tags %}
           {% assign tag_index = tag_index | plus: 1 %}
           <li class="project-tag{% if forloop.last %}-last{% endif %}">{% if forloop.last %} &amp; {{ tag }}{% elsif tag_index == oxford_break %}{{ tag }}{% else %}{{ tag }}, {% endif %}</li>
         {% endfor %}

@@ -4,7 +4,7 @@ client: The Weinstein Company
 title: Radius
 role: Technical Lead
 live_site: http://radiustwc.com/
-tags: [HTML, CSS, JavaScript, PHP, Wordpress, REST APIs, Google Analytics, Google Webmaster Tools]
+tags: [HTML, CSS, JavaScript, PHP, Wordpress, REST APIs, GoWatchIt API, Google Analytics, Google Webmaster Tools, SEO, Twitter Card, Open Graph Protocol, Microdata, RDFa]
 ---
 A division of Weinstein Company needed a website to drive ticket sales & online rentals.
 
