@@ -1,5 +1,24 @@
+// Icons
+// -------------------------------------------------
+.icon {
+  line-height: $line-height-computed;
+  display: inline-block;
+  > svg {
+    display: inline-block;
+    width: $line-height-computed * 0.75;
+    height: $line-height-computed * 0.75;
+    margin: auto;
+    path {
+      fill: $gray;
+    }
+  }
+}
+
+
+// Site's Footer
+// -------------------------------------------------
 a[class*="bg-color-hover-"],
-button[class*="bg-color-hover-"]{
+button[class*="bg-color-hover-"] {
   z-index: 1;
   position: relative;
   // will-change: background, right, bottom;
@@ -7,7 +26,10 @@ button[class*="bg-color-hover-"]{
     @include transition(all 0.10s linear);
     content: '';
     position: absolute;
-    top: 0; right: 50%; bottom: 5%; left: 0;
+    top: 0;
+    right: 50%;
+    bottom: 5%;
+    left: 0;
     z-index: -1;
   }
   &:hover,
@@ -17,19 +39,22 @@ button[class*="bg-color-hover-"]{
     &:before {
       @include transition(all 0s linear);
       position: absolute;
-      top: 0; right: 0; bottom: 0; left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
     }
   }
 }
-$i: 0 !default;
-@each $colorname, $hex in $ncs-array {
-  // $i: index($colorname, $ncs-array);
 
+$i: 0 !default;
+@each $colorname,
+$hex in $ncs-array {
+  // $i: index($colorname, $ncs-array);
   .bg-color-#{""+$colorname},
   .bg-color-#{$i} {
     background: rgba($hex, 0.60);
   }
-
   .bg-color-hover-#{""+$colorname},
   .bg-color-hover-#{$i} {
     -webkit-tap-highlight-color: rgba($hex, 0.40);
@@ -57,6 +82,7 @@ $i: 0 !default;
     display: inline-block;
   }
 }
+
 .nav-centered {
   padding-left: 0;
   padding-right: 0;
@@ -64,6 +90,7 @@ $i: 0 !default;
   margin-left: auto;
   margin-right: auto;
 }
+
 .nav-stacked-xs {
   > li {
     @media (max-width: $screen-xs-max) {
@@ -73,7 +100,6 @@ $i: 0 !default;
     }
   }
   > li > a {
-
     @media (max-width: $screen-xs-max) {
       display: block;
     }
@@ -98,23 +124,16 @@ $i: 0 !default;
   }
 }
 
-
 // Layout
 // Extending container and grid classes
 // -------------------------------------------------
 article.page,
 article.post,
-article.project{
+article.project {
   @extend .container;
-
 }
-.center-content{
-  // @extend .col-xs-12;
-  // @extend .col-sm-10;
-  // @extend .col-md-offset-1;
-  // @extend .col-md-8;
-  // @extend .col-md-offset-2;
 
+.center-content {
   @extend .col-xs-24;
   @extend .col-sm-18;
   @extend .col-sm-offset-3;
@@ -128,7 +147,7 @@ article.project{
 // -------------------------------------------------
 .site-footer {
   padding-bottom: $line-height-computed * 2;
-  .nav-footer > li  {}
+  .nav-footer > li {}
   .nav-footer > li > a {
     > span {
       line-height: inherit;
@@ -154,7 +173,7 @@ article.project{
 // Page & Post Template
 // -------------------------------------------------
 article.page,
-article.post{
+article.post {
   embed,
   iframe,
   img,
@@ -204,12 +223,9 @@ article.post{
   }
   .list-project-tags {
     padding: 0;
-    .project-tag-first {
-    }
+    .project-tag-first {}
   }
-
 }
-
 
 // Project Gallery
 // -------------------------------------------------
@@ -220,22 +236,18 @@ article.post{
   text-align: center;
   overflow: hidden;
   @extend .center-block;
-
-
   .gallery-project-item {
-    margin:0;
+    margin: 0;
     text-align: center;
     margin-bottom: $line-height-computed;
     overflow: visible;
     vertical-align: top;
-
     // @include transition(all .6s ease-out);
     @media (min-width: $screen-sm-min) {
       margin-bottom: 0;
       padding-bottom: $line-height-computed;
       max-height: none;
     }
-
     .gallery-project-figure {
       overflow: hidden;
       max-height: ($line-height-computed * 14);
@@ -246,13 +258,10 @@ article.post{
       img {
         margin: 0 auto;
         vertical-align: top;
-
-
       }
       img + img {
         // @include box-shadow(0 1px 1px rgba(0,0,0,.15));
       }
-
     }
     .gallery-project-chrome {
       overflow: hidden;
@@ -263,7 +272,6 @@ article.post{
           height: auto;
         }
       }
-
     }
     .gallery-project-media-low {
       position: relative;
@@ -274,14 +282,13 @@ article.post{
       left: 0;
       width: 100%;
     }
-    figcaption{
+    figcaption {
       @include border-bottom-radius(2px);
       // @include box-shadow(0 1px 1px rgba(0,0,0,.15));
       // border: 1px solid $gray-light;
       border-top: none;
       font-size: $font-size-small;
       line-height: 1.42857142857;
-
       background: $body-bg;
       color: $gray;
       margin: 0;
@@ -292,13 +299,11 @@ article.post{
       left: 0;
       right: 0;
       @media (min-width: $screen-sm-min) {
-
         // background: rgba(#ffffff, 0.66);
         position: relative;
         font-size: $font-size-xsmall;
         line-height: 1.45454545455;
         padding: ($line-height-computed / 4) 0 ($line-height-computed / 2);
-
       }
       @media (min-width: $screen-md-min) {
         font-size: $font-size-small;
@@ -306,24 +311,18 @@ article.post{
       }
     }
     &:hover {
-      figcaption{
-
+      figcaption {
         display: block;
-        @media (min-width: $screen-sm-min) {
-
-
-        }
+        @media (min-width: $screen-sm-min) {}
       }
     }
   }
 }
 
-
-
 // Twitter Timeline
 // -------------------------------------------------
 .list-twitter-timeline {
-  padding:0;
+  padding: 0;
   margin: 0 0 $line-height-computed 0;
   > li {
     padding: 0;
@@ -359,10 +358,7 @@ article.post{
         margin: 0;
       }
     }
-
   }
-
-
   .nav-tweet-actions {
     width: 100%;
     > li {
@@ -377,14 +373,11 @@ article.post{
         @include opacity(0.23);
         &:hover {
           @include opacity(0.67);
-
         }
         svg {
           width: 16px;
           height: 16px;
-
         }
-
       }
       &.nav-tweet-action-retweet > a {
         line-height: 18px;
@@ -393,10 +386,8 @@ article.post{
         svg {
           width: 18px;
           height: 18px;
-
         }
       }
     }
-
   }
 }
