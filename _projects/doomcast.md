@@ -10,7 +10,7 @@ tags: [HTML, SASS, JavaScript, Ruby, Ruby on Rails, PostgreSQL, Heroku, Twitter 
 ---
 Gleans data from government APIs & social media to alert users to nearby disasters.
 
-* Pulls data from Twitter, USGS, weather Underground, US Forest Service, NASA’s JPL & FEMA.
+* Pulls data from REST APIS & XML feeds. Sources include Twitter REST API, USGS, Weather Underground, US Forest Service, NASA’s JPL & FEMA.
 * Event data is normalized, categorized & reverse geocoded.
 * Google Maps API displays events within a user’s area or ip address.
 * Users can sign up, set a location, alert radius & notification preferences.
