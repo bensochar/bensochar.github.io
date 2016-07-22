@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About
+excerpt: About Ben Sochar
 permalink: /about/
 ---
 #### Me:

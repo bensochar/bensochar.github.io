@@ -68,6 +68,7 @@ description:          Brooklyn-based experienced full-stack web developer always
 google_analytics:     UA-80048348-1
 google_verification:  bNxPt9aX1r_Bm1LrjHHrnHrmx8xx1ZSbSidXWvq2og0
 bing_verification:    F2755313519F06188F14B44E05940408
+favicon_path:         /assets/images/meta/
 #
 # Contact vars
 email:              bsochar@gmail.com
