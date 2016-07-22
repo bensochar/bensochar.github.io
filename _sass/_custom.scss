@@ -15,7 +15,7 @@
 }
 
 
-// Site's Footer
+// Hover Colors
 // -------------------------------------------------
 a[class*="bg-color-hover-"],
 button[class*="bg-color-hover-"] {
@@ -161,8 +161,7 @@ article.project {
       bottom: -1px;
     }
     .icon > svg {
-      width: 1rem;
-      height: 1rem;
+
     }
   }
   .copyright {
@@ -202,16 +201,10 @@ article.post {
   .twitter-tweet-rendered {
     opacity: 1;
   }
-  // ul  {
-  //   width: 100%;
-  //   float: left;
-  // }
-  // ul > li {
-  //   @extend .col-xs-24;
-  //   @extend .col-sm-12;
-  //   // @extend .col-lg-8;
-  //   padding-left: 0;
-  // }
+  h4[id] {
+    @include anchor-offset($navbar-height, $line-height-computed);
+  }
+
 }
 
 // Project Template
