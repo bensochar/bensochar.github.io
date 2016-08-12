@@ -242,11 +242,15 @@ article.post {
       max-height: none;
     }
     .gallery-project-figure {
-      overflow: hidden;
-      max-height: ($line-height-computed * 14);
+
+      @media (max-width: $screen-sm-max) {
+        overflow: hidden;
+        height: ($line-height-computed * 14);
+      }
       @media (min-width: $screen-sm-min) {
         overflow: visible;
         max-height: none;
+        height: auto;
       }
       img {
         margin: 0 auto;
@@ -259,7 +263,7 @@ article.post {
     .gallery-project-chrome {
       overflow: hidden;
       display: block;
-      &-xs {
+      &-360 {
         height: $line-height-computed;
         @media (min-width: $screen-sm-min) {
           height: auto;

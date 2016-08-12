@@ -26,38 +26,41 @@
     <div id="js-gallery-project" class="clearfix js-gallery-project gallery-project">
     {% for img in project_imgs %}
         {% assign show_image = true %}
+        {% assign img_array = img.path | split: '/' %}
+        {% assign img_array = img_array.last | split: '.' %}
+
         {% comment %}
 
         {% endcomment %}
 
         {% assign img_name        = img.path | replace: '.jpg', '' | replace: '.gif', '' | replace: '.png', '' %}
-        {% assign img_low         = img_name | append: '.low'  %}
-        {% assign img_screen      = img_name | replace: '.nochrome', '' | slice: -3,3 %}
+
+        {% assign img_width       = img_array[1] | plus: 0 %}
+        {% assign img_height      = img_array[2] | plus: 0 %}
+
         {% assign img_caption     = '' %}
-        {% assign img_caption     = img_name | split: '/'  %}
-        {% assign img_caption     = img_caption.last | replace: img_screen,'' | replace: '1','' | replace: '2','' | replace: '-',' ' | replace: '.nochrome', ''  %}
+        {% assign img_caption     = img_array[0] | replace: '-',' ' | replace: '.nochrome', '' | replace: '1', '' | replace: '2' %}
 
         {% assign webp_file       = img_name | prepend: site.baseurl | append: '.webp' %}
         {% assign webp_file_low   = img_name | prepend: site.baseurl | append: '.low' | append: '.webp' %}
         {% assign jpg_file        = img.path | prepend: site.baseurl %}
         {% assign jpg_file_low    = img_name | prepend: site.baseurl | append: '.low' | append: img.extname %}
 
-        {% if img_screen == '-lg' %}
-          {% assign img_width = 1680 %}
-          {% assign col_width = 8 %}
-          {% assign chrome_height = 75 %}
-        {% elsif img_screen == '-md' %}
-          {% assign img_width = 1024 %}
-          {% assign col_width = 6 %}
-          {% assign chrome_height = 65 %}
-        {% elsif img_screen == '-sm' %}
-          {% assign img_width = 768 %}
-          {% assign col_width = 5 %}
-          {% assign chrome_height = 65 %}
-        {% elsif img_screen == '-xs' %}
-          {% assign img_width = 360 %}
+
+
+
+        {% if img_width <= 360 %}
           {% assign col_width = 4 %}
           {% assign chrome_height = 73 %}
+        {% elsif img_width <= 768 %}
+          {% assign col_width = 5 %}
+          {% assign chrome_height = 65 %}
+        {% elsif img_width <= 1024 %}
+          {% assign col_width = 6 %}
+          {% assign chrome_height = 65 %}
+        {% elsif img_width <= 1680 %}
+          {% assign col_width = 8 %}
+          {% assign chrome_height = 75 %}
         {% else %}
           {% assign show_image = false %}
         {% endif %}
@@ -72,21 +75,21 @@
         -->
         {% endif %}
         {% if show_image %}
-        <div class="col-xs-24 col-sm-{{col_width}} col-md-{{col_width}} gallery-project-item gallery-project-item{{img_screen}}" style="">
+        <div class="col-xs-24 col-sm-{{col_width}} col-md-{{col_width}} gallery-project-item gallery-project-item" style="">
           <figure class="gallery-project-figure">
             {% if img.path contains '.nochrome' %}
             {% else %}
-            <picture class="gallery-project-chrome gallery-project-chrome{{img_screen}}">
-              <source srcset="{{ site.baseurl }}/assets/images/{{ img_screen | prepend: 'browser-chrome' | append: '.webp' }}" type="image/webp">
-              <img src="{{ site.baseurl }}/assets/images/{{ img_screen | prepend: 'browser-chrome' | append: '.png' }}" class="img-responsive" width="{{ img_width }}" height="{{ chrome_height }}">
+            <picture class="gallery-project-chrome gallery-project-chrome">
+              <source srcset="{{ site.baseurl }}/assets/images/{{ img_width | prepend: 'browser-chrome-' | append: '.webp' }}" type="image/webp">
+              <img src="{{ site.baseurl }}/assets/images/{{ img_width | prepend: 'browser-chrome-' | append: '.png' }}" class="img-responsive" width="{{ img_width }}" height="{{ chrome_height }}">
             </picture>
             {% endif %}
             <picture>
               <source srcset="{{ webp_file_low }}" data-src="{{ webp_file }}" data-src-retina="{{ webp_file }}" type="image/webp">
-              <img src="{{ jpg_file_low }}" data-src="{{ jpg_file }}" data-src-retina="{{ jpg_file }}" alt="{{ img_caption | capitalize }}" class="img-responsive" width="{{img_width}}">
+              <img src="{{ jpg_file_low }}" data-src="{{ jpg_file }}" data-src-retina="{{ jpg_file }}" alt="{{ img_caption | capitalize }}" class="img-responsive" width="{{img_width}}" height="{{img_height}}">
               <noscript>
                 <source srcset="{{ webp_file }}" type="image/webp">
-                <img src="{{ jpg_file  }}" alt="{{ img_caption | capitalize }}" class="img-responsive" width="{{img_width}}">
+                <img src="{{ jpg_file  }}" alt="{{ img_caption | capitalize }}" class="img-responsive" width="{{img_width}}" height="{{img_height}}">
               </noscript>
             </picture>
             <figcaption>{{ img_caption | trim | capitalize }}</figcaption>
