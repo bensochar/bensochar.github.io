@@ -4,13 +4,9 @@
 {% assign col_total = 0 %}
 {% assign project_imgs = '' | split: ',' %}
 {% for image in site.static_files %}
-  <!-- if image path matches url -->
   {% if image.path contains img_path %}
-    <!-- we need to check for webp files, jpgs & gifs -->
     {% unless image.extname == '.webp' or image.path contains '.low' %}
-        <!-- we need to check for the 'low source' -->
         {% assign img_file = image.path %}
-        <!-- Making sure the array is unique -->
         {% unless img_file == previous_img_file %}
           {% assign project_imgs = project_imgs | push: image %}
         {% endunless %}
@@ -61,18 +57,14 @@
         {% elsif img_width <= 1680 %}
           {% assign col_width = 8 %}
           {% assign chrome_height = 75 %}
-        {% else %}
+        {% endif %}
+        {% if img_width == 0 %}
           {% assign show_image = false %}
         {% endif %}
-
         {% assign col_total = col_total | plus: col_width %}
 
         {% if forloop.last %}
         {% assign offset = 24 | minus: col_total | divided_by: 2 %}
-        <!--
-        <h1>{{ col_total }} Last</h1>
-        <h1>{{ offset }} Last</h1>
-        -->
         {% endif %}
         {% if show_image %}
         <div class="col-xs-24 col-sm-{{col_width}} col-md-{{col_width}} gallery-project-item gallery-project-item" style="">
