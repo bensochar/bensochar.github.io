@@ -157,11 +157,13 @@ article.project {
       overflow: visible;
       width: 1rem;
       height: 1rem;
+      line-height: 1rem;
       position: relative;
       bottom: -1px;
     }
     .icon > svg {
-
+      width: 1rem;
+      height: 1rem;
     }
   }
   .copyright {
@@ -230,27 +232,27 @@ article.post {
   overflow: hidden;
   @extend .center-block;
   .gallery-project-item {
-    margin: 0;
     text-align: center;
-    margin-bottom: $line-height-computed;
     overflow: visible;
     vertical-align: top;
     // @include transition(all .6s ease-out);
+    @media (max-width: $screen-xs-max) {
+      margin: 0 0 $line-height-computed 0;
+    }
     @media (min-width: $screen-sm-min) {
-      margin-bottom: 0;
+      margin: 0;
       padding-bottom: $line-height-computed;
-      max-height: none;
+
     }
     .gallery-project-figure {
 
-      @media (max-width: $screen-sm-max) {
+      @media (max-width: $screen-xs-max) {
         overflow: hidden;
-        height: ($line-height-computed * 14);
+        height: ($line-height-computed * 16);
       }
       @media (min-width: $screen-sm-min) {
         overflow: visible;
-        max-height: none;
-        height: auto;
+
       }
       img {
         margin: 0 auto;

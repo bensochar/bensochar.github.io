@@ -14,6 +14,18 @@ sass:
   style:          compressed
 
 #
+# HTML compression
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  endings: all
+  ignore:
+    envs: []
+  blanklines: false
+  profile: true
+  startings: [html, head, body]
+
+#
 # Files to keep or not
 include:
   - .htaccess
