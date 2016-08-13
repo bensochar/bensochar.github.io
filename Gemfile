@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
-gem 'github-pages', group: :jekyll_plugins
+group :jekyll_plugins do
+  gem 'github-pages'
+  gem 'octopress-image-tag'
+  gem 'octopress-minify-html'
+  gem 'octopress-social'
+end
+gem 'octopress-autoprefixer'
 # Auto redirect pages
 gem 'jekyll-redirect-from'
 gem 'jekyll-mentions'

@@ -69,6 +69,8 @@ gems:
   - jekyll-sitemap
   - jekyll-mentions
   - octopress-minify-html
+  - octopress-image-tag
+  - octopress-social
 
 jekyll-mentions:
   base_url: https://twitter.com
