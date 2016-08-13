@@ -263,10 +263,13 @@ article.post {
       }
     }
     .gallery-project-chrome {
-      overflow: hidden;
       display: block;
       &-360 {
-        height: $line-height-computed;
+        // Set height only on mobile
+        @media (max-width: $screen-xs-max) {
+          overflow: hidden;
+          height: $line-height-computed;
+        }
         @media (min-width: $screen-sm-min) {
           height: auto;
         }
@@ -292,11 +295,13 @@ article.post {
       color: $gray;
       margin: 0;
       text-align: left;
-      padding: ($line-height-computed / 4) ($grid-gutter-width / 2);
-      position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
+      @media (max-width: $screen-xs-max) {
+        position: absolute;
+        padding: ($line-height-computed / 4) ($grid-gutter-width / 2);
+      }
       @media (min-width: $screen-sm-min) {
         // background: rgba(#ffffff, 0.66);
         position: relative;
@@ -311,7 +316,6 @@ article.post {
     }
     &:hover {
       figcaption {
-        display: block;
         @media (min-width: $screen-sm-min) {}
       }
     }

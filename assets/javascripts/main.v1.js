@@ -47,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 window.onload = function() {
   init();
-
   removeTweetStyle();
 
 };
@@ -64,7 +63,7 @@ getViewport = function() {
   var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
   vpArray.push(w);
   vpArray.push(h);
-  console.log(w + ',' + h);
+  // console.log(w + ',' + h);
   return vpArray;
 };
 
@@ -96,19 +95,24 @@ init = function() {
         itemSelector: '.gallery-project-item',
         layoutMode: 'packery',
         transitionDuration: 0
-        // originTop: false
-          // layoutMode: 'masonry',
-          // percentPosition: true
-          // layoutMode: 'fitRows'
+      });
+
+      function onArrange() {
+        console.log('arrange done');
+      }
+      // bind event listener
+      iso.on( 'arrangeComplete', onArrange );
+      // un-bind event listener
+      iso.off( 'arrangeComplete', onArrange );
+      // bind event listener to be triggered just once
+      iso.once( 'arrangeComplete', function() {
+        console.log('arrange done, just this one time');
       });
     } else {
       // iso.destroy();
     }
   }
 
-  // var colcade = new Colcade( '.gallery-project', {
-  //   columns: '.gallery-project-item',
-  //   items: '.gallery-project-item'
-  // });
+
 
 };

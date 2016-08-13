@@ -15,15 +15,15 @@ sass:
 
 #
 # HTML compression
-compress_html:
-  clippings: all
-  comments: ["<!-- ", " -->"]
-  endings: all
-  ignore:
-    envs: []
-  blanklines: false
-  profile: true
-  startings: [html, head, body]
+# compress_html:
+#   clippings: all
+#   comments: ["<!-- ", " -->"]
+#   endings: all
+#   ignore:
+#     envs: []
+#   blanklines: false
+#   profile: true
+#   startings: [html, head, body]
 
 #
 # Files to keep or not
@@ -68,6 +68,7 @@ encoding:         UTF-8
 gems:
   - jekyll-sitemap
   - jekyll-mentions
+  - octopress-minify-html
 
 jekyll-mentions:
   base_url: https://twitter.com
