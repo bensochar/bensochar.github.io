@@ -3,7 +3,7 @@
 var screenSM = 768;
 var screenMD = 992;
 var screenLG = 1264;
-
+var body = document.getElementsByTagName('body')[0];
 $(function() {
 
   var supportWebp;
@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
 window.onload = function() {
   init();
   removeTweetStyle();
+  body.className += ' window-loaded'; //set class
 
 };
 window.onresize = function() {
