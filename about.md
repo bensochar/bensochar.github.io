@@ -17,7 +17,11 @@ When I’m not developing I’m playing with my dog, Duffy.
 
 <img src="https://scontent-lga3-1.cdninstagram.com/t51.2885-15/e15/1527615_287040431460242_1948570481_n.jpg" alt="Duffy" width="240" height="240">
 
-Or tinkering. Or reading. Or cruising Reddit.
+Or tinkering.
+
+<img src="https://scontent-lga3-1.cdninstagram.com/t51.2885-15/e15/1208182_231420653693485_901595060_n.jpg" alt="Pringle Ring" width="240" height="240">
+
+Or reading. Or cruising Reddit.
 
 #### List of Clients:
 
