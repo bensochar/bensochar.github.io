@@ -14,18 +14,6 @@ sass:
   style:          compressed
 
 #
-# HTML compression
-# compress_html:
-#   clippings: all
-#   comments: ["<!-- ", " -->"]
-#   endings: all
-#   ignore:
-#     envs: []
-#   blanklines: false
-#   profile: true
-#   startings: [html, head, body]
-
-#
 # Files to keep or not
 include:
   - .htaccess
@@ -61,21 +49,23 @@ defaults:
 timezone:         America/New_York
 # host:           0.0.0.0
 # port:           9001
-# url:            "http://yourdomain.com" # the base hostname & protocol for your site
+url:              "http://localhost:4000" # the base hostname & protocol for your site
 encoding:         UTF-8
 #
 # Gems
 gems:
+  - jekyll-github-metadata
   - jekyll-sitemap
   - jekyll-mentions
   - octopress-minify-html
-  - octopress-image-tag
-  - octopress-social
+  # - octopress-image-tag
+  # - octopress-social
 
 jekyll-mentions:
   base_url: https://twitter.com
 
 
+repository: bensochar/bensochar.github.io
 
 #
 # Meta

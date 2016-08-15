@@ -2,20 +2,20 @@
 # stub: gemoji 2.1.0 ruby lib
 
 Gem::Specification.new do |s|
-  s.name = "gemoji"
+  s.name = "gemoji".freeze
   s.version = "2.1.0"
 
-  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.require_paths = ["lib"]
-  s.authors = ["GitHub"]
+  s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
+  s.require_paths = ["lib".freeze]
+  s.authors = ["GitHub".freeze]
   s.date = "2014-08-07"
-  s.description = "Image assets and character information for emoji."
-  s.email = "support@github.com"
-  s.homepage = "https://github.com/github/gemoji"
-  s.licenses = ["MIT"]
-  s.required_ruby_version = Gem::Requirement.new("> 1.9")
-  s.rubygems_version = "2.4.8"
-  s.summary = "Emoji conversion and image assets"
+  s.description = "Image assets and character information for emoji.".freeze
+  s.email = "support@github.com".freeze
+  s.homepage = "https://github.com/github/gemoji".freeze
+  s.licenses = ["MIT".freeze]
+  s.required_ruby_version = Gem::Requirement.new("> 1.9".freeze)
+  s.rubygems_version = "2.6.6".freeze
+  s.summary = "Emoji conversion and image assets".freeze
 
-  s.installed_by_version = "2.4.8" if s.respond_to? :installed_by_version
+  s.installed_by_version = "2.6.6" if s.respond_to? :installed_by_version
 end

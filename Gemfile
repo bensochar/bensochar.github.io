@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 group :jekyll_plugins do
   gem 'github-pages'
-  gem 'octopress-image-tag'
+  # gem 'octopress-image-tag'
   gem 'octopress-minify-html'
-  gem 'octopress-social'
+  # gem 'octopress-social'
 end
+gem 'jekyll-github-metadata'
 gem 'octopress-autoprefixer'
 # Auto redirect pages
 gem 'jekyll-redirect-from'
@@ -15,9 +16,3 @@ gem 'json'
 group :development, :test do
 end
 
-group :site do
-  if ENV["PROOF"]
-    gem "html-proofer", "~> 2.0"
-  end
-  gem "jekyll-sitemap"
-end
