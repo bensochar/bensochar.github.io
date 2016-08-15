@@ -3,47 +3,47 @@
 # stub: ext/ffi_c/extconf.rb
 
 Gem::Specification.new do |s|
-  s.name = "ffi".freeze
+  s.name = "ffi"
   s.version = "1.9.14"
 
-  s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
-  s.require_paths = ["lib".freeze]
-  s.authors = ["Wayne Meissner".freeze]
+  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
+  s.require_paths = ["lib"]
+  s.authors = ["Wayne Meissner"]
   s.date = "2016-07-11"
-  s.description = "Ruby FFI library".freeze
-  s.email = "wmeissner@gmail.com".freeze
-  s.extensions = ["ext/ffi_c/extconf.rb".freeze]
-  s.files = ["ext/ffi_c/extconf.rb".freeze]
-  s.homepage = "http://wiki.github.com/ffi/ffi".freeze
-  s.licenses = ["BSD-3-Clause".freeze]
-  s.rdoc_options = ["--exclude=ext/ffi_c/.*\\.o$".freeze, "--exclude=ffi_c\\.(bundle|so)$".freeze]
-  s.required_ruby_version = Gem::Requirement.new(">= 1.8.7".freeze)
-  s.rubygems_version = "2.6.6".freeze
-  s.summary = "Ruby FFI".freeze
+  s.description = "Ruby FFI library"
+  s.email = "wmeissner@gmail.com"
+  s.extensions = ["ext/ffi_c/extconf.rb"]
+  s.files = ["ext/ffi_c/extconf.rb"]
+  s.homepage = "http://wiki.github.com/ffi/ffi"
+  s.licenses = ["BSD-3-Clause"]
+  s.rdoc_options = ["--exclude=ext/ffi_c/.*\\.o$", "--exclude=ffi_c\\.(bundle|so)$"]
+  s.required_ruby_version = Gem::Requirement.new(">= 1.8.7")
+  s.rubygems_version = "2.4.8"
+  s.summary = "Ruby FFI"
 
-  s.installed_by_version = "2.6.6" if s.respond_to? :installed_by_version
+  s.installed_by_version = "2.4.8" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<rake>.freeze, ["~> 10.1"])
-      s.add_development_dependency(%q<rake-compiler>.freeze, ["~> 0.9"])
-      s.add_development_dependency(%q<rake-compiler-dock>.freeze, ["~> 0.5.2"])
-      s.add_development_dependency(%q<rspec>.freeze, ["~> 2.14.1"])
-      s.add_development_dependency(%q<rubygems-tasks>.freeze, ["~> 0.2.4"])
+      s.add_development_dependency(%q<rake>, ["~> 10.1"])
+      s.add_development_dependency(%q<rake-compiler>, ["~> 0.9"])
+      s.add_development_dependency(%q<rake-compiler-dock>, ["~> 0.5.2"])
+      s.add_development_dependency(%q<rspec>, ["~> 2.14.1"])
+      s.add_development_dependency(%q<rubygems-tasks>, ["~> 0.2.4"])
     else
-      s.add_dependency(%q<rake>.freeze, ["~> 10.1"])
-      s.add_dependency(%q<rake-compiler>.freeze, ["~> 0.9"])
-      s.add_dependency(%q<rake-compiler-dock>.freeze, ["~> 0.5.2"])
-      s.add_dependency(%q<rspec>.freeze, ["~> 2.14.1"])
-      s.add_dependency(%q<rubygems-tasks>.freeze, ["~> 0.2.4"])
+      s.add_dependency(%q<rake>, ["~> 10.1"])
+      s.add_dependency(%q<rake-compiler>, ["~> 0.9"])
+      s.add_dependency(%q<rake-compiler-dock>, ["~> 0.5.2"])
+      s.add_dependency(%q<rspec>, ["~> 2.14.1"])
+      s.add_dependency(%q<rubygems-tasks>, ["~> 0.2.4"])
     end
   else
-    s.add_dependency(%q<rake>.freeze, ["~> 10.1"])
-    s.add_dependency(%q<rake-compiler>.freeze, ["~> 0.9"])
-    s.add_dependency(%q<rake-compiler-dock>.freeze, ["~> 0.5.2"])
-    s.add_dependency(%q<rspec>.freeze, ["~> 2.14.1"])
-    s.add_dependency(%q<rubygems-tasks>.freeze, ["~> 0.2.4"])
+    s.add_dependency(%q<rake>, ["~> 10.1"])
+    s.add_dependency(%q<rake-compiler>, ["~> 0.9"])
+    s.add_dependency(%q<rake-compiler-dock>, ["~> 0.5.2"])
+    s.add_dependency(%q<rspec>, ["~> 2.14.1"])
+    s.add_dependency(%q<rubygems-tasks>, ["~> 0.2.4"])
   end
 end

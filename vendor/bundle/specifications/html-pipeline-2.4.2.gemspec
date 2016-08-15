@@ -2,35 +2,35 @@
 # stub: html-pipeline 2.4.2 ruby lib
 
 Gem::Specification.new do |s|
-  s.name = "html-pipeline".freeze
+  s.name = "html-pipeline"
   s.version = "2.4.2"
 
-  s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
-  s.require_paths = ["lib".freeze]
-  s.authors = ["Ryan Tomayko".freeze, "Jerry Cheung".freeze]
+  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
+  s.require_paths = ["lib"]
+  s.authors = ["Ryan Tomayko", "Jerry Cheung"]
   s.date = "2016-07-11"
-  s.description = "GitHub HTML processing filters and utilities".freeze
-  s.email = ["ryan@github.com".freeze, "jerry@github.com".freeze]
-  s.homepage = "https://github.com/jch/html-pipeline".freeze
-  s.licenses = ["MIT".freeze]
-  s.post_install_message = "-------------------------------------------------\nThank you for installing html-pipeline!\nYou must bundle Filter gem dependencies.\nSee html-pipeline README.md for more details.\nhttps://github.com/jch/html-pipeline#dependencies\n-------------------------------------------------\n".freeze
-  s.rubygems_version = "2.6.6".freeze
-  s.summary = "Helpers for processing content through a chain of filters".freeze
+  s.description = "GitHub HTML processing filters and utilities"
+  s.email = ["ryan@github.com", "jerry@github.com"]
+  s.homepage = "https://github.com/jch/html-pipeline"
+  s.licenses = ["MIT"]
+  s.post_install_message = "-------------------------------------------------\nThank you for installing html-pipeline!\nYou must bundle Filter gem dependencies.\nSee html-pipeline README.md for more details.\nhttps://github.com/jch/html-pipeline#dependencies\n-------------------------------------------------\n"
+  s.rubygems_version = "2.4.8"
+  s.summary = "Helpers for processing content through a chain of filters"
 
-  s.installed_by_version = "2.6.6" if s.respond_to? :installed_by_version
+  s.installed_by_version = "2.4.8" if s.respond_to? :installed_by_version
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<nokogiri>.freeze, [">= 1.4"])
-      s.add_runtime_dependency(%q<activesupport>.freeze, [">= 2"])
+      s.add_runtime_dependency(%q<nokogiri>, [">= 1.4"])
+      s.add_runtime_dependency(%q<activesupport>, [">= 2"])
     else
-      s.add_dependency(%q<nokogiri>.freeze, [">= 1.4"])
-      s.add_dependency(%q<activesupport>.freeze, [">= 2"])
+      s.add_dependency(%q<nokogiri>, [">= 1.4"])
+      s.add_dependency(%q<activesupport>, [">= 2"])
     end
   else
-    s.add_dependency(%q<nokogiri>.freeze, [">= 1.4"])
-    s.add_dependency(%q<activesupport>.freeze, [">= 2"])
+    s.add_dependency(%q<nokogiri>, [">= 1.4"])
+    s.add_dependency(%q<activesupport>, [">= 2"])
   end
 end

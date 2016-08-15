@@ -8,7 +8,7 @@
 
 require 'rubygems'
 
-version = ">= 0.a"
+version = ">= 0"
 
 if ARGV.first
   str = ARGV.first
@@ -19,4 +19,5 @@ if ARGV.first
   end
 end
 
-load Gem.activate_bin_path('rouge', 'rougify', version)
+gem 'rouge', version
+load Gem.bin_path('rouge', 'rougify', version)

@@ -49,7 +49,7 @@ defaults:
 timezone:         America/New_York
 # host:           0.0.0.0
 # port:           9001
-url:              "http://localhost:4000" # the base hostname & protocol for your site
+url:              "http://bensochar.com" # the base hostname & protocol for your site
 encoding:         UTF-8
 #
 # Gems
@@ -84,3 +84,6 @@ twitter_username:   bensochar
 github_username:    bensochar
 instagram_username: bensochar
 linkedin_username:  bensochar
+
+
+

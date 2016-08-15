@@ -1,5 +1,4 @@
-current directory: /Users/bbthegs/Sites/rails/bensochar.github.io/vendor/bundle/gems/ffi-1.9.14/ext/ffi_c
-/Users/bbthegs/.rvm/rubies/ruby-2.3.1/bin/ruby -r ./siteconf20160815-70514-11za2y4.rb extconf.rb
+/Users/bbthegs/.rvm/rubies/ruby-2.2.2/bin/ruby -r ./siteconf20160815-89343-1sz5ux1.rb extconf.rb
 checking for ffi.h... no
 checking for ffi.h in /usr/local/include,/usr/include/ffi... yes
 checking for ffi_call() in -lffi... yes
@@ -12,14 +11,8 @@ checking for ffi_prep_cif_var()... no
 creating extconf.h
 creating Makefile
 
-To see why this extension failed to compile, please check the mkmf.log which can be found here:
-
-  /Users/bbthegs/Sites/rails/bensochar.github.io/vendor/bundle/extensions/x86_64-darwin-15/2.3.0/ffi-1.9.14/mkmf.log
-
-current directory: /Users/bbthegs/Sites/rails/bensochar.github.io/vendor/bundle/gems/ffi-1.9.14/ext/ffi_c
 make "DESTDIR=" clean
 
-current directory: /Users/bbthegs/Sites/rails/bensochar.github.io/vendor/bundle/gems/ffi-1.9.14/ext/ffi_c
 make "DESTDIR="
 compiling AbstractMemory.c
 compiling ArrayType.c
@@ -59,6 +52,5 @@ compiling Types.c
 compiling Variadic.c
 linking shared-object ffi_c.bundle
 
-current directory: /Users/bbthegs/Sites/rails/bensochar.github.io/vendor/bundle/gems/ffi-1.9.14/ext/ffi_c
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 ffi_c.bundle ./.gem.20160815-70514-vwz4hr
+/usr/bin/install -c -m 0755 ffi_c.bundle ./.gem.20160815-89343-1a7potw
