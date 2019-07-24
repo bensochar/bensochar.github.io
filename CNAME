@@ -1,4 +1,4 @@
 bensochar.com
-@        A        192.30.252.153
-@        A        192.30.252.154
+@        A        185.199.108.153
+@        A        185.199.109.153
 www      CNAME    bensochar.github.io
