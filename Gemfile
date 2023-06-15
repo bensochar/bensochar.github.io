@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 group :jekyll_plugins do
   gem 'github-pages'
   # gem 'octopress-image-tag'
+  gem 'jekyll-sitemap'
   gem 'octopress-minify-html'
   # gem 'octopress-social'
 end
