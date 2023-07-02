@@ -19,23 +19,17 @@
   {% endif %}
   {% assign prev = links %}
 {% endfor %}
-<nav class="nav-pager nav-pager-{{ include.param }} clearfix">
-  <ul class="pager">
-
-    <li class="pager-prev">
+<nav>
+  <ul class="pagination justify-content-center">
+    <li class="page-item">
       {% if prevurl %}
-      <a href="{{prevurl}}" title="View {{ prev_client }} - {{ prev_title }}" class="pager-url pager-prev-url js-random-bg-color-hover" id="js-pager-url-prev">
-        &larr; {{ prev_title }}
-      </a>
+      <a href="{{prevurl}}" title="View {{ prev_client }} - {{ prev_title }}" class="page-link">&larr; {{ prev_title }}</a>
       {% endif %}
     </li>
-    <li class="pager-next">
+    <li class="page-item">
       {% if nexturl %}
-      <a href="{{nexturl}}" title="View {{ prev_client }} - {{ prev_title }}" class="pager-url pager-next-url js-random-bg-color-hover" id="js-pager-url-next">
-        {{ next_title }} &rarr;
-      </a>
+      <a href="{{nexturl}}" title="View {{ next_client }} - {{ next_title }}" class="page-link">{{ next_title }} &rarr;</a>
       {% endif %}
     </li>
-
   </ul>
 </nav>

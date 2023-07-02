@@ -1,13 +1,19 @@
 source 'https://rubygems.org'
+
 group :jekyll_plugins do
-  gem 'github-pages'
   # gem 'octopress-image-tag'
+  # gem 'octopress-social'
+  gem "jekyll-feed"
+  gem 'amp-jekyll'
+  gem 'github-pages'
+  # gem 'jekyll-multiple-languages-plugin'
+  gem 'jekyll-seo-tag'
   gem 'jekyll-sitemap'
   gem 'octopress-minify-html'
-  # gem 'octopress-social'
 end
+
 gem 'jekyll-github-metadata'
-gem 'octopress-autoprefixer'
+# gem 'octopress-autoprefixer'
 # Auto redirect pages
 gem 'jekyll-redirect-from'
 gem 'jekyll-mentions'
@@ -15,5 +21,10 @@ gem 'jekyll-mentions'
 gem 'json'
 
 group :development, :test do
+  gem 'rake'
+  gem 'rake-jekyll'
+  gem 'blurhash'
+  gem 'rmagick'
+  gem 'image_processing', '~> 1.0'
 end
 

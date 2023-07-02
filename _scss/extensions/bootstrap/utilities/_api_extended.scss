@@ -1,0 +1,311 @@
+// See:
+// https://getbootstrap.com/docs/5.0/utilities/api/
+
+@import './node_modules/bootstrap/scss/functions';
+// @import "bootstrap/scss/variables";
+// @import "bootstrap/scss/variables-dark";
+// @import './node_modules/bootstrap/scss/variables';
+// @import './_scss/extensions/bootstrap/variables';
+
+// @import './node_modules/bootstrap/scss/variables-dark';
+// @import './_scss/extensions/bootstrap/variables-dark';
+
+@import './node_modules/bootstrap/scss/maps';
+@import './node_modules/bootstrap/scss/mixins';
+@import './node_modules/bootstrap/scss/utilities';
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "bg-position": (
+      property: background-position,
+      class: bg-position,
+      responsive: true,
+      values: (
+        'center': center,
+        'top': top,
+        'bottom': bottom,
+        'inherit': inherit
+      )
+    ),
+    "bg-position-x": (
+      property: background-position-x,
+      class: bg-position-x,
+      responsive: true,
+      values: $position-values
+    ),
+    "bg-position-y": (
+      property: background-position-y,
+      class: bg-position-y,
+      responsive: true,
+      values: $position-values
+    ),
+    "background-size": (
+      property: background-size,
+      class: bg-size,
+      responsive: true,
+      values: (
+        'cover': cover,
+        'contain': contain,
+        'h-100': auto 100%,
+        'w-100': 100% auto,
+        'w-1000': 1000px auto,
+        'inherit': inherit
+      )
+    ),
+    "bg-attachment": (
+      property: background-attachment,
+      class: bg-attachment,
+      responsive: true,
+      values: (
+        'fixed': fixed,
+        'scroll': scroll
+      )
+    ),
+    "bg-opacity": (
+      css-var: true,
+      class: bg-opacity,
+      values: (
+        10: .1,
+        25: .25,
+        50: .5,
+        55: .55,
+        60: .6,
+        65: .65,
+        70: .7,
+        75: .75,
+        80: .8,
+        85: .85,
+        90: .9,
+        95: .95,
+        100: 1
+      )
+    ),
+    "bg-size": (
+      property: background-size,
+      class: bg-size,
+      values: (
+        'cover': cover,
+        'contain': contain
+      )
+    ),
+    "bg-repeat": (
+      property: background-repeat,
+      class: background-repeat,
+      responsive: true,
+      values: (
+        'repeat': repeat,
+        'no-repeat': no-repeat,
+        'repeat-x': repeat-x,
+        'repeat-y': repeat-y
+      )
+    ),
+    "bg-blur": (
+      property: backdrop-filter,
+      class: bg-blur,
+      values: (
+          0: blur(convert_rem_to_px(map-get($spacers, 0))),
+          1: blur(convert_rem_to_px(map-get($spacers, 1))),
+          2: blur(convert_rem_to_px(map-get($spacers, 2))),
+          3: blur(convert_rem_to_px(map-get($spacers, 3))),
+          4: blur(convert_rem_to_px(map-get($spacers, 4))),
+          5: blur(convert_rem_to_px(map-get($spacers, 5)))
+        )
+    ),
+    "bg-brightness": (
+      property: backdrop-filter,
+      class: bg-brightness,
+      values: (
+        0: brightness(0),
+        25: brightness(.25),
+        50: brightness(.5),
+        75: brightness(.75),
+        100: brightness(1),
+      )
+    ),
+    "cursor": (
+      property: cursor,
+      class: cursor,
+      values: (
+        auto: auto,
+        none: none,
+        grab: grab,
+        grabbing: grabbing,
+        not-allowed: not-allowed,
+        menu: context-menu,
+        progress: progress,
+      )
+    ),
+    "filter": (
+      property: filter,
+      class: filter,
+      values: (
+        'grayscale': grayscale(100%)
+      )
+    ),
+    "filter-blur": (
+      property: filter,
+      class: filter-blur,
+      values: (
+          0: blur(convert_rem_to_px(map-get($spacers, 0))),
+          1: blur(convert_rem_to_px(map-get($spacers, 1))),
+          2: blur(convert_rem_to_px(map-get($spacers, 2))),
+          3: blur(convert_rem_to_px(map-get($spacers, 3))),
+          4: blur(convert_rem_to_px(map-get($spacers, 4))),
+          5: blur(convert_rem_to_px(map-get($spacers, 5)))
+        )
+    ),
+    "line-clamp": (
+      property: -webkit-line-clamp,
+      class: line-clamp,
+      values: (
+        1: 1,
+        2: 2,
+        3: 3,
+        4: 4,
+        5: 5,
+        unset: 'unset'
+      )
+    ),
+    "height": (
+      property: height,
+      class: h,
+      values: map-merge($position-values, (auto: auto))
+    ),
+    "max-height": (
+      property: max-height,
+      class: mxh,
+      values: map-merge($position-values, 
+        (none: none,
+        'card-img-cap' : $spacer * 13,
+        'dropdown-menu' : $spacer * 18,
+        'read-more' : ($line-height-base * 12) + rem)
+      )
+    ),
+    "min-width": (
+      property: min-width,
+      class: mnw,
+      values: (
+        0: 0,
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%,
+        auto: auto,
+        none: none,
+        'dropdown-menu' : $spacer * 16
+      )
+    ),
+    "width": (
+      property: width,
+      class: w,
+      values: map-merge($position-values, (auto: auto))
+    ),
+    "max-width": (
+      property: max-width,
+      class: mxw,
+      responsive: true,
+      values: (
+        0: 0,
+        25: 25%,
+        40: 40%,
+        50: 50%,
+        75: 75%,
+        90: 90%,
+        100: 100%,
+        auto: auto,
+        none: none,
+        'cms-card' : $spacer * 21,
+        'dropdown-menu' : $spacer * 18
+      )
+    ),
+    "overflow-x": (
+      property: overflow-x,
+      responsive: true,
+      values: auto hidden visible scroll,
+    ),
+    "overflow-y": (
+      property: overflow-y,
+      responsive: true,
+      values: auto hidden visible scroll,
+    ),
+    "overscroll-x": (
+      property: overscroll-behavior-x,
+      class: overscroll-x,
+      values: auto contain none inherit initial revert unset,
+    ),
+    "overscroll-y": (
+      property: overscroll-behavior-x,
+      class: overscroll-y,
+      values: auto contain none inherit initial revert unset,
+    ),
+    "scroll-behavior": (
+      property: scroll-behavior,
+      class: scroll-behavior,
+      values: (
+        'auto': auto,
+        'smooth': smooth
+      )
+    ),
+    "scroll-snap-align": (
+      property: scroll-snap-align,
+      class: scroll-snap-align,
+      values: (
+        'none': none,
+        'start': start,
+        'both': start end,
+        'center': center,
+        'end': end
+      )
+    ),
+    "scroll-snap-type": (
+      property: scroll-snap-type,
+      class: scroll-snap-type,
+      values: (
+        'none': none,
+        'x': x proximity,
+        'y': y proximity,
+        'block': block,
+        'inline': inline,
+        'both': both
+      )
+    ),
+    "translate-x": (
+      property: transform,
+      class: translate-x,
+      values: (
+        0: translateX(0),
+        25: translateX(25%),
+        50: translateX(50%),
+        75: translateX(75%),
+        100: translateX(100%)
+      )
+    ),
+    "white-space": (
+      property: white-space,
+      class: text,
+      values: normal nowrap pre pre-wrap pre-line break-spaces inherit initial revert unset wrap
+    ),
+    "z-index": (
+      property: z-index,
+      class: z-index,
+      values: (
+        'n1': -1,
+        0: 0,
+        5: 5,
+        'dropdown': $zindex-dropdown,
+        'sticky': $zindex-sticky,
+        'fixed': $zindex-fixed,
+        'offcanvas': $zindex-offcanvas,
+        'modal-backdrop': $zindex-modal-backdrop,
+        'modal': $zindex-modal,
+        'modal-btn-close': $zindex-modal + 10,
+        'popover': $zindex-popover,
+        'tooltip': $zindex-tooltip,
+        'toast': $zindex-toast
+      )
+    )
+  )
+);
+
+@import './node_modules/bootstrap/scss/utilities/api';

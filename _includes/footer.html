@@ -1,46 +1,16 @@
-<footer class="site-footer">
-  <div class="container">
-    <hr>
-    <div class="row">
-      <div class="col-xs-12 col-xs-24">
-        <ul id="nav-footer" class="nav nav-inline nav-centered nav-stacked-xs nav-footer">
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-          {% if site.github_username %}
-          <li>
-            {% include icon-github.html username=site.github_username %}
-          </li>
-          {% endif %} {% if site.twitter_username %}
-          <li>
-            {% include icon-twitter.html username=site.twitter_username %}
-          </li>
-          {% endif %} {% if site.instagram_username %}
-          <li>
-            {% include icon-instagram.html username=site.instagram_username %}
-          </li>
-          {% endif %} {% if site.linkedin_username %}
-          <li>
-            {% include icon-linkedin.html username=site.linkedin_username %}
-          </li>
-          {% endif %}
-          <li>
-            <a href="{{ "/feed.xml" | prepend: site.baseurl }}"><span class="icon icon--twitter">{% include svgs/rss.svg %}</span> RSS</a>
-          </li>
-          <li class="sr-only">
-            <a href="https://plus.google.com/u/0/+BenjaminSochar" rel="publisher" class="sr-only">Google+</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <p class="text-center text-muted small copyright">&copy; {{ site.title }} 2016</p>
-  </div>
+<hr>
+<footer class="container pb-5">    
+  <nav class="nav justify-content-center">
+    <a href="mailto:{{ site.email }}" class="nav-link">{{ site.email }}</a>
+    <a href="https://github.com/{{ site.github_username }}" rel="nofollow" target="_blank" class="nav-link"><span class="icon icon--github">{% include svgs/icon-github.svg %}</span> {{ site.github_username }}</a>
+    <a href="https://twitter.com/{{ site.twitter_username }}" rel="nofollow" target="_blank" class="nav-link"><span class="icon icon--twitter">{% include svgs/twitter.svg %}</span> @{{ site.twitter_username }}</a>
+    <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" rel="nofollow" target="_blank" class="nav-link"><span class="icon icon--linkedin">{% include svgs/linkedin.svg %}</span> {{ site.linkedin_username }}</a>
+    <a href="https://www.instagram.com/{{ site.instagram_username }}" rel="nofollow" target="_blank" class="nav-link"><span class="icon icon--instagram">{% include svgs/instagram.svg %}</span> {{ site.instagram_username }}</a>
+    <a href="https://bsky.app/profile/{{ site.bluesky_username }}" rel="nofollow" target="_blank" class="nav-link">{{ site.bluesky_username }}</a>
+    <a href="{{ "/feed.xml" | prepend: site.baseurl }}" class="nav-link"><span class="icon icon--twitter">{% include svgs/rss.svg %}</span> RSS</a>
+  </nav>
+  <p class="text-center text-muted small lh-sm copyright">&copy; {{ site.title }} 2016</p>
 </footer>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-{% if page.url contains '/projects/' %}
-<script src="//npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
-<script src="//npmcdn.com/isotope-packery@2/packery-mode.pkgd.js"></script>
-{% endif %}
-<script src="{{ "/assets/javascripts/main.js" | prepend: site.baseurl }}"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
