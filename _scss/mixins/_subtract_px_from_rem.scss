@@ -1,0 +1,8 @@
+// This substracts a border width in px from padding in rem
+@function subtract_px_from_rem($rem, $px) {
+  $converted-rem: strip-unit($rem);
+  // $converted-px: math.div($px, 16px);
+  $converted-px: $px / 16px;
+  //Default font size on html element is 100%, equivalent to 16px;
+  @return #{$converted-rem - $converted-px}rem
+}

@@ -1,0 +1,11 @@
+$pixel_base : 16; /* 1 */
+@function parse_int($n) {
+  @return $n / ($n * 0 + 1);
+  // @return math.div($n, $n * 0 + 1)
+}
+
+@function convert_rem_to_px($rem) {
+  $val: parse_int(strip-unit($rem)); 
+  $converted-rem: ($val * $pixel_base);
+  @return #{$converted-rem}px
+}

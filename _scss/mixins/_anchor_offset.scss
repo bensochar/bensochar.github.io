@@ -1,0 +1,31 @@
+@mixin anchor-offset($offset, $padding-top:false) {
+  border-top: $offset solid transparent;
+  margin-top: -$offset;
+
+  // Contain the elements background color/image
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  html body &{
+    &:hover,
+    &:focus {
+      border-top-color: transparent !important;
+    }
+  }
+
+  // This is the clearfix
+  zoom: 1;
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+
+  // We can substitute padding top for the margin top we will be replacing
+  @if $padding-top {
+    padding-top: $padding-top;
+  }
+}

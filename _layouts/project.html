@@ -2,36 +2,33 @@
 layout: default
 ---
 <!-- _layouts/project.html -->
-<article class="project" itemscope itemtype="http://schema.org/WebSite">
-
-  <div class="row">
-    <div class="center-content">
-      <header class="clearfix project-header">
-        <h1>{{ page.client }} - {{ page.title }}</h1>
-      </header>
+<article class="container" itemscope itemtype="http://schema.org/WebSite">
+  <div class="row justify-content-center">
+    <div class="col-24 col-md-18 col-lg-12">
+      <h1>{{ page.client }} - {{ page.title }}</h1>
       {{ page.content }}
-      {% if page.role %}
-      <p class="p-role">
-        <strong>Role</strong>: {{ page.role }}
-      </p>
-      {% endif %}
-      {% if page.live_site %}
-      <p class="p-live-site">
-        <strong>Live Site</strong>: <a href="{{ page.live_site }}" target="_blank">{{ page.live_site }}</a>
-      </p>
-      {% endif %}
-      <ul class="nav-inline list-project-tags">
-        <li class="project-tag-first"><strong>Tech used</strong>:</li>
+      <hr>
+      <dl class="row">
+        {% if page.role %}
+        <dt class="col-4">Role</dt>
+        <dd class="col-20">{{ page.role }}</dd>
+        {% endif %}
+        {% if page.live_site %}
+        <dt class="col-4">Live Site</dt>
+        <dd class="col-20"><a href="{{ page.live_site }}" target="_blank">{{ page.live_site }}</a></dd>
+        {% endif %}
+        <dt class="col-4">Tech used</dt>
         {% assign tag_length = page.tags.size %}
         {% assign oxford_break = tag_length | minus: 1 %}
         {% assign tag_index = 0 %}
         {% assign sorted_tags = page.tags | sort %}
+        <dd class="col-20">
         {% for tag in sorted_tags %}
           {% assign tag_index = tag_index | plus: 1 %}
-          <li class="project-tag{% if forloop.last %}-last{% endif %}">{% if forloop.last %} &amp; {{ tag }}{% elsif tag_index == oxford_break %}{{ tag }}{% else %}{{ tag }}, {% endif %}</li>
+          {% if forloop.last %} &amp; {{ tag }}{% elsif tag_index == oxford_break %}{{ tag }}{% else %}{{ tag }}, {% endif %}</li>
         {% endfor %}
-
-      </ul>
+        </dd>
+      </dl>
     </div><!-- .center-content -->
   </div><!-- .row -->
 </article>

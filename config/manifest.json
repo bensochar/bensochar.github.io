@@ -1,0 +1,11 @@
+{
+  "name": "Ben Sochar",
+  "short_name": "Ben Sochar",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": "/",
+  "description": "Brooklyn-based experienced full-stack web developer always eager for more.",
+  "scope": "/",
+  "theme_color": "#efeeff",
+  "background_color": "#efeeff"
+}
