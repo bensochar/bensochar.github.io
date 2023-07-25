@@ -1,17 +1,15 @@
 <!-- includes/list-posts -->
-<div id="posts">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-24 col-md-18 col-lg-12">
-        <h1><a href="{{ '/posts/' | prepend: site.baseurl }}">Posts</a></h1>
-        <ul class="list-unstyled">
-          {% for post in site.posts %}
-            <li class="list-file-tree-item d-flex flex-row align-items-center">
-              <code class="box-drawing lh-1 me-1">{% if forloop.last %}└─{% else %}├─{% endif %}</code><a href="{{ post.url | prepend: site.baseurl }}" class="js-random-bg-color-hover">{{ post.title }} &mdash; {{ post.date | date: "%b %-d, %Y" }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </div><!-- /.center-content -->
-    </div><!-- /.row -->
-  </div><!-- /.container -->
-</div><!-- /.list-posts -->
+<div class="container">
+  <div id="posts" class="row justify-content-center">
+    <div class="col-md-18 col-lg-14 col-xl-12">
+      <h1><a href="{{ '/posts/' | prepend: site.baseurl }}" class="text-body">Posts</a></h1>
+      <ul class="list-unstyled">
+        {% for post in site.posts %}
+          <li class="list-file-tree-item d-flex flex-row align-items-center">
+            <small class="text-body-tertiary font-monospace me-1 lh-1">└─</small><a href="{{ post.url | prepend: site.baseurl }}" class="js-random-bg-color-hover icon-link">{{ post.title }} &mdash; {{ post.date | date: "%b %-d, %Y" }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div><!-- /.row -->
+</div><!-- /.containe -->

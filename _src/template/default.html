@@ -3,7 +3,7 @@
   {% include head.html %}
   <body class="{{ page.url | replace:'index.html','home' | replace:'/',' ' | strip }}">
     {% include navigation.html %}
-    <div id="content" class="page-content my-3">
+    <div id="content" class="mt-6">
         {{ content }}
     </div>
     {% include footer.html %}

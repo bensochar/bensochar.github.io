@@ -1,6 +1,6 @@
 ---
 favorite: 1
-index: 0
+index: 1
 client: American Express
 title: Gift Card US
 role: Technical Lead

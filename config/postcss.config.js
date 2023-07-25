@@ -1,24 +1,25 @@
 // eslint-disable-next-line no-unused-vars
-// module.exports = ({ file, options, env }) => ({
-//   parser: 'postcss-scss',
-//   plugins: {
-//     'postcss-import': {},
-//     autoprefixer: {},
-//     cssnano: env === 'production' ? {} : false,
-//   },
-// });
-
-
-
-const purgecss = require('@fullhuman/postcss-purgecss')
-const cssnano = require('cssnano')
+const cssnano = require('cssnano');
 const pruneVar = require('postcss-prune-var');
+const purgecss = require('@fullhuman/postcss-purgecss');
+const purgeHtml = require('purgecss-from-html');
+const purgeJs = require('purgecss-from-js');
 
 module.exports = {
   plugins: [
     require('autoprefixer'),
     purgecss({
-      content: ['./**/*.html']
+      content: ['./**/*.html', './_js/*.js'],
+      extractors: [
+        {
+          extractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
+          extensions: ['js']
+        },
+        {
+          extractor: purgeHtml,
+          extensions: ['html']
+        }
+      ]
       // content: ['./_site/**/*.html']
     }),
     pruneVar(),

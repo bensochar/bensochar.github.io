@@ -38,5 +38,5 @@ module.exports = Merge(CommonConfig, {
         warnings: false,
       },
     },
-  },
+  }
 });

@@ -1,15 +1,8 @@
 // See:
 // https://getbootstrap.com/docs/5.0/utilities/api/
-
 @import './node_modules/bootstrap/scss/functions';
 // @import "bootstrap/scss/variables";
 // @import "bootstrap/scss/variables-dark";
-// @import './node_modules/bootstrap/scss/variables';
-// @import './_scss/extensions/bootstrap/variables';
-
-// @import './node_modules/bootstrap/scss/variables-dark';
-// @import './_scss/extensions/bootstrap/variables-dark';
-
 @import './node_modules/bootstrap/scss/maps';
 @import './node_modules/bootstrap/scss/mixins';
 @import './node_modules/bootstrap/scss/utilities';
@@ -17,57 +10,13 @@
 $utilities: map-merge(
   $utilities,
   (
-    "bg-position": (
-      property: background-position,
-      class: bg-position,
-      responsive: true,
-      values: (
-        'center': center,
-        'top': top,
-        'bottom': bottom,
-        'inherit': inherit
-      )
-    ),
-    "bg-position-x": (
-      property: background-position-x,
-      class: bg-position-x,
-      responsive: true,
-      values: $position-values
-    ),
-    "bg-position-y": (
-      property: background-position-y,
-      class: bg-position-y,
-      responsive: true,
-      values: $position-values
-    ),
-    "background-size": (
-      property: background-size,
-      class: bg-size,
-      responsive: true,
-      values: (
-        'cover': cover,
-        'contain': contain,
-        'h-100': auto 100%,
-        'w-100': 100% auto,
-        'w-1000': 1000px auto,
-        'inherit': inherit
-      )
-    ),
-    "bg-attachment": (
-      property: background-attachment,
-      class: bg-attachment,
-      responsive: true,
-      values: (
-        'fixed': fixed,
-        'scroll': scroll
-      )
-    ),
     "bg-opacity": (
       css-var: true,
       class: bg-opacity,
       values: (
         10: .1,
         25: .25,
+        30: .3,
         50: .5,
         55: .55,
         60: .6,
@@ -79,6 +28,17 @@ $utilities: map-merge(
         90: .9,
         95: .95,
         100: 1
+      )
+    ),
+    "background-color-hover": (
+      property: background-color,
+      class: bg-hover,
+      state: hover,
+      values: map-merge(
+        $colors,
+        (
+          "transparent": transparent
+        )
       )
     ),
     "bg-size": (
@@ -192,8 +152,7 @@ $utilities: map-merge(
         75: 75%,
         100: 100%,
         auto: auto,
-        none: none,
-        'dropdown-menu' : $spacer * 16
+        none: none
       )
     ),
     "width": (
@@ -204,19 +163,15 @@ $utilities: map-merge(
     "max-width": (
       property: max-width,
       class: mxw,
-      responsive: true,
       values: (
         0: 0,
-        25: 25%,
-        40: 40%,
-        50: 50%,
-        75: 75%,
-        90: 90%,
+        360: 360px,
+        768: 768px,
+        1024: 1024px,
+        1680: 1680px,
         100: 100%,
         auto: auto,
-        none: none,
-        'cms-card' : $spacer * 21,
-        'dropdown-menu' : $spacer * 18
+        none: none
       )
     ),
     "overflow-x": (
@@ -293,16 +248,11 @@ $utilities: map-merge(
         'n1': -1,
         0: 0,
         5: 5,
-        'dropdown': $zindex-dropdown,
         'sticky': $zindex-sticky,
         'fixed': $zindex-fixed,
-        'offcanvas': $zindex-offcanvas,
         'modal-backdrop': $zindex-modal-backdrop,
         'modal': $zindex-modal,
         'modal-btn-close': $zindex-modal + 10,
-        'popover': $zindex-popover,
-        'tooltip': $zindex-tooltip,
-        'toast': $zindex-toast
       )
     )
   )

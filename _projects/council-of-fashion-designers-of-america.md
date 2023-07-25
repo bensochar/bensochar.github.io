@@ -5,7 +5,7 @@ title: Council of Fashion Designers of America
 role: Technical Lead
 live_site: http://cfda.com/
 live_text: cfda.com
-tags: [HTML, CSS, JavaScript, YouTube JavaScript API, Wordpress, Linux, Apache, MySQL, PHP, Redhat, Varnish, Rackspace, SVN, BeanstalkApp, JSON, Pintrest API, Google Analytics, Google Webmaster Tools]
+tags: [HTML, CSS, JavaScript, YouTube JavaScript API, Wordpress, Linux, Apache, MySQL, PHP, Redhat, Varnish, Rackspace, SVN, BeanstalkApp, JSON, Pintrest API, Google Analytics, Google Search Console]
 ---
 Council of Fashion Designers of America needed a new online presence that could be updated by their staff.
 

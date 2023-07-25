@@ -1,11 +1,11 @@
 ---
 favorite: 1
-index: 1
+index: 5
 client: Personal
 title: Doomcast
 role: Principal
 live_site: https://doomcast.herokuapp.com/
-tags: [HTML, SASS, JavaScript, Ruby, Ruby on Rails, PostgreSQL, Heroku, Twitter REST API, OAuth, Google Maps API, Google Maps JavaScript API, Geocoder, Reverse Geocding, REST APIs, XML, JSON, Git, Github, Homebrew, RVM, Xcode, Google Analytics, Google Webmaster Tools]
+tags: [HTML, SASS, JavaScript, Ruby, Ruby on Rails, PostgreSQL, Heroku, Twitter REST API, OAuth, Google Maps API, Google Maps JavaScript API, Geocoder, Reverse Geocding, REST APIs, XML, JSON, Git, Github, Homebrew, RVM, Xcode, Google Analytics, Google Search Console]
 ---
 Gleans data from government APIs & social media to alert users to nearby disasters.
 

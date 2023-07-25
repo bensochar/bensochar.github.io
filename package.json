@@ -60,7 +60,8 @@
     "isotope-layout": "^3.0.6",
     "isotope-packery": "^2.0.1",
     "postcss-prune-var": "^1.1.1",
-    "purgecss-from-html": "^6.0.0-alpha.0"
+    "purgecss-from-html": "^6.0.0-alpha.0",
+    "purgecss-from-js": "^1.0.0"
   },
   "main": "index.js",
   "private": null

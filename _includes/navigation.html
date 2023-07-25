@@ -1,26 +1,23 @@
-<nav class="navbar navbar-expand-lg sticky-top bg-body bg-opacity-80 bg-blur-1">
+<nav class="navbar navbar-expand-lg fixed-top bg-body bg-opacity-70 bg-blur-1">
   <div class="container">
-    <a class="navbar-brand js-random-bg-color-hover" href="{{ site.baseurl }}/">{{ site.title }}</a>
+    <a class="navbar-brand ms-n2 px-2" href="{{ site.baseurl }}/">{{ site.title }}</a>
+<!--     <nav aria-label="breadcrumbflex-grow-1">
+      <ol class="breadcrumb my-auto d-flex flex-row flex-nowrap">
+        <li class="breadcrumb-item"><a href="{{ site.baseurl | append: page.collection }}" class="text-truncate">{{ page.collection }}</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><a href="{{ page.url }}" class="text-truncate">{{ page.title }}</a></li>
+      </ol>
+    </nav> -->
     <button class="navbar-toggler border-0 me-n3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <div class="nav navbar-nav">
+      <nav class="nav navbar-nav">
         {% for site_page in site.pages %}
           {% if site_page.title %}
             {% assign site_page_url_clean = site_page.url | replace: '/',''%}
             {% assign page_url_clean = page.url | replace: '/',''%}
             {% unless site_page_url_clean == '404' or site_page_url_clean == 'styleguide' %}
-              <a class="nav-link js-random-bg-color-hover {% if page_url_clean == site_page_url_clean %}active{% endif %}" href="{{ site_page.url | prepend: site.baseurl }}">{{ site_page.title }}</a>
-              {% if site_page.title == 'Projects' %}
-                <!--
-                <li class="navbar-text">
-                {% assign bread_crumb = page.url | split: '/' %}
-                   /{{ bread_crumb[2] }}
-                </li>
-                 -->
-                {% endif %}
-
+              <a class="nav-link bg-opacity-30 {% if page_url_clean == site_page_url_clean %} active {% endif %}" href="{{ site_page.url | prepend: site.baseurl }}">{{ site_page.title }}</a>
             {% endunless %}
           {% endif %}
         {% endfor %}

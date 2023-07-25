@@ -16,9 +16,8 @@
   {% endif %}
 {% endfor %}
 
-<div class="container">
-
-  <div class="row flex-wrap justify-content-center w-100 overflow-hidden js-isotope-layout">
+<div class="container-lg">
+  <div class="row justify-content-start align-items-start flex-row flex-nowrap overflow-x-auto overscroll-x-contain scroll-snap-type-x scroll-snap-align-start scroll-behavior-smooth justify-content-lg-center align-items-lg-center overflow-lg-hidden flex-lg-wrap js-isotope-layout">
     {% for img in project_imgs %}
       {% assign show_image = true %}
       {% assign img_array = img.path | split: '/' %}
@@ -60,18 +59,18 @@
       {% assign offset = 24 | minus: col_total | divided_by: 2 %}
       {% endif %}
       {% if show_image %}
-      <div class="col-xs-24 col-md-{{col_width}} js-isotope-item pb-3">
+      <div class="col-23 col-lg-{{col_width}} mxw-{{img_width}} js-isotope-item pb-3">
         <figure class="m-0">
           {% if img.path contains '.nochrome' %}
           {% else %}
           <picture class="d-block">
-            <source srcset="{{ site.baseurl }}/assets/images/{{ img_width | prepend: 'browser-chrome-' | append: '.webp' }}" type="image/webp">
-            <img src="{{ site.baseurl }}/assets/images/{{ img_width | prepend: 'browser-chrome-' | append: '.png' }}" class="img-responsive w-100 h-auto" width="{{ img_width }}" height="{{ chrome_height }}">
+            <!-- <source srcset="{{ site.baseurl }}/assets/images/{{ img_width | prepend: 'browser-chrome-' | append: '.webp' }}" type="image/webp"> -->
+            <img src="{{ site.baseurl }}/assets/images/{{ img_width | prepend: 'browser-chrome-' | append: '.png' }}" class="mxw-100 h-auto h-auto" width="{{ img_width }}" height="{{ chrome_height }}">
           </picture>
           {% endif %}
           <picture class="d-block">
             <!-- <source srcset="{{ webp_file_low }}" data-src="{{ webp_file }}" data-src-retina="{{ webp_file }}" type="image/webp" class="img-responsive js-lazy"> -->
-            <img src="{{ jpg_file_low }}" data-src="{{ jpg_file }}" alt="{{ img_caption | capitalize }}" class="img-responsive w-100 h-auto js-lazy" width="{{img_width}}" height="{{img_height}}">
+            <img src="{{ jpg_file_low }}" data-src="{{ jpg_file }}" alt="{{ img_caption | capitalize }}" class="mxw-100 h-auto js-lazy" width="{{img_width}}" height="{{img_height}}">
             <noscript>
               <source srcset="{{ webp_file }}" type="image/webp">
               <img src="{{ jpg_file  }}" alt="{{ img_caption | capitalize }}" class="img-responsive" width="{{img_width}}" height="{{img_height}}">
