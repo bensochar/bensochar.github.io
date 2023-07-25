@@ -2,3 +2,37 @@ svg {
   width: 1em;
   height: 1em;
 }
+
+.highlighter-rouge > .highlight {
+  @extend .p-3;
+  @extend .mb-4;
+}
+
+.nav-link .active {
+
+}
+
+.random-bg-hover {
+  > span {
+    width: 25%;
+    transition: width .25s ease-out, opacity .25s ease-out;
+    opacity: 0;
+    // margin-left: 0;
+    transform-origin: center;
+    transform: translateX(-50%);
+  }
+  &.active,
+  &:hover, 
+  &:focus {
+    > span {
+      opacity: 0.3;
+      width: 200%;
+      // transform: scaleX(2);
+      // transform: translateX(-50%);
+      // width: 200%;
+      // width: 50px;
+      // margin-left: -50%;
+      // margin-left: -25px;
+    }
+  }
+}

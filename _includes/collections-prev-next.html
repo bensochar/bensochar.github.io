@@ -1,8 +1,12 @@
 <!-- _includes/collections-prev-next.html -->
 {% capture the_collection %}{{ page.collection }}{% endcapture %}
-{% if page.collection %}
+{% if page.collection == 'projects' %}
+  {% assign document = (site.projects | sort: 'favorite' | sort: 'index') %}
+{% endif %}
+{% if page.collection == 'posts' %}
   {% assign document = (site[the_collection] | sort: 'title') %}
 {% endif %}
+
 {% for links in document %}
   {% if links.title == page.title %}
     {% unless forloop.first %}

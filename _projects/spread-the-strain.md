@@ -5,7 +5,7 @@ client: FX Networks
 title: Spread the Strain
 role: Technical Lead
 live_text: Contest Ended. Site is no longer live :-(
-tags: [HTML, SASS, JavaScript, Ruby, Ruby on Rails, RVM, New Relic, PostgreSQL, Heroku, Redis, Clockwork, Twitter REST API, OAuth, Homebrew, Google Analytics, Google Webmaster Tools]
+tags: [HTML, SASS, JavaScript, Ruby, Ruby on Rails, RVM, Asset Pipeline, erb, Sidekiq, PostgreSQL, Heroku, Redis, Clockwork, Twitter REST API, OAuth, Homebrew, Google Analytics, Google Search Console, Hirefire, Text to Audio API, Vimeo API, rspec]
 ---
 FX wanted a unique marketing campaign for the 2nd season of their TV show, The Strain. Fans were invited to play the Twitter game ‘Spread The Strain’.
 

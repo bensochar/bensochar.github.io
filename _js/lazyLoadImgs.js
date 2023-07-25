@@ -1,6 +1,6 @@
 'use strict'
-export default function lazyLoadImgs() {
-  const eles = [].slice.call(document.querySelectorAll('.js-lazy'));
+export default function lazyLoadImgs(selector = '.js-lazy') {
+  const eles = [].slice.call(document.querySelectorAll(selector));
 
   if ('IntersectionObserver' in window) {
     let imgObserver = new IntersectionObserver(function(entries, observer) {

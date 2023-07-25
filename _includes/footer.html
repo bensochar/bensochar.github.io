@@ -1,22 +1,14 @@
 <hr>
 <footer class="container pb-5">    
   <nav class="nav justify-content-center">
-    <a href="mailto:{{ site.email }}" class="nav-link">{{ site.email }}</a>
-    <a href="https://github.com/{{ site.github_username }}" rel="nofollow" target="_blank" class="nav-link"><span class="icon icon--github">{% include svgs/icon-github.svg %}</span> {{ site.github_username }}</a>
-    <a href="https://twitter.com/{{ site.twitter_username }}" rel="nofollow" target="_blank" class="nav-link"><span class="icon icon--twitter">{% include svgs/twitter.svg %}</span> @{{ site.twitter_username }}</a>
-    <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" rel="nofollow" target="_blank" class="nav-link"><span class="icon icon--linkedin">{% include svgs/linkedin.svg %}</span> {{ site.linkedin_username }}</a>
-    <a href="https://www.instagram.com/{{ site.instagram_username }}" rel="nofollow" target="_blank" class="nav-link"><span class="icon icon--instagram">{% include svgs/instagram.svg %}</span> {{ site.instagram_username }}</a>
-    <a href="https://bsky.app/profile/{{ site.bluesky_username }}" rel="nofollow" target="_blank" class="nav-link">{{ site.bluesky_username }}</a>
-    <a href="{{ "/feed.xml" | prepend: site.baseurl }}" class="nav-link"><span class="icon icon--twitter">{% include svgs/rss.svg %}</span> RSS</a>
+    <a href="mailto:{{ site.email }}" class="nav-link icon-link">{% include svgs/envelope.svg %} {{ site.email }}</a>
+    <a href="https://github.com/{{ site.github_username }}" rel="nofollow" target="_blank" class="nav-link icon-link">{% include svgs/github.svg %} {{ site.github_username }}</a>
+    <a href="https://twitter.com/{{ site.twitter_username }}" rel="nofollow" target="_blank" class="nav-link icon-link">{% include svgs/twitter.svg %} @{{ site.twitter_username }}</a>
+    <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" rel="nofollow" target="_blank" class="nav-link icon-link">{% include svgs/linkedin.svg %} {{ site.linkedin_username }}</a>
+    <a href="https://www.instagram.com/{{ site.instagram_username }}" rel="nofollow" target="_blank" class="nav-link icon-link">{% include svgs/instagram.svg %} {{ site.instagram_username }}</a>
+    <a href="https://bsky.app/profile/{{ site.bluesky_username }}" rel="nofollow" target="_blank" class="nav-link icon-link">{% include svgs/square.svg %} {{ site.bluesky_username }}</a>
+    <a href="https://mastodon.social/{{ site.mastodon_username }}" rel="nofollow" target="_blank" class="nav-link icon-link">{% include svgs/mastodon.svg %} {{ site.mastodon_username }}</a>
+    <a href="{{ "/feed.xml" | prepend: site.baseurl }}" class="nav-link icon-link">{% include svgs/rss.svg %} RSS</a>
   </nav>
   <p class="text-center text-muted small lh-sm copyright">&copy; {{ site.title }} 2016</p>
 </footer>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', '{{ site.google_analytics }}', 'auto');
-  ga('send', 'pageview');
-</script>
-
