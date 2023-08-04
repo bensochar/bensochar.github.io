@@ -17,7 +17,7 @@
 {% endfor %}
 
 <div class="container-lg">
-  <div class="row justify-content-start align-items-start flex-row flex-nowrap overflow-x-auto overscroll-x-contain scroll-snap-type-x scroll-snap-align-start scroll-behavior-smooth justify-content-lg-center align-items-lg-center overflow-lg-hidden flex-lg-wrap js-isotope-layout">
+  <div class="row cursor-grab justify-content-start align-items-start flex-row flex-nowrap overflow-x-auto overscroll-x-contain scroll-snap-type-x scroll-snap-align-start scroll-behavior-smooth justify-content-lg-center align-items-lg-center overflow-lg-hidden cursor-lg-auto flex-lg-wrap js-isotope-layout">
     {% for img in project_imgs %}
       {% assign show_image = true %}
       {% assign img_array = img.path | split: '/' %}

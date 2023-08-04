@@ -5,23 +5,17 @@ excerpt: About Ben Sochar
 permalink: /about/
 ---
 #### Me:
-Experienced full-stack web developer always eager for more.
+Experienced full-stack web developer & tech lead always eager for more.
 
-I've estimated, planned & managed projects for Fortune 500 companies. Lead dev teams here & guided teams offshore. I work  with clients to produce effective sites.
+I've estimated, planned & managed projects from Fortune 500 companies, multi-platnuim selling musicans & startups. Lead dev teams here & guided teams offshore. I love working with people to produce effective sites.
 
-I <3 fast, modular sites that follow logic (who doesn't, amirite). Sites that are accessible for everyone & respond to users. I like working with UX, UI & designers to create a clean  project that meets a deadline.
+I <3 fast, modular sites that follow logic (who doesn't, amirite). Sites that are accessible for everyone & respond to users. As a former desinger, I enjoy working with UX, UI & designers to create a clean  project that meets a deadline.
 
 I studied Studio Art & Art History @IUBloomington. While working as an Jr Art director I began learning Flash & Actionscript. From there I learned PHP, MySQL, CSS, HTML, Javascript. Recently I took the Ruby on Rails course at General Assembly. I picked up a lot in my 8 years.
 
 When I’m not developing I’m playing with my dog, Duffy.
 
-<img src="https://scontent-lga3-1.cdninstagram.com/t51.2885-15/e15/1527615_287040431460242_1948570481_n.jpg" alt="Duffy" width="240" height="240">
-
-Or tinkering.
-
-<img src="https://scontent-lga3-1.cdninstagram.com/t51.2885-15/e15/1208182_231420653693485_901595060_n.jpg" alt="Pringle Ring" width="240" height="240">
-
-Or reading. Or cruising Reddit.
+<!-- <img src="https://scontent-lga3-1.cdninstagram.com/t51.2885-15/e15/1527615_287040431460242_1948570481_n.jpg" alt="Duffy" width="240" height="240"> -->
 
 #### List of Clients:
 
