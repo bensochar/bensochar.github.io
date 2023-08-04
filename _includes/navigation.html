@@ -7,10 +7,17 @@
         <li class="breadcrumb-item active" aria-current="page"><a href="{{ page.url }}" class="text-truncate">{{ page.title }}</a></li>
       </ol>
     </nav> -->
-    <button class="navbar-toggler border-0 me-n3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler border-0 me-n3" 
+      type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#navbarSupportedContent" 
+      aria-controls="navbarSupportedContent" 
+      aria-expanded="false" 
+      aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" 
+      id="navbarSupportedContent">
       <nav class="nav navbar-nav">
         {% for site_page in site.pages %}
           {% if site_page.title %}

@@ -20,7 +20,6 @@ module.exports = {
           extensions: ['html']
         }
       ]
-      // content: ['./_site/**/*.html']
     }),
     pruneVar(),
     cssnano({

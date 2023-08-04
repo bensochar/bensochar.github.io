@@ -1,18 +1,28 @@
 <!-- includes/list-projects -->
+{% if page.name == 'index.html' %}
+  {% assign count = 15 %}
+{% else %}
+  {% assign count = 1000 %}
+{% endif %}
 <div class="container">
   <div id="projects" class="row justify-content-center">
     <div class="col-md-18 col-lg-14 col-xl-12">
       <h1 class="h1"><a href="{{ '/projects/' | prepend: site.baseurl }}" class="text-body">Projects</a></h1>
       <ul class="list-unstyled">
         {% assign sorted_projects = (site.projects | sort: 'favorite' | sort: 'index') %}
-        {% for project in sorted_projects %}
+        {% for project in sorted_projects limit:count %}
           {% assign project_tags = project.tags | join: ' ' %}
           <li class="list-file-tree-item d-flex flex-row align-items-center">
-            <small class="text-body-tertiary font-monospace me-1 lh-1">└─</small><a href="{{ project.url | prepend: site.baseurl }}" class="js-random-bg-color-hover icon-link">{{ project.client }} &mdash; {{ project.title }} {% if project.favorite %}{% include svgs/star.svg %}{% endif %}
+            <small class="text-body-tertiary font-monospace me-1 lh-1">└─</small><a href="{{ project.url | prepend: site.baseurl }}" class="js-random-bg-color-hover icon-link py-1">{{ project.client }} &mdash; {{ project.title }} {% if project.favorite %}{% include svgs/star.svg %}{% endif %}
             </a>
           </li>
         {% endfor %}
       </ul>
+      {% if page.name == 'index.html' %}
+        <p class="mt-n4">
+          <a href="{{ '/projects/' | prepend: site.baseurl }}"class="icon-link">More {% include svgs/arrow-right.svg %}</a>
+        </p>
+      {% endif %}
     </div>
   </div><!-- /.row -->
 </div><!-- /.containe -->

@@ -35,4 +35,10 @@ svg {
       // margin-left: -25px;
     }
   }
+  &:active {
+    > span {
+      opacity: 0.5;
+      width: 200%;
+    }
+  }
 }

@@ -86,6 +86,7 @@ $utilities: map-merge(
     "cursor": (
       property: cursor,
       class: cursor,
+      responsive: true,
       values: (
         auto: auto,
         none: none,

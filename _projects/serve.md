@@ -1,5 +1,5 @@
 ---
-index: 10
+index: 6
 client: American Express
 title: Serve
 role: Technical Lead

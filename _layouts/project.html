@@ -2,7 +2,7 @@
 layout: default
 ---
 <!-- _layouts/project.html -->
-
+{% assign sorted_tags = page.tags | sort | uniq %}
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-18 col-lg-14 col-xl-12">
@@ -19,19 +19,12 @@ layout: default
         <dd class="col-20"><a href="{{ page.live_site }}" target="_blank">{{ page.live_site }}</a></dd>
         {% endif %}
         <dt class="col-4">Tech</dt>
-        {% assign sorted_tags = page.tags | sort | uniq %}
-        {% assign tag_length = sorted_tags.size %}
-        {% assign oxford_break = tag_length | minus: 1 %}
-        {% assign tag_index = 0 %}
         <dd class="col-20">
-        {% for tag in sorted_tags %}
-          {% assign tag_index = tag_index | plus: 1 %}
-          {% if forloop.last %} &amp; {{ tag }}{% elsif tag_index == oxford_break %}{{ tag }}{% else %}{{ tag }}, {% endif %}</li>
-        {% endfor %}
+        {{ sorted_tags | array_to_sentence_string: "&" }}
         </dd>
       </dl>
     </div>
   </div><!-- .row -->
-</div><!-- .containe -->
+</div><!-- .container -->
 {% include img-gallery.html param="value" variable-param=page.title %}
 {% include collections-prev-next.html  param='bottom' %}

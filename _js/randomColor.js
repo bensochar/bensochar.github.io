@@ -14,7 +14,6 @@ export default function randomColor(selector = '.icon-link') {
   ]
 
   function posSpan(event, ele) {
-    
     let rect = event.currentTarget.getBoundingClientRect();
     let x = event.clientX - rect.left;
     ele.style.setProperty("left", x + 'px');
@@ -28,19 +27,8 @@ export default function randomColor(selector = '.icon-link') {
     ele.appendChild(fillEle);
 
     ele.addEventListener('pointerover', (event) => {
-      console.log(event.type)
       posSpan(event, fillEle)
     }, false);
-
-    // ele.addEventListener('pointerout', (event) => {
-    //   console.log(event.type)
-    //   ele.style.removeProperty("left");
-    // }, false);
-
-    // ele.addEventListener('pointerleave', (event) => {
-    //   console.log(event.type)
-    //   ele.style.removeProperty("left");      
-    // }, false);
   });
 }
 
