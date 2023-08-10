@@ -23,18 +23,10 @@ export default function isotopeLayout(event = undefined) {
     if (event === 'DOMContentLoaded') {
       if (layoutIso) {
         iso.arrange(isoOptions)
-        console.log('event > DOMContentLoaded > iso')
-        console.log(iso);
-        console.log(gridEle.hasOwnProperty('Isotope'));
-        console.log(gridEle.hasOwnProperty('isotope'));
-        console.log('-------- event > DOMContentLoaded > iso')
       } else if (iso) {
         iso.destroy();
       }
     } else if (event === 'resize') {
-      // console.log('throttled: ' + throttled);
-      // // actual callback action
-      // let iso = new Isotope( gridEle, isoOptions );
       if (layoutIso) {
         iso.arrange(isoOptions)
       } else if (iso) {
