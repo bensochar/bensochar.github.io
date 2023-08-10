@@ -1,61 +1,54 @@
+require 'jekyll'
 require 'rake-jekyll'
 require 'blurhash'
 require 'rmagick'
 require 'image_processing/mini_magick'
-require "base64"
+require 'base64'
 
-task :build do
-  puts 'foo'
-  # images = Dir["./_images/bemo/*.jpg"]
+task :project_imgs_to_txt do
+  extensions = ['.jpg', '.png', '.gif']
 
-  # Dir.foreach("./_images/bemo/") {|x| puts "Got #{x}" }
-  # puts images.inspect
-  # image = Magick::ImageList.new('./_images/test.jpg')
+  Dir.each_child('_projects') do |project|
+    folder = File.basename(project, '.md')
+    puts "Creating base64 images for #{project}..."
 
-  # image = File.open('./_images/test.jpg',  "r")
+    Dir.foreach('./_images/' + folder + '/') do |file|
+      next unless file
+      extension = File.extname(file)
 
-  # image = './_images/test.jpg'
-  # processed = ImageProcessing::MiniMagick
-  #   .source('./_images/test.jpg')
-  #   .resize_to_limit(400, 400)
-  #   .convert("JPG:- | base64")
-  #   .call(save: false)
+      # check that its an img
+      next unless extensions.include?(extension)
 
-  # puts processed.inspect
+      name = File.basename(file, extension)
+      name_array = name.to_s.split('.')
+      next if name_array.include?('low')
+      temp_name = name + '.txt.jpg'
 
-  # processed << "output.txt"
-  # processed.call
-  # puts processed.inspect
+      Dir.mkdir('./_includes/projects/' + folder) unless Dir.exists?('./_includes/projects/' + folder)
+      temp = File.path('./tmp/' + name + extension)
+      input = File.path('./_images/' + folder + '/' + file)
+      output = './_includes/projects/' + folder + '/' + name + '.txt'
 
-  # plain = Base64.encode64("output.txt")
-  # puts plain.inspect
+      w = name_array[1].to_i
+      h = name_array[2].to_i
+      
+      magick = ImageProcessing::MiniMagick
+        .source(input)
+        .resize_to_limit(w/90,h/90)
+        .convert('JPG:- | base64')
+        .call(save: false)
 
+      magick << temp
+      magick.call
 
+      magick = ImageProcessing::MiniMagick
+        .source(temp)
+        .resize_to_limit(w,h)
+        .convert('JPG:- | base64')
+        .call
 
-  # pipeline = ImageProcessing::MiniMagick.source('./_images/test.jpg')
+      `bash image2urijpeg.sh #{temp} > #{output}`
+    end
+  end
 
-  # result = pipeline.call(save: false).convert!("png")
-
-  # File.extname(result.path)
-  # puts result.path
-  # puts result.inspect
-
-  # 360×4912
-
-# magick = ImageProcessing::MiniMagick
-#   .source('./_images/test.jpg')
-#   .resize_to_limit(12, 120)
-#   .convert("JPG:- | base64")
-#   .call(save: false)
-
-# magick #=> #<MiniMagick::Tool::Convert ...>
-
-# magick << "output.jpg"
-# magick.call
-
-# puts magick.inspect
-
-
-
-  # puts Blurhash.encode(image.columns, image.rows, image.export_pixels)
 end

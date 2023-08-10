@@ -136,12 +136,7 @@ $utilities: map-merge(
     "max-height": (
       property: max-height,
       class: mxh,
-      values: map-merge($position-values, 
-        (none: none,
-        'card-img-cap' : $spacer * 13,
-        'dropdown-menu' : $spacer * 18,
-        'read-more' : ($line-height-base * 12) + rem)
-      )
+      values: map-merge($position-values, (none: none))
     ),
     "min-width": (
       property: min-width,
@@ -175,24 +170,34 @@ $utilities: map-merge(
         none: none
       )
     ),
+    "overflow": (
+      property: overflow,
+      class: overflow,
+      responsive: true,
+      values: auto hidden visible scroll,
+    ),
     "overflow-x": (
       property: overflow-x,
+      class: overflow-x,
       responsive: true,
       values: auto hidden visible scroll,
     ),
     "overflow-y": (
       property: overflow-y,
+      class: overflow-y,
       responsive: true,
       values: auto hidden visible scroll,
     ),
     "overscroll-x": (
       property: overscroll-behavior-x,
       class: overscroll-x,
+      responsive: true,
       values: auto contain none inherit initial revert unset,
     ),
     "overscroll-y": (
       property: overscroll-behavior-x,
       class: overscroll-y,
+      responsive: true,
       values: auto contain none inherit initial revert unset,
     ),
     "scroll-behavior": (
@@ -206,6 +211,7 @@ $utilities: map-merge(
     "scroll-snap-align": (
       property: scroll-snap-align,
       class: scroll-snap-align,
+      responsive: true,
       values: (
         'none': none,
         'start': start,
@@ -217,6 +223,7 @@ $utilities: map-merge(
     "scroll-snap-type": (
       property: scroll-snap-type,
       class: scroll-snap-type,
+      responsive: true,
       values: (
         'none': none,
         'x': x proximity,

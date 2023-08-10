@@ -1,8 +1,8 @@
 
 <!-- _includes/img-gallery.html -->
 {% assign img_path = page.url | replace: '/projects/','' | downcase %}
+{% assign include_path = img_path | prepend: 'projects/' %}
 
-{% assign col_total = 0 %}
 {% assign project_imgs = '' | split: ',' %}
 {% for image in site.static_files %}
   {% if image.path contains img_path %}
@@ -17,7 +17,7 @@
 {% endfor %}
 
 <div class="container-lg">
-  <div class="row cursor-grab justify-content-start align-items-start flex-row flex-nowrap overflow-x-auto overscroll-x-contain scroll-snap-type-x scroll-snap-align-start scroll-behavior-smooth justify-content-lg-center align-items-lg-center overflow-lg-hidden cursor-lg-auto flex-lg-wrap js-isotope-layout">
+  <div class="row cursor-grab justify-content-start align-items-start flex-row flex-nowrap overflow-x-auto overflow-y-hidden overscroll-x-contain scroll-snap-type-x scroll-snap-align-start scroll-behavior-smooth mt-0 justify-content-lg-center align-items-lg-center cursor-lg-auto flex-lg-wrap overflow-lg-hidden js-isotope-layout">
     {% for img in project_imgs %}
       {% assign show_image = true %}
       {% assign img_array = img.path | split: '/' %}
@@ -28,6 +28,7 @@
       {% assign img_width       = img_array[1] | plus: 0 %}
       {% assign img_height      = img_array[2] | plus: 0 %}
 
+
       {% assign img_caption     = '' %}
       {% assign img_caption     = img_array[0] | replace: '-',' ' | replace: '.nochrome', '' | replace: '1', '' | replace: '2' %}
 
@@ -36,6 +37,7 @@
       {% assign jpg_file        = img.path | prepend: site.baseurl %}
       {% assign jpg_file_low    = img_name | prepend: site.baseurl | append: '.low' | append: img.extname %}
 
+      {% assign txt_file        = img.name | replace: '.jpg', '.txt' | replace: '.gif', '.txt' | replace: '.png', '.txt' | prepend: include_path %}
 
       {% if img_width <= 360 %}
         {% assign col_width = 3 %}
@@ -53,24 +55,18 @@
       {% if img_width == 0 %}
         {% assign show_image = false %}
       {% endif %}
-      {% assign col_total = col_total | plus: col_width %}
 
-      {% if forloop.last %}
-      {% assign offset = 24 | minus: col_total | divided_by: 2 %}
-      {% endif %}
       {% if show_image %}
-      <div class="col-23 col-lg-{{col_width}} mxw-{{img_width}} js-isotope-item pb-3">
-        <figure class="m-0">
+      <div class="col-23 col-lg-{{col_width}} mxw-{{img_width}} mt-0 js-isotope-item">
+        <figure class="m-0 pb-3">
           {% if img.path contains '.nochrome' %}
           {% else %}
           <picture class="d-block">
-            <!-- <source srcset="{{ site.baseurl }}/assets/images/{{ img_width | prepend: 'browser-chrome-' | append: '.webp' }}" type="image/webp"> -->
             <img src="{{ site.baseurl }}/assets/images/{{ img_width | prepend: 'browser-chrome-' | append: '.png' }}" class="mxw-100 h-auto h-auto" width="{{ img_width }}" height="{{ chrome_height }}">
           </picture>
           {% endif %}
           <picture class="d-block">
-            <!-- <source srcset="{{ webp_file_low }}" data-src="{{ webp_file }}" data-src-retina="{{ webp_file }}" type="image/webp" class="img-responsive js-lazy"> -->
-            <img src="{{ jpg_file_low }}" data-src="{{ jpg_file }}" alt="{{ img_caption | capitalize }}" class="mxw-100 h-auto js-lazy" width="{{img_width}}" height="{{img_height}}">
+            <img src="{% include {{ txt_file }} %}" data-src="{{ jpg_file }}" alt="{{ img_caption | capitalize }}" class="mxw-100 h-auto js-lazy" width="{{img_width}}" height="{{img_height}}">
             <noscript>
               <source srcset="{{ webp_file }}" type="image/webp">
               <img src="{{ jpg_file  }}" alt="{{ img_caption | capitalize }}" class="img-responsive" width="{{img_width}}" height="{{img_height}}">

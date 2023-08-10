@@ -8,7 +8,6 @@ export default function lazyLoadImgs(selector = '.js-lazy') {
         if (entry.isIntersecting) {
           let imgEle = entry.target;
           imgEle.src = imgEle.dataset.src;
-          // imgEle.srcset = imgEle.dataset.srcset;
           imgEle.classList.remove('js-lazy');
           imgObserver.unobserve(imgEle);
         }
@@ -19,7 +18,7 @@ export default function lazyLoadImgs(selector = '.js-lazy') {
       imgObserver.observe(imgEle);
     });
   } else {
-    // Possibly fall back to event handlers here
+    // IDK
   }
 }
 
