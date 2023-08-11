@@ -18,7 +18,7 @@ export default function lazyLoadImgs(selector = '.js-lazy') {
       imgObserver.observe(imgEle);
     });
   } else {
-    // IDK
+    // IDK whatever
   }
 }
 
