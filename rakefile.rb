@@ -9,6 +9,7 @@ task :project_imgs_to_txt do
   extensions = ['.jpg', '.png', '.gif']
 
   Dir.each_child('_projects') do |project|
+    next if project == '.DS_Store'
     folder = File.basename(project, '.md')
     puts "Creating base64 images for #{project}..."
 

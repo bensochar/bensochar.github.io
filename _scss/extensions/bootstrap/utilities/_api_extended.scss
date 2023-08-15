@@ -136,12 +136,7 @@ $utilities: map-merge(
     "max-height": (
       property: max-height,
       class: mxh,
-      values: map-merge($position-values, 
-        (none: none,
-        'card-img-cap' : $spacer * 13,
-        'dropdown-menu' : $spacer * 18,
-        'read-more' : ($line-height-base * 12) + rem)
-      )
+      values: map-merge($position-values, (none: none))
     ),
     "min-width": (
       property: min-width,
@@ -206,6 +201,7 @@ $utilities: map-merge(
     "scroll-snap-align": (
       property: scroll-snap-align,
       class: scroll-snap-align,
+      responsive: true,
       values: (
         'none': none,
         'start': start,

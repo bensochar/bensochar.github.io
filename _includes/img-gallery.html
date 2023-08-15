@@ -24,19 +24,14 @@
       {% assign img_array = img_array.last | split: '.' %}
 
       {% assign img_name        = img.path | replace: '.jpg', '' | replace: '.gif', '' | replace: '.png', '' %}
-
       {% assign img_width       = img_array[1] | plus: 0 %}
       {% assign img_height      = img_array[2] | plus: 0 %}
-
 
       {% assign img_caption     = '' %}
       {% assign img_caption     = img_array[0] | replace: '-',' ' | replace: '.nochrome', '' | replace: '1', '' | replace: '2' %}
 
       {% assign webp_file       = img_name | prepend: site.baseurl | append: '.webp' %}
-      {% assign webp_file_low   = img_name | prepend: site.baseurl | append: '.low' | append: '.webp' %}
       {% assign jpg_file        = img.path | prepend: site.baseurl %}
-      {% assign jpg_file_low    = img_name | prepend: site.baseurl | append: '.low' | append: img.extname %}
-
       {% assign txt_file        = img.name | replace: '.jpg', '.txt' | replace: '.gif', '.txt' | replace: '.png', '.txt' | prepend: include_path %}
 
       {% if img_width <= 360 %}
@@ -59,12 +54,11 @@
       {% if show_image %}
       <div class="col-23 col-lg-{{col_width}} mxw-{{img_width}} mt-0 js-isotope-item">
         <figure class="m-0 pb-3">
-          {% if img.path contains '.nochrome' %}
-          {% else %}
+          {% unless img.path contains '.nochrome' %}
           <picture class="d-block">
             <img src="{{ site.baseurl }}/assets/images/{{ img_width | prepend: 'browser-chrome-' | append: '.png' }}" class="mxw-100 h-auto h-auto" width="{{ img_width }}" height="{{ chrome_height }}">
           </picture>
-          {% endif %}
+          {% endunless %}
           <picture class="d-block">
             <img src="{% include {{ txt_file }} %}" data-src="{{ jpg_file }}" alt="{{ img_caption | capitalize }}" class="mxw-100 h-auto js-lazy" width="{{img_width}}" height="{{img_height}}">
             <noscript>
