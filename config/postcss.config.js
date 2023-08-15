@@ -9,7 +9,11 @@ module.exports = {
   plugins: [
     require('autoprefixer'),
     purgecss({
-      content: ['./**/*.html', './_js/*.js'],
+      content: ['./_includes/*.html', 
+        './_layouts/*.html', 
+        './_src/template/*.html', 
+        './_site/**/*.html',
+        './_js/*.js'],
       extractors: [
         {
           extractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],

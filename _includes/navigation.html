@@ -21,10 +21,17 @@
       <nav class="nav navbar-nav">
         {% for site_page in site.pages %}
           {% if site_page.title %}
-            {% assign site_page_url_clean = site_page.url | replace: '/',''%}
-            {% assign page_url_clean = page.url | replace: '/',''%}
+            {% assign site_page_url_clean = site_page.url | replace: '/', '' %}
+            {% assign page_url_clean = page.url | replace: '/', '' %}
+            {% assign title_down = site_page.title | downcase %}
+            {% assign link = page.url %}
+            {% if link contains title_down %}
+            {% assign active_class = 'active' %}
+            {% else %}
+            {% assign active_class = '' %}
+            {% endif %}
             {% unless site_page_url_clean == '404' or site_page_url_clean == 'styleguide' %}
-              <a class="nav-link bg-opacity-30 {% if page_url_clean == site_page_url_clean %} active {% endif %}" href="{{ site_page.url | prepend: site.baseurl }}">{{ site_page.title }}</a>
+              <a class="nav-link bg-opacity-30 {{ active_class }}" href="{{ site_page.url | prepend: site.baseurl }}">{{ site_page.title }} </a>
             {% endunless %}
           {% endif %}
         {% endfor %}
