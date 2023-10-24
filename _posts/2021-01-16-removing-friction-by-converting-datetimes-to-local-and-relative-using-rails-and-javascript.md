@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Removing Friction by Converting Datetimes to Local & Relative Useing Rails & Javascript
+title:  Removing Friction by Converting Datetimes to Local & Relative Using Rails & Javascript
 date:   2021-01-16 16:00 -0500
 tags:   [rails, javascript, date-fns, dates]
 ---
@@ -61,7 +61,7 @@ module DateTimeHelper
 end
 ```
 
-Yarn or NPM date-fns](https://date-fns.org/). I only needed US format but date-fns supports others. We'll also import realtive formatting & checks for same year/week as the current date so we can cleanup the date.
+Yarn or NPM [date-fns](https://date-fns.org/). I only needed US format but date-fns supports others. We'll also import realtive formatting & checks for same year/week as the current date so we can cleanup the date.
 
 There's the optonal removal of the "text-muted" styles once the formatting is complete.
 
