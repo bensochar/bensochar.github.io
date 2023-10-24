@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Your Emails Might be DDoSing Your App
-date:   2023-01-16 19:00 -0500
+date:   2023-03-21 19:00 -0500
 tags:   [email]
 ---
 If you've got a bunch of B2B customers, you might notice big spikes in traffic after a big email campaign. 
