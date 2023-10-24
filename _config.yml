@@ -113,6 +113,7 @@ exclude:
   - optimization-fix-this-file-is-ignored.js
   - icon.png
   - rakefile
+  - tmp
 
 
 

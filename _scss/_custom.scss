@@ -6,10 +6,7 @@ svg {
 .highlighter-rouge > .highlight {
   @extend .p-3;
   @extend .mb-4;
-}
-
-.nav-link .active {
-
+  @extend .mx-lg-n5;
 }
 
 .random-bg-hover {
@@ -17,7 +14,6 @@ svg {
     width: 25%;
     transition: width .25s ease-out, opacity .25s ease-out;
     opacity: 0;
-    // margin-left: 0;
     transform-origin: center;
     transform: translateX(-50%);
   }
@@ -27,12 +23,6 @@ svg {
     > span {
       opacity: 0.3;
       width: 200%;
-      // transform: scaleX(2);
-      // transform: translateX(-50%);
-      // width: 200%;
-      // width: 50px;
-      // margin-left: -50%;
-      // margin-left: -25px;
     }
   }
   &:active {

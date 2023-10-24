@@ -4,10 +4,13 @@ const pruneVar = require('postcss-prune-var');
 const purgecss = require('@fullhuman/postcss-purgecss');
 const purgeHtml = require('purgecss-from-html');
 const purgeJs = require('purgecss-from-js');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   plugins: [
-    require('autoprefixer'),
+    require('autoprefixer')({
+      flexbox: "no-2009"
+    }),
     purgecss({
       content: ['./_includes/*.html', 
         './_layouts/*.html', 
