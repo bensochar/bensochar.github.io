@@ -3,10 +3,8 @@ svg {
   height: 1em;
 }
 
-.highlighter-rouge > .highlight {
-  @extend .p-3;
+.highlighter-rouge {
   @extend .mb-4;
-  @extend .mx-lg-n5;
 }
 
 .random-bg-hover {

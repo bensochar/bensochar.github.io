@@ -53,3 +53,31 @@ task :project_imgs_to_txt do
   end
 
 end
+
+task :rename_project_images do
+  extensions = ['.png']
+
+  Dir.each_child('_projects') do |project|
+    next if project == '.DS_Store'
+    next unless project == 'ellevate.md'
+    folder = File.basename(project, '.md')
+    puts "Adding image dimensions for #{project}..."
+
+    Dir.foreach('./_images/' + folder + '/') do |file|
+      next unless file
+      extension = File.extname(file)
+      next unless extensions.include?(extension)
+
+      name = File.basename(file, extension)
+      name_array = name.to_s.split('.')
+      input = File.path('./_images/' + folder + '/' + file)
+
+
+      dimensions = MiniMagick::Image.new(input).dimensions 
+
+      File.rename(input, "./_images/#{folder}/#{name_array.first}.#{dimensions[0]}.#{dimensions[1]}#{extension}" )
+
+    end
+  end
+
+end

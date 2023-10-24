@@ -2,7 +2,7 @@
 layout: post
 title:  "SASS Anchor Offset Mixin"
 date:   2016-07-14 00:52:21 -0500
-tags:   [sass mixins snippet]
+tags:   [SASS, CSS, mixins, snippet]
 ---
 Fixed navigation can be problematic on sites when linking to anchors. The window will scroll the anchored element to the top of the window covering the content. I've seen a lot of javscript that fixes this, but I think its problimatic since:
 

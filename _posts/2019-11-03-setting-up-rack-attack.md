@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Setting Up Rack Attack in Rails
-date:   2021-01-03 16:00 -0500
+date:   2021-11-03 16:00 -0500
 tags:   [Ruby, Rails]
 ---
 The [Rack Attack](https://github.com/rack/rack-attack) gem is a must have for most projects. It can prevent DDoS attacks, password brute forcing & saves on hosting resources. It's a good way to keep your logs free of script kid nonsense.
@@ -24,7 +24,7 @@ Same with the password resets.
 
 ```
 
-Now lets ban those stupid bots that endlessly curl Wordpress/Apache files:
+Now let's ban those stupid bots that endlessly curl Wordpress/Apache files:
 
 ```ruby
   Rack::Attack.blocklist('fail2ban pentesters') do |req|
