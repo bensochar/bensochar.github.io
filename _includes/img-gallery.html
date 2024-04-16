@@ -30,22 +30,24 @@
       {% assign img_caption     = '' %}
       {% assign img_caption     = img_array[0] | replace: '-',' ' | replace: '.nochrome', '' | replace: '1', '' | replace: '2' %}
 
+      {% assign img_slug        = img_caption | slugify %}
+
       {% assign webp_file       = img_name | prepend: site.baseurl | append: '.webp' %}
       {% assign jpg_file        = img.path | prepend: site.baseurl %}
       {% assign txt_file        = img.name | replace: '.jpg', '.txt' | replace: '.gif', '.txt' | replace: '.png', '.txt' | prepend: include_path %}
 
-      {% if img_width <= 360 %}
+      {% if img_width <= 360 or img_width == 1170 %}
         {% assign col_width = 3 %}
-        {% assign chrome_height = 73 %}
-      {% elsif img_width <= 768 %}
+        {% assign chrome_height = 'ch-20' %}
+      {% elsif img_width <= 768 or img_width == 1536 %}
         {% assign col_width = 5 %}
-        {% assign chrome_height = 65 %}
-      {% elsif img_width <= 1024 %}
+        {% assign chrome_height = 'ch-24' %}
+      {% elsif img_width <= 1024 or img_width == 2048 %}
         {% assign col_width = 6 %}
-        {% assign chrome_height = 65 %}
-      {% elsif img_width <= 1680 %}
+        {% assign chrome_height = 'ch-24' %}
+      {% elsif img_width <= 1680 or img_width == 3360 %}
         {% assign col_width = 8 %}
-        {% assign chrome_height = 75 %}
+        {% assign chrome_height = 'ch-24' %}
       {% endif %}
       {% if img_width == 0 %}
         {% assign show_image = false %}
@@ -55,8 +57,16 @@
       <div class="col-23 col-lg-{{col_width}} mxw-{{img_width}} mt-0 js-isotope-item">
         <figure class="m-0 pb-3">
           {% unless img.path contains '.nochrome' %}
-          <picture class="d-block">
-            <img src="{{ site.baseurl }}/assets/images/{{ img_width | prepend: 'browser-chrome-' | append: '.png' }}" class="mxw-100 h-auto h-auto" width="{{ img_width }}" height="{{ chrome_height }}">
+          <picture class="d-flex flex-row flex-nowrap justify-content-between align-items-stretch {{ chrome_height }} chrome">
+            <div class="chrome-start {{ chrome_height }}">
+              {% include svgs/chrome-start.svg %}
+            </div>
+            <div class="flex-grow-1 flex-fill {{ chrome_height }}">
+              {% include svgs/chrome-center.svg %}
+            </div>
+            <div class="chrome-end {{ chrome_height }}">
+              {% include svgs/chrome-end.svg %}
+            </div>
           </picture>
           {% endunless %}
           <picture class="d-block">
@@ -68,6 +78,14 @@
           </picture>
           <figcaption class="small lh-sm text-muted m-0">{{ img_caption | trim | capitalize }}</figcaption>
         </figure>
+<!--         <div class="modal" id="{{ img_slugy }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              {{ img_caption | trim | capitalize }}<
+            </div>
+          </div>
+        </div> -->
+        <!-- <button type="button" class="stretched-link" data-bs-toggle="modal" data-bs-target="#{{ img_slug }}">Modal</button> -->
       </div>
       {% endif %}
     {% endfor %}
