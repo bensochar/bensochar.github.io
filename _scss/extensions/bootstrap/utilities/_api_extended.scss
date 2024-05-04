@@ -137,6 +137,7 @@ $utilities: map-merge(
       property: height,
       class: ch,
       values: (
+        16: $spacer,
         20: $spacer * 1.25,
         24: $spacer * 1.5,
         28: $spacer * 1.75,

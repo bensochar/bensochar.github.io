@@ -36,18 +36,22 @@
       {% assign jpg_file        = img.path | prepend: site.baseurl %}
       {% assign txt_file        = img.name | replace: '.jpg', '.txt' | replace: '.gif', '.txt' | replace: '.png', '.txt' | prepend: include_path %}
 
+      {% assign chrome_size     = 'sm' %}
+      {% assign chrome_height   = 'ch-20' %}
+
       {% if img_width <= 360 or img_width == 1170 %}
         {% assign col_width = 3 %}
-        {% assign chrome_height = 'ch-20' %}
-      {% elsif img_width <= 768 or img_width == 1536 %}
+      {% elsif img_width == 768 or img_width == 1536 %}
         {% assign col_width = 5 %}
-        {% assign chrome_height = 'ch-24' %}
-      {% elsif img_width <= 1024 or img_width == 2048 %}
+        {% assign chrome_height = 'ch-16' %}
+      {% elsif img_width <= 1024 or img_width == 2048 or img_width == 3110 %}
         {% assign col_width = 6 %}
         {% assign chrome_height = 'ch-24' %}
+        {% assign chrome_size = 'lg' %}
       {% elsif img_width <= 1680 or img_width == 3360 %}
         {% assign col_width = 8 %}
-        {% assign chrome_height = 'ch-24' %}
+        {% assign chrome_height = 'ch-20' %}
+        {% assign chrome_size = 'lg' %}
       {% endif %}
       {% if img_width == 0 %}
         {% assign show_image = false %}
@@ -57,20 +61,32 @@
       <div class="col-23 col-lg-{{col_width}} mxw-{{img_width}} mt-0 js-isotope-item">
         <figure class="m-0 pb-3">
           {% unless img.path contains '.nochrome' %}
-          <picture class="d-flex flex-row flex-nowrap justify-content-between align-items-stretch {{ chrome_height }} chrome">
+          <picture class="d-flex flex-row flex-nowrap justify-content-between align-items-stretch overflow-hidden {{ chrome_height }} chrome">
             <div class="chrome-start {{ chrome_height }}">
+              {% if chrome_size == 'lg' %}
               {% include svgs/chrome-start.svg %}
+              {% else  %}
+              {% include svgs/chrome-start-sm.svg %}
+              {% endif %}
             </div>
             <div class="flex-grow-1 flex-fill {{ chrome_height }}">
+              {% if chrome_size == 'lg' %}
               {% include svgs/chrome-center.svg %}
+              {% else  %}
+              {% include svgs/chrome-center-sm.svg %}
+              {% endif %}
             </div>
             <div class="chrome-end {{ chrome_height }}">
+              {% if chrome_size == 'lg' %}
               {% include svgs/chrome-end.svg %}
+              {% else  %}
+              {% include svgs/chrome-end-sm.svg %}
+              {% endif %}
             </div>
           </picture>
           {% endunless %}
-          <picture class="d-block">
-            <img src="{% include {{ txt_file }} %}" data-src="{{ jpg_file }}" alt="{{ img_caption | capitalize }}" class="mxw-100 h-auto js-lazy" width="{{img_width}}" height="{{img_height}}">
+          <picture class="d-block text-center">
+            <img src="{% include {{ txt_file }} %}" data-src="{{ jpg_file }}" alt="{{ img_caption | capitalize }}" class="mxw-100 mx-auto h-auto js-lazy" width="{{img_width}}" height="{{img_height}}">
             <noscript>
               <source srcset="{{ webp_file }}" type="image/webp">
               <img src="{{ jpg_file  }}" alt="{{ img_caption | capitalize }}" class="img-responsive" width="{{img_width}}" height="{{img_height}}">
@@ -78,14 +94,6 @@
           </picture>
           <figcaption class="small lh-sm text-muted m-0">{{ img_caption | trim | capitalize }}</figcaption>
         </figure>
-<!--         <div class="modal" id="{{ img_slugy }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              {{ img_caption | trim | capitalize }}<
-            </div>
-          </div>
-        </div> -->
-        <!-- <button type="button" class="stretched-link" data-bs-toggle="modal" data-bs-target="#{{ img_slug }}">Modal</button> -->
       </div>
       {% endif %}
     {% endfor %}
