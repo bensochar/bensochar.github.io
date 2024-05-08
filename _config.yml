@@ -102,7 +102,8 @@ bing_verification:    F2755313519F06188F14B44E05940408
 favicon_path:         /images/meta/
 locality:             Brooklyn
 region:               NY
-theme_color:          '#2828c6'
+theme_color_light:    '#f8f9fa'  
+theme_color_dark:     '#6487f4'
 fb_admin:             6814681
 #
 # Contact vars

@@ -26,7 +26,8 @@ module.exports = {
           extractor: purgeHtml,
           extensions: ['html']
         }
-      ]
+      ],
+      safelist: [/^highlight/]
     }),
     pruneVar(),
     cssnano({
