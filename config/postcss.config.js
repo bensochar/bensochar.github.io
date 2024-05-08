@@ -13,7 +13,7 @@ module.exports = {
     }),
     purgecss({
       content: ['./_includes/*.html', 
-        './_includes/svgs/*.svg', 
+        './_includes/svgs/*.svg',
         './_layouts/*.html', 
         './_src/template/*.html', 
         './_site/**/*.html',
@@ -28,10 +28,15 @@ module.exports = {
           extensions: ['html']
         }
       ],
-      safelist: [/^highlight/,
-        'p-3',
+      safelist: [/^highlight$/,
+        'align-top',
+        'h-100',
         'mx-lg-n5',
+        'mxw-none',
+        'p-3',
         'p-lg-5',
+        'w-100',
+        'w-auto',
         'mb-0']
     }),
     pruneVar(),
