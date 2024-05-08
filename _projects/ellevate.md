@@ -5,7 +5,7 @@ favorite: 1
 live_site: https://www.ellevatenetwork.com
 title: Ellevate
 role: Technical Lead
-tags: [SASS, JavaScript, Ruby, Ruby on Rails, RVM, Webpack, erb, Sidekiq, PostgreSQL, Heroku, Redis, Clockwork, Google Analytics, Google Search Console, Hirefire, Zoom API, Vimeo API, rspec, Trello, Vue, Angular, Fastly, Sendgrid APIs, RackAttack, Puma, Hirefire, Rails Autoscale. Papertraill, Scout APM, Google Sign In, ReCaptcha, Bootstrap, Faker, FactoryBot, Active Storage, Paperclip, SimpleForm, Geocoder, Google Geocoding API, Google Places API, DateFNS, Stripe REST API, Stripe Elements, PostgreSQL, Codeship, CI, Github]
+tags: [SASS, JavaScript, Ruby, Ruby on Rails, RVM, Webpack, erb, Sidekiq, PostgreSQL, Heroku, Redis, Clockwork, Google Analytics, Google Search Console, Hirefire, Zoom API, Vimeo API, rspec, Trello, Vue, Angular, Fastly, Sendgrid APIs, RackAttack, Puma, Hirefire, Rails Autoscale. Papertraill, Scout APM, Google Sign In, ReCaptcha, Bootstrap, Faker, FactoryBot, Active Storage, Paperclip, SimpleForm, Geocoder, Google Geocoding API, Google Places API, DateFNS, Stripe REST API, Stripe Elements, PostgreSQL, Codeship, CI, Github, Git, Airbrake]
 ---
 Ellevate is a professional netowork for women. Primarliy an events platform, it has _many_ other features. Part social network, part CMS, localized Chapters, a B2B side & several levels of access based on roles. This required a custom admin, payemnts as subscription, point of sale & _lots_ of ways to communicate with members. 
 

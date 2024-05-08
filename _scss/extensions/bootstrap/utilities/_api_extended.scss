@@ -133,6 +133,18 @@ $utilities: map-merge(
       class: h,
       values: map-merge($position-values, (auto: auto))
     ),
+    "chrome-height": (
+      property: height,
+      class: ch,
+      values: (
+        16: $spacer,
+        20: $spacer * 1.25,
+        24: $spacer * 1.5,
+        28: $spacer * 1.75,
+        32: $spacer * 2,
+        36: $spacer * 2.25
+      )
+    ),
     "max-height": (
       property: max-height,
       class: mxh,

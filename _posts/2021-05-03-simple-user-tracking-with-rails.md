@@ -1,7 +1,8 @@
 ---
 layout: post
-title: Making a Simple Way to Track User Activity with Rails
-date: 2021-05-03 00:00:00 -0500
+title:  Making a Simple Way to Track User Activity with Rails
+date:   2021-05-03 00:00:00 -0500
+tags:   [Ruby, Rails, Javascript, Analytics]
 ---
 Want to track a User's journey through your app? Follow up on abandoned transaction?
 
@@ -118,11 +119,7 @@ class TrackingsController < ApplicationController
 
   def set_action 
     # 'action' is reserved word in Rails
-    if request.method == "POST"
-      action = request.request_parameters['action']
-    else
-      action = request.query_parameters['action']
-    end
+    request.method == "POST" ? request.request_parameters['action'] : request.query_parameters['action']
   end
 
   def identify_user
