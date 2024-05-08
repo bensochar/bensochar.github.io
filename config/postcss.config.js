@@ -13,6 +13,7 @@ module.exports = {
     }),
     purgecss({
       content: ['./_includes/*.html', 
+        './_includes/svgs/*.svg', 
         './_layouts/*.html', 
         './_src/template/*.html', 
         './_site/**/*.html',
@@ -27,7 +28,11 @@ module.exports = {
           extensions: ['html']
         }
       ],
-      safelist: [/^highlight/]
+      safelist: [/^highlight/,
+        'p-3',
+        'mx-lg-n5',
+        'p-lg-5',
+        'mb-0']
     }),
     pruneVar(),
     cssnano({

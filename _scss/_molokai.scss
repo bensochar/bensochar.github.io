@@ -1,3 +1,8 @@
+/* purgecss start ignore */
+.highlight {
+  color: #f8f8f2;
+  background-color: #1b1d1e;
+}
 .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
@@ -202,7 +207,4 @@
 .highlight .nt {
   color: #f92672;
 }
-.highlight {
-  color: #f8f8f2;
-  background-color: #1b1d1e;
-}
+/* purgecss end ignore */
