@@ -59,24 +59,24 @@
 
       {% if show_image %}
       <div class="col-23 col-lg-{{col_width}} mxw-{{img_width}} mt-0 js-isotope-item">
-        <figure class="m-0 pb-3">
+        <figure class="m-0 pb-3 position-relative">
           {% unless img.path contains '.nochrome' %}
           <picture class="d-flex flex-row flex-nowrap justify-content-between align-items-stretch overflow-hidden {{ chrome_height }} chrome">
-            <div class="chrome-start {{ chrome_height }}">
+            <div>
               {% if chrome_size == 'lg' %}
               {% include svgs/chrome-start.svg %}
               {% else  %}
               {% include svgs/chrome-start-sm.svg %}
               {% endif %}
             </div>
-            <div class="flex-grow-1 flex-fill {{ chrome_height }}">
+            <div class="flex-grow-1 flex-fill">
               {% if chrome_size == 'lg' %}
               {% include svgs/chrome-center.svg %}
               {% else  %}
               {% include svgs/chrome-center-sm.svg %}
               {% endif %}
             </div>
-            <div class="chrome-end {{ chrome_height }}">
+            <div>
               {% if chrome_size == 'lg' %}
               {% include svgs/chrome-end.svg %}
               {% else  %}
