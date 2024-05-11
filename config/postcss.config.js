@@ -14,6 +14,7 @@ module.exports = {
     purgecss({
       content: ['./_includes/*.html', 
         './_includes/svgs/*.svg',
+        '_config.yml',
         './_layouts/*.html', 
         './_src/template/*.html', 
         './_site/**/*.html',
