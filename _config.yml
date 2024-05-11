@@ -21,10 +21,10 @@ kramdown:
   # span, block element options fall back to global
   syntax_highlighter_opts:
     # Rouge Options › https://github.com/jneen/rouge#full-options
-    css_class: 'highlight p-3 mx-lg-n5 p-lg-5 mb-0'
+    css_class: 'highlight overflow-x-auto p-3 my-0 mx-lg-n5 p-lg-5 mx-xl-n9'
     #line_numbers: true # bad idea, spans don't need linenos and would inherit this option
     span:
-      line_numbers: false
+      line_numbers: true
     block:
       line_numbers: false
       start_line: 1
