@@ -2,11 +2,10 @@ source 'https://rubygems.org'
 
 group :jekyll_plugins do
   # gem 'octopress-image-tag'
-  # gem 'octopress-social'
+  gem 'octopress-social'
   gem "jekyll-feed"
   gem 'amp-jekyll'
   gem 'github-pages'
-  # gem 'jekyll-multiple-languages-plugin'
   gem 'jekyll-seo-tag'
   gem 'jekyll-sitemap'
   gem 'octopress-minify-html'

@@ -38,18 +38,19 @@
 
       {% assign chrome_size     = 'sm' %}
       {% assign chrome_height   = 'ch-20' %}
+      {% assign col_width       = 'col-lg-3' %}
 
       {% if img_width <= 360 or img_width == 1170 %}
-        {% assign col_width = 3 %}
+        {% assign col_width = 'col-lg-3' %}
       {% elsif img_width == 768 or img_width == 1536 %}
-        {% assign col_width = 5 %}
+        {% assign col_width = 'col-lg-5' %}
         {% assign chrome_height = 'ch-16' %}
       {% elsif img_width <= 1024 or img_width == 2048 or img_width == 3110 %}
-        {% assign col_width = 6 %}
+        {% assign col_width = 'col-lg-6' %}
         {% assign chrome_height = 'ch-24' %}
         {% assign chrome_size = 'lg' %}
       {% elsif img_width <= 1680 or img_width == 3360 %}
-        {% assign col_width = 8 %}
+        {% assign col_width = 'col-lg-6' %}
         {% assign chrome_height = 'ch-20' %}
         {% assign chrome_size = 'lg' %}
       {% endif %}
@@ -58,7 +59,7 @@
       {% endif %}
 
       {% if show_image %}
-      <div class="col-23 col-lg-{{col_width}} mxw-{{img_width}} mt-0 js-isotope-item">
+      <div class="col-23 {{col_width}} mxw-{{img_width}} mt-0 js-isotope-item">
         <figure class="m-0 pb-3">
           {% unless img.path contains '.nochrome' %}
           <picture class="d-flex flex-row flex-nowrap justify-content-between align-items-stretch overflow-hidden {{ chrome_height }} chrome">
