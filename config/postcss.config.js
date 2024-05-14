@@ -40,13 +40,13 @@ module.exports = {
         'col-lg-6',
         'col-lg-8',
         'h-100',
+        'mb-0',
         'mx-lg-n5',
         'mxw-none',
         'p-3',
         'p-lg-5',
         'w-100',
-        'w-auto',
-        'mb-0']
+        'w-auto']
     }),
     pruneVar(),
     cssnano({
