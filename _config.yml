@@ -103,8 +103,8 @@ github:               [metadata]
 favicon_path:         /images/meta/
 locality:             Brooklyn
 region:               NY
-theme_color_light:    '#f8f9fa'  
-theme_color_dark:     '#6487f4'
+theme_color_light:    '#00f5d9'  
+theme_color_dark:     '#00f5d9'
 fb_admin:             6814681
 #
 # Contact vars

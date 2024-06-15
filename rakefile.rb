@@ -51,7 +51,6 @@ task :project_imgs_to_txt do
       `bash image2urijpeg.sh #{temp} > #{output}`
     end
   end
-
 end
 
 task :rename_project_images do
@@ -79,5 +78,25 @@ task :rename_project_images do
 
     end
   end
+end
 
+task :convert_to_webp do
+  extensions = ['.png']
+
+  Dir.each_child('_projects') do |project|
+    next if project == '.DS_Store'
+    next unless project == 'ellevate.md'
+    folder = File.basename(project, '.md')
+    puts "Convertring to webp for #{project}..."
+
+    Dir.foreach('./_images/' + folder + '/') do |file|
+      next unless file
+      extension = File.extname(file)
+      next unless extensions.include?(extension)
+      magick = ImageProcessing::MiniMagick
+        .source(file)
+        .convert('WEBP:- | base64')
+        .call
+    end
+  end
 end
