@@ -134,9 +134,7 @@ Going further you can pass an !18n node as an object to Vue for rednering someth
 
 1st pass the 18n as JSON object.
 
-```erb
-// app/views/articles/partials/article_deck.html.erb
-
+```ruby
 <h2><%= t('.articles.header') %></h2>
 <div class="js-articles-card-deck"
   data-assetsobj="<%= { 
