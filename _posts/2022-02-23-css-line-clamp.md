@@ -12,7 +12,6 @@ tags:   [CSS, SASS, Bootstrap, snippet]
     -webkit-box-orient: vertical;  
     overflow: hidden;
   }
-}
 ```
 
 If we're using Bootstrap we can [extend it as a utility]({% post_url 2022-01-03-extending-bootstrap-5-utllities %}) to set the number of lines we want.

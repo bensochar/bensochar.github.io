@@ -136,6 +136,7 @@ $utilities: map-merge(
     "chrome-height": (
       property: height,
       class: ch,
+      responsive: true,
       values: (
         16: $spacer,
         20: $spacer * 1.25,
