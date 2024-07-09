@@ -5,6 +5,7 @@ require 'rmagick'
 require 'image_processing/mini_magick'
 require 'base64'
 
+desc "Convert images to text files"
 task :project_imgs_to_txt do
   extensions = ['.jpg', '.png', '.gif']
 
@@ -53,6 +54,7 @@ task :project_imgs_to_txt do
   end
 end
 
+desc "Add dimensions to file name"
 task :rename_project_images do
   extensions = ['.png']
 
@@ -71,7 +73,6 @@ task :rename_project_images do
       name_array = name.to_s.split('.')
       input = File.path('./_images/' + folder + '/' + file)
 
-
       dimensions = MiniMagick::Image.new(input).dimensions 
 
       File.rename(input, "./_images/#{folder}/#{name_array.first}.#{dimensions[0]}.#{dimensions[1]}#{extension}" )
@@ -80,6 +81,7 @@ task :rename_project_images do
   end
 end
 
+desc "Convert images to webp"
 task :convert_to_webp do
   extensions = ['.png']
 
@@ -90,13 +92,16 @@ task :convert_to_webp do
     puts "Convertring to webp for #{project}..."
 
     Dir.foreach('./_images/' + folder + '/') do |file|
+      input = File.path('./_images/' + folder + '/' + file)
       next unless file
-      extension = File.extname(file)
       next unless extensions.include?(extension)
-      magick = ImageProcessing::MiniMagick
-        .source(file)
-        .convert('WEBP:- | base64')
-        .call
+
+      extension = File.extname(file)
+      name = File.basename(file, extension)
+
+      image = MiniMagick::Image.open(input)
+      image.format "webp"
+      image.write "./_images/#{folder}/#{name}.webp"
     end
   end
 end
