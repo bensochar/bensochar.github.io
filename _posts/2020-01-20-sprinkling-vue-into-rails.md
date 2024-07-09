@@ -2,26 +2,24 @@
 layout: post
 title:  Sprinkling Vue into Rails
 date:   2020-01-20 01:00 -0500
-tags:   [VueJs, javascript, Rails, Ruby]
+tags:   [VueJs, javascript, Rails, Ruby, Webpack, Webpacker]
 ---
-One of very few downsides of Rails is getting a reactive UX like JS apps. 
+One of very few downsides of Rails is getting a reactive UI like we se in JS apps. 
 
-It's useful to have Vue in acquisition funnels, transactional steps or a real time dashboard. 
+Using Vue in Rails can be great when you've got something like a real-time dashboard, a view with a lot of assocations or new user acquistion. But sharing data from the Rails app can be a pain.
 
-We want to achieve a few things to make our lives easier:
+We can include Vue but we want a few things to make our lives easier:
 
 1. Load a Vue instance into an erb view
 1. Be able to share variables from the Rails apps as Props so nothing is hardcoded into JS
-1. Use the !18n localization files in Vue
+1. Use the 18n localization files in Vue
 1. Have Vue play nice with Turbolinks
 
-So let's pretend our blogging app has articles we want loaded async. And we want to pass 3 things from Rails to Vue. A url to load the Articles, an optional CSS style & some copy from our !18n files. 
+Let's pretend our blogging app has articles we want loaded async. And we want to pass 3 things from Rails to Vue. A url to load the Articles, an optional CSS style & some copy from our 18n files. 
 
 This our erb file. We're going to pass the 3 varibles with data attributes.
 
-```erb
-// app/views/articles/partials/article_deck.html.erb
-
+```ruby
 <h2><%= t('.articles.header') %></h2>
 <div class="js-articles-card-deck" 
   data-cta="<%= t('.articles.cta') %>"
@@ -101,7 +99,6 @@ The Vue template with the 3 props we're passing. Since the row style is HTML cod
       cta: {
         type: String,
         required: true,
-        default: ''
       },
       rowStyle: {
         type: String,
@@ -130,9 +127,9 @@ The Vue template with the 3 props we're passing. Since the row style is HTML cod
 </script>
 ```
 
-Going further you can pass an !18n node as an object to Vue for rednering something like a list or pass along some images.To do that we'd need to change a couple of things.
+Going further you can pass an 18n node as an object to Vue for rednering something like a list or pass along some images.To do that we'd need to change a couple of things.
 
-1st pass the 18n as JSON object.
+1st pass the 18n & asset as JSON objects.
 
 ```ruby
 <h2><%= t('.articles.header') %></h2>
@@ -145,18 +142,19 @@ Going further you can pass an !18n node as an object to Vue for rednering someth
       alt: 'Some articles' 
     },
   }.to_json %>">
-  data-rowstyle="row-cols-lg-3"
   data-ctaobj="<%= I18n.t('.articles.cta').to_json %>"
+  data-rowstyle="row-cols-lg-3"
   data-url="<%= articles_path(page: 1, per_page: 6, format: :json) %>"></div>
 
 ```
+Then adjust your props & template so you can work with objects. 
 
 ```javascript
 // app/javascripts/src/components/ArticleCardDeck.vue
 <template>
-  <figure class="figure" v-for="list_item in ctaObj.list_items">
+  <figure class="figure" v-for="asset in assetObj">
     <img class="img-fluid"
-      :src="asset_obj.url"
+      :src="asset.url"
       :width="asset.width"
       :height="asset.height"
       :alt="asset.alt">
@@ -195,8 +193,7 @@ Going further you can pass an !18n node as an object to Vue for rednering someth
     props: {
       assetObj: {
         type: Object,
-        required: true,
-        default: {}
+        required: true
       },
       ctaObj: {
         type: Object,
