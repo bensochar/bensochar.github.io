@@ -143,7 +143,10 @@ $utilities: map-merge(
         24: $spacer * 1.5,
         28: $spacer * 1.75,
         32: $spacer * 2,
-        36: $spacer * 2.25
+        36: $spacer * 2.25,
+        40: $spacer * 2.5,
+        44: $spacer * 2.75,
+        48: $spacer * 3
       )
     ),
     "max-height": (

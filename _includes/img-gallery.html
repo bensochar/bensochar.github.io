@@ -6,13 +6,13 @@
 {% assign project_imgs = '' | split: ',' %}
 {% for image in site.static_files %}
   {% if image.path contains img_path %}
-    {% unless image.extname == '.webp' or image.path contains '.low' %}
-        {% assign img_file = image.path %}
-        {% unless img_file == previous_img_file %}
-          {% assign project_imgs = project_imgs | push: image %}
-        {% endunless %}
+    {% if image.extname == '.webp' | image.extname == '.gif' %}
+      {% assign img_file = image.path %}
+      {% unless img_file == previous_img_file %}
+        {% assign project_imgs = project_imgs | push: image %}
+      {% endunless %}
       {% assign previous_img_file = img_file %}
-    {% endunless %}
+    {% endif %}
   {% endif %}
 {% endfor %}
 
@@ -23,7 +23,7 @@
       {% assign img_array = img.path | split: '/' %}
       {% assign img_array = img_array.last | split: '.' %}
 
-      {% assign img_name        = img.path | replace: '.jpg', '' | replace: '.gif', '' | replace: '.png', '' %}
+      {% assign img_name        = img.path | replace: '.jpg', '' | replace: '.gif', '' | replace: '.png', '' | replace: '.webp', '' %}
       {% assign img_width       = img_array[1] | plus: 0 %}
       {% assign img_height      = img_array[2] | plus: 0 %}
 
@@ -32,19 +32,18 @@
 
       {% assign img_slug        = img_caption | slugify %}
 
-      {% assign webp_file       = img_name | prepend: site.baseurl | append: '.webp' %}
-      {% assign jpg_file        = img.path | prepend: site.baseurl %}
-      {% assign txt_file        = img.name | replace: '.jpg', '.txt' | replace: '.gif', '.txt' | replace: '.png', '.txt' | prepend: include_path %}
+      {% assign img_file        = img.path | prepend: site.baseurl %}
+      {% assign txt_file        = img.name | replace: '.jpg', '.txt' | replace: '.gif', '.txt' | replace: '.png', '.txt' | replace: '.webp', '.txt' | prepend: include_path %}
 
       {% assign chrome_size     = 'sm' %}
-      {% assign chrome_height   = 'ch-32 ch-lg-20' %}
+      {% assign chrome_height   = 'ch-44 ch-lg-20' %}
       {% assign col_width       = 'col-lg-3' %}
 
       {% if img_width <= 360 or img_width == 1170 %}
         {% assign col_width = 'col-lg-3' %}
       {% elsif img_width == 768 or img_width == 1536 %}
         {% assign col_width = 'col-lg-5' %}
-        {% assign chrome_height = 'ch-24 ch-lg-16' %}
+        {% assign chrome_height = 'ch-32 ch-lg-16' %}
       {% elsif img_width <= 1024 or img_width == 2048 or img_width == 3110 %}
         {% assign col_width = 'col-lg-6' %}
         {% assign chrome_height = 'ch-24' %}
@@ -87,11 +86,7 @@
           </picture>
           {% endunless %}
           <picture class="d-block text-center">
-            <img src="{% include {{ txt_file }} %}" data-src="{{ jpg_file }}" alt="{{ img_caption | capitalize }}" class="mxw-100 mx-auto h-auto js-lazy" width="{{img_width}}" height="{{img_height}}">
-            <noscript>
-              <source srcset="{{ webp_file }}" type="image/webp">
-              <img src="{{ jpg_file  }}" alt="{{ img_caption | capitalize }}" class="img-responsive" width="{{img_width}}" height="{{img_height}}">
-            </noscript>
+            <img src="{% include {{ txt_file }} %}" data-src="{{ img_file }}" alt="{{ img_caption | capitalize }}" class="mxw-100 mx-auto h-auto js-lazy" width="{{img_width}}" height="{{img_height}}">
           </picture>
           <figcaption class="small lh-sm text-muted m-0">{{ img_caption | trim | capitalize }}</figcaption>
         </figure>

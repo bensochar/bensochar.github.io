@@ -7,10 +7,11 @@ require 'base64'
 
 desc "Convert images to text files"
 task :project_imgs_to_txt do
-  extensions = ['.jpg', '.png', '.gif']
+  extensions = ['.jpg', '.png', '.gif', 'webp']
 
   Dir.each_child('_projects') do |project|
     next if project == '.DS_Store'
+    # next unless project == 'bemo.md'
     folder = File.basename(project, '.md')
     puts "Creating base64 images for #{project}..."
 
