@@ -100,7 +100,8 @@ google_analytics:     G-8DYTE8SXCG
 google_verification:  bNxPt9aX1r_Bm1LrjHHrnHrmx8xx1ZSbSidXWvq2og0
 bing_verification:    F2755313519F06188F14B44E05940408
 github:               [metadata]
-favicon_path:         /images/meta/
+favicon_path:         /assets/images/
+og_img:               'img-og-share.jpg'
 locality:             Brooklyn
 region:               NY
 theme_color:          '#00f5d9'
@@ -116,6 +117,14 @@ instagram_username: bensochar
 linkedin_username:  bensochar
 bluesky_username:   bensochar.bsky.social
 mastodon_username:  '@bensochar'
+
+social:
+  name: Ben Sochar
+  links:
+    - https://twitter.com/bensochar
+    - https://www.facebook.com/bensochar
+    - https://www.linkedin.com/in/bensochar
+    - https://github.com/bensochar
 
 exclude:
   - Gemfile

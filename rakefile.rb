@@ -11,6 +11,7 @@ task :project_imgs_to_txt do
 
   Dir.each_child('_projects') do |project|
     next if project == '.DS_Store'
+    next unless project == 'ellevate.md'
     # next unless project == 'bemo.md'
     folder = File.basename(project, '.md')
     puts "Creating base64 images for #{project}..."
@@ -95,6 +96,7 @@ task :convert_to_webp do
     Dir.foreach('./_images/' + folder + '/') do |file|
       input = File.path('./_images/' + folder + '/' + file)
       next unless file
+      extension = File.extname(file)
       next unless extensions.include?(extension)
 
       extension = File.extname(file)
