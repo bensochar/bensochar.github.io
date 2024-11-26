@@ -1,0 +1,162 @@
+---
+layout: post
+title:  Adding PurgeCSS & CriticalCSS to Rails via Webpacker
+date:   2021-03-21 16:00 -0500
+tags:   [CSS, Bootstrap, CriticalCSS, javascript, Node, PostCSS, Rails, Webpack, Webpacker]
+---
+
+
+```json
+// package.json
+
+  "dependencies": {
+    "@fullhuman/postcss-purgecss": "^2.3",
+    "@popperjs/core": "^2.11.0",
+    "bootstrap": "5.1.3",
+    "postcss-slash-css": "^1.1.0",
+    "purgecss-from-html": "^4.0.3",
+    "purgecss-from-js": "^1.0.0",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^4.10.0",
+    "websocket-extensions": "^0.1.4"
+  }
+```
+
+```javascript
+// postcss.config.js
+
+const environment = ctx => ({
+  plugins: [
+    require("postcss-import"),
+    require("postcss-flexbugs-fixes"),
+    require("postcss-preset-env")({
+      autoprefixer: {
+        flexbox: "no-2009"
+      },
+      stage: 3
+    }),
+    purgeCss(ctx),
+    require("cssnano")({
+      preset: ['default', {
+        discardComments: {
+            removeAll: true,
+        },
+      }]
+    })
+  ]
+});
+const filesToSkip = ["styleguide.scss", "nametags.scss"];
+
+const purgeCss = ({ file }) => {
+  if (!filesToSkip.includes(file.basename)) {
+    console.log('purging: ' + file.basename)
+    return require("@fullhuman/postcss-purgecss")({
+      content: htmlFilePatterns(file.basename),
+      defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],
+      whitelist: namespaceWhitelist(file.basename),
+      whitelistPatterns: namespaceWhitelistPatterns(file.basename)
+      extractors: [
+        {
+          extractor: require("purgecss-from-html"),
+          extensions: ["html"]
+        },
+        {
+          extractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
+          extensions: ["js", "rb"]
+        }
+      ],
+      rejected: true
+    });
+  }
+};
+
+const namespaceWhitelist = filename => {
+  switch (filename) {
+    case "application.scss":
+      return [
+        'active',
+        'collapsed',
+        'collapsing',
+        'dropdown-toggle',
+        'grecaptcha-badge',
+        'fade',
+        'focus',
+        'form-control-stripe-element',
+        'hide',
+        'is-complete',
+        'is-invalid',
+        'is-valid',
+        'popover-arrow',
+        'show',
+        'showing',
+        'stuck',
+        'text-placeholder'
+      ];
+    case "critical.scss":
+      return [
+        'show',
+        'site-nav-dropdown-show',
+        'site-nav-show',
+        'nav-item-user'
+      ];
+    default:
+      return [];
+  }
+};
+
+const namespaceWhitelistPatterns = filename => {
+  switch (filename) {
+    case "application.scss":
+      return [
+        /^bs-popover/,
+        /^popover-/,
+        /^bs-tooltip/,
+        /^tooltip-/,
+        /^pika-/
+      ];
+    default:
+      return [];
+  }
+};
+
+const htmlFilePatterns = filename => {
+  switch (filename) {
+    case "application.scss":
+      return [
+        "./app/helpers/**/*.rb",
+        "./app/inputs/*.rb",
+        "./app/javascript/**/*.js",
+        "./app/views/**/*.html.erb",
+        "./config/initializers/simple_form.rb",
+        "./config/initializers/simple_form_bootstrap.rb",
+        "./config/locales/*.yml",
+        "./node_modules/bootstrap/js/src/alert.js",
+        "./node_modules/bootstrap/js/src/button.js",
+        "./node_modules/bootstrap/js/src/collapse.js",
+        "./node_modules/bootstrap/js/src/dropdown.js",
+        "./node_modules/bootstrap/js/src/modal.js",
+        "./node_modules/bootstrap/js/src/offcanvas.js",
+        "./node_modules/bootstrap/js/src/popover.js",
+        "./node_modules/bootstrap/js/src/scrollspy.js",
+        "./node_modules/bootstrap/js/src/tab.js",
+        "./node_modules/bootstrap/js/src/toast.js",
+        "./node_modules/bootstrap/js/src/tooltip.js",
+        "./node_modules/bootstrap/js/src/util**/*.js",
+        "./node_modules/pikaday/pikaday.js"
+      ];
+    case "critical.scss":
+      return [
+        "./app/views/application/_header.html.erb",
+        "./app/views/application/_hero.html.erb",
+        "./app/views/application/_jumbotron.html.erb",
+        "./app/views/layouts/application.html.erb",
+        "./app/helpers/navigation_helper.rb"
+      ];
+    default:
+      return [];
+  }
+};
+
+module.exports = ctx => environment(ctx);
+```
+
