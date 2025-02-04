@@ -1,0 +1,51 @@
+---
+layout: post
+title:  Helpful SASS/SCSS Functions
+date:   2021-02-19 00:52:21 -0500
+tags:   [CSS, SASS, SCSS, snippet]
+---
+Some helpful SASS functions I've collected.
+
+Getting the numerical value of a property:
+
+```sass
+// Strips of units like px or rem
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return math.div($number, ($number * 0 + 1));
+  }
+
+  @return $number;
+}
+```
+
+Converting pixels, ems, picas, points, inches, etc into rem:
+
+```sass
+@function calculate-rem($size) {
+  // 16 is the default pixel size - so you may need to change this
+  $base-size: 16px !default
+
+  // Divide you size from your base font size
+  $rem-size: $size / $font-size-base
+  // Convert to a string
+  @return #{$rem-size}rem;
+}
+```
+
+Converting rem units to pixel:
+
+```sass
+// 16 is the default pixel size - so you may need to change this
+$pixel_base : 16; /* 1 */
+@function parse_int($n) {
+  @return math.div($n, $n * 0 + 1)
+}
+
+@function convert_rem_to_px($rem) {
+  $val: parse_int(strip-unit($rem)); 
+  $converted-rem: ($val * $pixel_base);
+  // Convert to a string
+  @return #{$converted-rem}px
+}
+```
